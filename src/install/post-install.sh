@@ -80,8 +80,8 @@ instalar_AUR_manager(){
     echo "------------- Instalar yaourt ----------------"
     echo "----------------------------------------------"
     
-    chmod +x yaourt.sh
-    su $USUARIO "./yaourt.sh" 
+    chmod +x ../utils/yaourt.sh
+    su $USUARIO "../utils/yaourt.sh" 
 
 }
 
@@ -105,9 +105,13 @@ instalar_paquetes_AUR(){
 }
 
 configurar_i3_bar(){
-
     # Permite mostrar informacion de uso de cpu, ram, almacenamiento, etc
     pip3 install psutil --user
+}
+
+instalar_ohmyzsh(){
+    sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    rm install.sh
 }
 
 
@@ -128,3 +132,4 @@ instalar_paquetes
 instalar_AUR_manager
 instalar_paquetes_AUR
 configurar_i3_bar
+instalar_ohmyzsh
