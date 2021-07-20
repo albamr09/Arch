@@ -123,15 +123,16 @@ copia_ficheros_config(){
   echo " + Copia de ficheros de post install"
   echo "----------------------------------------------"
 
-  mkdir /mnt/Arch &> /dev/zero && mensaje_exito "Se ha creado la carpeta Arch" || mensaje_fallo "Fallo durante la creacion de la carpeta Arch"
+  mkdir -p /mnt/Arch /mnt/Arch/install &> /dev/zero && mensaje_exito "Se ha creado la carpeta Arch" || mensaje_fallo "Fallo durante la creacion de la carpeta Arch"
   
   echo "----------------------------------------------"
   echo " + Copiar dotfiles"
   echo "----------------------------------------------"
 
   # Copiar dotfiles y ficheros post install
-  cp -r ./post-install.sh ../utils ../config /mnt/Arch &> /dev/zero && mensaje_exito "Se han copiado los scripts necesarios" || mensaje_fallo "Fallo durante la copia los scripts"
-  echo /mnt/root/ /mnt/home/$USUARIO | xargs -n 1 cp -r ../../resources/dotfiles/* &> /dev/zero && mensaje_exito "Se han copiado los ficheros de configuracion" || mensaje_fallo "Fallo durante la copia de los ficheros de configuracion"
+  cp -r post-install.sh /mnt/Arch/install &> /dev/zero && mensaje_exito "Se ha copiado post-install" || mensaje_fallo "Fallo durante la copia de post install"
+  cp -r ../utils ../config /mnt/Arch &> /dev/zero && mensaje_exito "Se han copiado los scripts necesarios" || mensaje_fallo "Fallo durante la copia los scripts"
+  echo /mnt/root /mnt/home/$USUARIO | xargs -n 1 cp -r ../../resources/dotfiles/.??* &> /dev/zero && mensaje_exito "Se han copiado los ficheros de configuracion" || mensaje_fallo "Fallo durante la copia de los ficheros de configuracion"
 
   echo "----------------------------------------------"
   echo " + Fondos"

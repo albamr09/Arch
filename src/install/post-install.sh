@@ -102,7 +102,12 @@ instalar_paquetes_AUR(){
         
         su $USUARIO yaourt $paquete
     done
-    
+}
+
+configurar_i3_bar(){
+
+    # Permite mostrar informacion de uso de cpu, ram, almacenamiento, etc
+    pip3 install psutil --user
 }
 
 
@@ -122,3 +127,4 @@ instalar_tiliwing_window_manager
 instalar_paquetes
 instalar_AUR_manager
 instalar_paquetes_AUR
+configurar_i3_bar

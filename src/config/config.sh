@@ -32,8 +32,8 @@ DIRECTORIO_GRUB_CONF="/boot/grub/grub.cfg"
 
 TERMINAL="alacritty"
 TWM="i3-wm i3status"
-PAQUETES="nitrogen vim git wget neovim thunar"
-PAQUETES_AUR="firefox;vscode"
+PAQUETES="nitrogen vim git wget neovim thunar python3-pip"
+PAQUETES_AUR="firefox;vscode;pamixer;pacman-contrib;ttf-font-awesome"
 
 # -------------------------------------------------------------------------------------
 # Refresh mirrors
