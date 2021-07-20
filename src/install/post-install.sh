@@ -120,7 +120,7 @@ copiar_dotfiles(){
   echo " + Copiar dotfiles"
   echo "----------------------------------------------"
 
-  echo ~ /home/$USUARIO | xargs -n 1 cp -r ../resources/dotfiles/.??* &> /dev/zero && mensaje_exito "Se han copiado los ficheros de configuracion" || mensaje_fallo "Fallo durante la copia de los ficheros de configuracion"
+  echo ~ /home/$USUARIO | xargs -n 1 cp -r ../dotfiles/.??* &> /dev/zero && mensaje_exito "Se han copiado los ficheros de configuracion" || mensaje_fallo "Fallo durante la copia de los ficheros de configuracion"
 }
 
 
