@@ -132,7 +132,8 @@ copia_ficheros_config(){
   # Copiar dotfiles y ficheros post install
   cp -r post-install.sh /mnt/Arch/install &> /dev/zero && mensaje_exito "Se ha copiado post-install" || mensaje_fallo "Fallo durante la copia de post install"
   cp -r ../utils ../config /mnt/Arch &> /dev/zero && mensaje_exito "Se han copiado los scripts necesarios" || mensaje_fallo "Fallo durante la copia los scripts"
-  echo /mnt/root /mnt/home/$USUARIO | xargs -n 1 cp -r ../../resources/dotfiles/.??* &> /dev/zero && mensaje_exito "Se han copiado los ficheros de configuracion" || mensaje_fallo "Fallo durante la copia de los ficheros de configuracion"
+  # Copiar configuracion zsh
+  cp -r cp -r ../../resources/dotfiles /mnt/Arch &> /dev/zero && mensaje_exito "Se han copiado los ficheros de configuracion" || mensaje_fallo "Fallo durante la copia de los ficheros de configuracion"
 
   echo "----------------------------------------------"
   echo " + Fondos"

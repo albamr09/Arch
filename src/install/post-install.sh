@@ -114,6 +114,15 @@ instalar_ohmyzsh(){
     rm install.sh
 }
 
+copiar_dotfiles(){
+
+  echo "----------------------------------------------"
+  echo " + Copiar dotfiles"
+  echo "----------------------------------------------"
+
+  echo ~ /home/$USUARIO | xargs -n 1 cp -r ../resources/dotfiles/.??* &> /dev/zero && mensaje_exito "Se han copiado los ficheros de configuracion" || mensaje_fallo "Fallo durante la copia de los ficheros de configuracion"
+}
+
 
 #Refresh keys y mirrors
 
@@ -133,3 +142,4 @@ instalar_AUR_manager
 instalar_paquetes_AUR
 configurar_i3_bar
 instalar_ohmyzsh
+copiar_dotfiles
