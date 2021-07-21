@@ -2,8 +2,8 @@
 
 #Frameworks
 
-.  utilities.sh
-.  config.sh
+.  ../utils/utilities.sh
+.  ../config/config.sh
 
 # Ejecutar este fichero como root
 
