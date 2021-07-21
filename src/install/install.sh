@@ -96,15 +96,15 @@ configuracion_sistema(){
   echo " + Chroot"
   echo "----------------------------------------------"
 
-  cp -r ./ ../config ../utils /mnt
-  arch-chroot /mnt ./chroot.sh && mensaje_exito "Se ha ejecutado el script chroot correctamente" || mensaje_fallo "Fallo durante la ejecucion del script de chroot"
+  cp -r ../install ../config ../utils /mnt
+  arch-chroot /mnt ./install/chroot.sh && mensaje_exito "Se ha ejecutado el script chroot correctamente" || mensaje_fallo "Fallo durante la ejecucion del script de chroot"
 
   echo "----------------------------------------------"
   echo " + Limipeza"
   echo "----------------------------------------------"
 
   # Limipeza de chroot
-  rm -r /mnt/* &> /dev/zero && mensaje_exito "Se ha eliminado el script chroot" || mensaje_fallo "Fallo durante la eliminacion del script de chroot"
+  rm -r /mnt/install /mnt/config /mnt/utils &> /dev/zero && mensaje_exito "Se ha eliminado el script chroot" || mensaje_fallo "Fallo durante la eliminacion del script de chroot"
   
   # Copia de ficheros de configuracion
   copia_ficheros_config
