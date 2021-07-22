@@ -52,7 +52,7 @@ floating_modifier $mod
 bindsym $mod+Return exec i3-sensible-terminal
 
 # start default browser
-bindsym $mod+Shift+b exec xdg-settings get default-web-browser | xargs gtk-launch
+bindsym $mod+Shift+Return exec xdg-settings get default-web-browser | xargs gtk-launch
 
 # kill focused window
 bindsym $mod+Shift+q kill
