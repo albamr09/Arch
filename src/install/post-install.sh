@@ -106,7 +106,7 @@ instalar_paquetes_AUR(){
 
 configurar_i3_bar(){
     # Permite mostrar informacion de uso de cpu, ram, almacenamiento, etc
-    pip3 install psutil --user
+    pip3 install psutil
 }
 
 instalar_ohmyzsh(){
