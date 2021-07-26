@@ -120,7 +120,8 @@ copiar_dotfiles(){
   echo " + Copiar dotfiles"
   echo "----------------------------------------------"
 
-  echo ~ /home/$USUARIO | xargs -n 1 cp -r ../dotfiles/.??* &> /dev/zero && mensaje_exito "Se han copiado los ficheros de configuracion" || mensaje_fallo "Fallo durante la copia de los ficheros de configuracion"
+  cp -r ../dotfiles/.??* ~ &> /dev/zero && mensaje_exito "Se han copiado los ficheros de configuracion para root" || mensaje_fallo "Fallo durante la copia de los ficheros de configuracion en root"
+  sudo su $USUARIO $(cp -r ../dotfiles/.??* /home/$USUARIO) &> /dev/zero && mensaje_exito "Se han copiado los ficheros de configuracion para $USUARIO" || mensaje_fallo "Fallo durante la copia de los ficheros de configuracion en $USUARIO"
 }
 
 
