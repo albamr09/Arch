@@ -111,7 +111,18 @@ configurar_i3_bar(){
 
 instalar_ohmyzsh(){
     sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    rm install.sh
+    #rm install.sh
+}
+
+copiar_accesos_directos(){
+    sudo cp ../surf.desktop /usr/share/applications/
+}
+
+establecer_predeterminados(){
+    #Surf
+    xdg-settings set default-web-browser surf.desktop
+    #Zsh
+    chsh -s /bin/zsh
 }
 
 copiar_dotfiles(){
@@ -143,4 +154,6 @@ instalar_AUR_manager
 instalar_paquetes_AUR
 configurar_i3_bar
 instalar_ohmyzsh
+copiar_accesos_directos
+establecer_predeterminados
 copiar_dotfiles
