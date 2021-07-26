@@ -77,7 +77,7 @@ instalar_paquetes(){
 instalar_AUR_manager(){
 
     echo "----------------------------------------------"
-    echo "------------- Instalar yaourt ----------------"
+    echo "--------------- Instalar yay -----------------"
     echo "----------------------------------------------"
     
     chmod +x ../utils/yaourt.sh
@@ -100,7 +100,7 @@ instalar_paquetes_AUR(){
         echo " + Instalando $paquete"
         echo "----------------------------------------------"
         
-        su $USUARIO yaourt $paquete
+        su $USUARIO yay -S $paquete
     done
 }
 
@@ -121,7 +121,7 @@ copiar_dotfiles(){
   echo "----------------------------------------------"
 
   cp -r ../dotfiles/.??* ~ &> /dev/zero && mensaje_exito "Se han copiado los ficheros de configuracion para root" || mensaje_fallo "Fallo durante la copia de los ficheros de configuracion en root"
-  sudo su $USUARIO $(cp -r ../dotfiles/.??* /home/$USUARIO) &> /dev/zero && mensaje_exito "Se han copiado los ficheros de configuracion para $USUARIO" || mensaje_fallo "Fallo durante la copia de los ficheros de configuracion en $USUARIO"
+  su $USUARIO $(cp -r ../dotfiles/.??* /home/$USUARIO) &> /dev/zero && mensaje_exito "Se han copiado los ficheros de configuracion para $USUARIO" || mensaje_fallo "Fallo durante la copia de los ficheros de configuracion en $USUARIO"
 }
 
 
