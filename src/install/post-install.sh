@@ -100,7 +100,7 @@ instalar_paquetes_AUR(){
         echo " + Instalando $paquete"
         echo "----------------------------------------------"
         
-        su $USUARIO yay -S $paquete
+        su $USUARIO $(yay -S $paquete)
     done
 }
 
