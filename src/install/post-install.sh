@@ -110,19 +110,34 @@ configurar_i3_bar(){
 }
 
 instalar_ohmyzsh(){
-    sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    #rm install.sh
+    
+  echo "----------------------------------------------"
+  echo " + Intalar oh-my-zsh"
+  echo "----------------------------------------------"
+
+  sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  #rm install.sh
 }
 
 copiar_accesos_directos(){
-    sudo cp ../surf.desktop /usr/share/applications/
+
+  echo "----------------------------------------------"
+  echo " + Crear accesos directos"
+  echo "----------------------------------------------"
+
+  sudo cp ../surf.desktop /usr/share/applications/
 }
 
 establecer_predeterminados(){
-    #Surf
-    xdg-settings set default-web-browser surf.desktop
-    #Zsh
-    chsh -s /bin/zsh
+
+  echo "----------------------------------------------"
+  echo " + Establecer programas predeterminados"
+  echo "----------------------------------------------"
+
+  #Surf
+  xdg-settings set default-web-browser surf.desktop
+  #Zsh
+  chsh -s /bin/zsh
 }
 
 copiar_dotfiles(){
