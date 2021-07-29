@@ -6,6 +6,10 @@ Instalador del sistema operativo Arch con los ficheros de configuración necesar
 
 - i3-wm
 
+## Package Manager
+
+- yay
+
 ## Programas que se instalan
 
 - Firefox
