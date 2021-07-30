@@ -133,7 +133,7 @@ copia_ficheros_config(){
   cp -r post-install.sh /mnt/Arch/install &> /dev/zero && mensaje_exito "Se ha copiado post-install" || mensaje_fallo "Fallo durante la copia de post install"
   cp -r ../utils ../config /mnt/Arch &> /dev/zero && mensaje_exito "Se han copiado los scripts necesarios" || mensaje_fallo "Fallo durante la copia los scripts"
   # Copiar resources
-  cp -r ../../resources/config /mnt/Arch &> /dev/zero && mensaje_exito "Se han copiado los ficheros de config" || mensaje_fallo "Fallo durante la copia de los ficheros de config"
+  cp -r ../../resources/config-files /mnt/Arch &> /dev/zero && mensaje_exito "Se han copiado los ficheros de config" || mensaje_fallo "Fallo durante la copia de los ficheros de config"
   
   echo "----------------------------------------------"
   echo " + Fondos"

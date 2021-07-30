@@ -80,8 +80,8 @@ instalar_AUR_manager(){
     echo "--------------- Instalar yay -----------------"
     echo "----------------------------------------------"
     
-    chmod +x ../utils/pkg_manager.sh
-    su $USUARIO "../utils/pkg_manager.sh" 
+    chmod +x ../utils/pkg-manager.sh
+    su $USUARIO "../utils/pkg-manager.sh" 
 
 }
 
@@ -91,8 +91,8 @@ instalar_paquetes_AUR(){
     echo "---------- Instalar paquetes AUR -------------"
     echo "----------------------------------------------"
 
-    chmod +x ../utils/pkg_install.sh
-    su $USUARIO "../utils/pkg_install.sh" 
+    chmod +x ../utils/pkg-install.sh
+    su $USUARIO "../utils/pkg--install.sh" 
 }
 
 configurar_i3_bar(){
@@ -116,7 +116,7 @@ copiar_accesos_directos(){
   echo " + Crear accesos directos"
   echo "----------------------------------------------"
 
-  cp ../config/*.desktop /usr/share/applications/ &> /dev/zero && mensaje_exito "Se han copiado los accesos directos" || mensaje_fallo "Fallo durante la copia de los accesos directos"
+  cp ../config-files/*.desktop /usr/share/applications/ &> /dev/zero && mensaje_exito "Se han copiado los accesos directos" || mensaje_fallo "Fallo durante la copia de los accesos directos"
 }
 
 establecer_predeterminados(){
@@ -137,11 +137,11 @@ copiar_dotfiles(){
   echo " + Copiar dotfiles"
   echo "----------------------------------------------"
 
-  cp -r ../config/dotfiles/.??* ~ &> /dev/zero && mensaje_exito "Se han copiado los ficheros de configuracion para root" || mensaje_fallo "Fallo durante la copia de los ficheros de configuracion en root"
+  cp -r ../config-files/dotfiles/.??* ~ &> /dev/zero && mensaje_exito "Se han copiado los ficheros de configuracion para root" || mensaje_fallo "Fallo durante la copia de los ficheros de configuracion en root"
   
   # Copia usuario
-  chmod +x ../utils/copy_dotfiles.sh
-  su $USUARIO "../utils/copy_dotfiles.sh" 
+  chmod +x ../utils/copy-dotfiles.sh
+  su $USUARIO "../utils/copy-dotfiles.sh" 
 }
 
 
