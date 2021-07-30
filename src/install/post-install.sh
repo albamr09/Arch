@@ -129,6 +129,7 @@ establecer_predeterminados(){
   xdg-settings set default-web-browser surf.desktop
   #Zsh
   chsh -s /bin/zsh
+  su $USUARIO $(chsh -s /bin/zsh)
 }
 
 copiar_dotfiles(){
