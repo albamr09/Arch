@@ -92,7 +92,7 @@ instalar_paquetes_AUR(){
     echo "----------------------------------------------"
 
     chmod +x ../utils/pkg-install.sh
-    su $USUARIO "../utils/pkg--install.sh" 
+    su $USUARIO "../utils/pkg-install.sh" 
 }
 
 configurar_i3_bar(){

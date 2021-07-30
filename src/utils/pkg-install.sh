@@ -3,7 +3,6 @@
 #Frameworks
 
 .  ../config/config.sh
-.  ./utilities.sh
 
 # Instalar paquetes
 
@@ -16,5 +15,5 @@ do
     echo " + Instalando $paquete"
     echo "----------------------------------------------"
         
-    yay -S $paquete &> /dev/zero && mensaje_exito "Se ha instalado $paquete" || mensaje_fallo "Fallo durante la instalacion de $paquete"
+    yay -S $paquete 
 done

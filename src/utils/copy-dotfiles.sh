@@ -3,7 +3,7 @@
 #Frameworks
 
 .  ../config/config.sh
-.  ./utilities.sh
+.  ../utils/utilities.sh
 
 # Copiar dotfiles
 
