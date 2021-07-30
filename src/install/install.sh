@@ -132,11 +132,9 @@ copia_ficheros_config(){
   # Copiar ficheros post install
   cp -r post-install.sh /mnt/Arch/install &> /dev/zero && mensaje_exito "Se ha copiado post-install" || mensaje_fallo "Fallo durante la copia de post install"
   cp -r ../utils ../config /mnt/Arch &> /dev/zero && mensaje_exito "Se han copiado los scripts necesarios" || mensaje_fallo "Fallo durante la copia los scripts"
-  # Copiar dotfiles
-  cp -r ../../resources/dotfiles /mnt/Arch &> /dev/zero && mensaje_exito "Se han copiado los ficheros de configuracion" || mensaje_fallo "Fallo durante la copia de los ficheros de configuracion"
-  # Copiar acceso directo de surf
-  cp -r ../../resources/surf.desktop /mnt/Arch &> /dev/zero && mensaje_exito "Se ha copiado el acceso directo de surf" || mensaje_fallo "Fallo durante la copia del acceso directo de surf"  
-
+  # Copiar resources
+  cp -r ../../resources/config /mnt/Arch &> /dev/zero && mensaje_exito "Se han copiado los ficheros de config" || mensaje_fallo "Fallo durante la copia de los ficheros de config"
+  
   echo "----------------------------------------------"
   echo " + Fondos"
   echo "----------------------------------------------"

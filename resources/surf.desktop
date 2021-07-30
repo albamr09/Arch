@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=Surf
-Comment=Simple Web Browser
-GenericName=Web Browser
-Exec=surf www.duckduckgo.com
-Categories=Web;
-Terminal=false
-Type=Application
-Version=1.0
