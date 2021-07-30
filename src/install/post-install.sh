@@ -137,7 +137,7 @@ copiar_dotfiles(){
   echo " + Copiar dotfiles"
   echo "----------------------------------------------"
 
-  cp -r ../config-files/dotfiles/.??* ~ &> /dev/zero && mensaje_exito "Se han copiado los ficheros de configuracion para root" || mensaje_fallo "Fallo durante la copia de los ficheros de configuracion en root"
+  cp -r $DIR_DOTFILES/.??* ~ &> /dev/zero && mensaje_exito "Se han copiado los ficheros de configuracion para root" || mensaje_fallo "Fallo durante la copia de los ficheros de configuracion en root"
   
   # Copia usuario
   chmod +x ../utils/copy-dotfiles.sh

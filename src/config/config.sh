@@ -48,3 +48,10 @@ ARQUITECTURA="archlinux"
 
 DIR_FONDOS="/home/$USUARIO/Wallpapers"
 DIR_FONDOS_REG="\/home\/$USUARIO\/Wallpapers"
+
+
+# -------------------------------------------------------------------------------------
+# Dotfiles directory
+# -------------------------------------------------------------------------------------
+
+DIR_DOTFILES="../config-files/dotfiles"
