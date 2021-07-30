@@ -9,7 +9,7 @@
 
 sudo cp -r $DIR_DOTFILES/.??* /home/$USUARIO &> /dev/zero && mensaje_exito "Se han copiado los ficheros de configuracion para $USUARIO" || mensaje_fallo "Fallo durante la copia de los ficheros de configuracion en $USUARIO"
 
-# Cambiar owner
+# Cambiar owner y permisos
 
-sudo chown -R $USUARIO /home/$USUARIO/.??*
-sudo chown -R $USUARIO /home/$USUARIO/*
+sudo chown -R $USUARIO /home/$USUARIO/.??* && chmod -R 775 /home/$USUARIO/.??* &> /dev/zero && mensaje_exito "Se han cambiado los permisos para $USUARIO" || mensaje_fallo "Fallo durante el cambio de permisos en $USUARIO"
+sudo chown -R $USUARIO /home/$USUARIO/* && chmod -R 775 /home/$USUARIO/??* &> /dev/zero && mensaje_exito "Se han cambiado los permisos para $USUARIO" || mensaje_fallo "Fallo durante el cambio de permisos en $USUARIO"
