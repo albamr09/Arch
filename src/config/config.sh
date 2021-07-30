@@ -55,3 +55,12 @@ DIR_FONDOS_REG="\/home\/$USUARIO\/Wallpapers"
 # -------------------------------------------------------------------------------------
 
 DIR_DOTFILES="../config-files/dotfiles"
+
+# -------------------------------------------------------------------------------------
+# User scripts directory
+# -------------------------------------------------------------------------------------
+
+DIR_USER_SCRIPTS="../utils/user"
+COPY_DOTFILES="copy-dotfiles.sh"
+PKG_MANAGER="pkg-manager.sh"
+PKG_INSTALL="pkg-install.sh"

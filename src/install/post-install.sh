@@ -80,8 +80,8 @@ instalar_AUR_manager(){
     echo "--------------- Instalar yay -----------------"
     echo "----------------------------------------------"
     
-    chmod +x ../utils/pkg-manager.sh
-    su $USUARIO "../utils/pkg-manager.sh" 
+    chmod +x $DIR_USER_SCRIPTS"/"$PKG_MANAGER
+    su $USUARIO "$DIR_USER_SCRIPTS/$PKG_MANAGER" 
 
 }
 
@@ -91,8 +91,8 @@ instalar_paquetes_AUR(){
     echo "---------- Instalar paquetes AUR -------------"
     echo "----------------------------------------------"
 
-    chmod +x ../utils/pkg-install.sh
-    su $USUARIO "../utils/pkg-install.sh" 
+    chmod +x $DIR_USER_SCRIPTS"/"$PKG_INSTALL
+    su $USUARIO "$DIR_USER_SCRIPTS/$PKG_INSTALL" 
 }
 
 configurar_i3_bar(){
@@ -140,8 +140,8 @@ copiar_dotfiles(){
   cp -r $DIR_DOTFILES/.??* ~ &> /dev/zero && mensaje_exito "Se han copiado los ficheros de configuracion para root" || mensaje_fallo "Fallo durante la copia de los ficheros de configuracion en root"
   
   # Copia usuario
-  chmod +x ../utils/copy-dotfiles.sh
-  su $USUARIO "../utils/copy-dotfiles.sh" 
+  chmod +x $DIR_USER_SCRIPTS"/"$COPY_DOTFILES
+  su $USUARIO "$DIR_USER_SCRIPTS/$COPY_DOTFILES" 
 }
 
 
