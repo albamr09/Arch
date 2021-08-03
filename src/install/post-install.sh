@@ -124,7 +124,9 @@ establecer_predeterminados(){
   xdg-settings set default-web-browser org.qutebrowser.qutebrowser.desktop
   #Zsh
   chsh -s /bin/zsh
-  su $USUARIO $(chsh -s /bin/zsh)
+  #Usuario
+  chmod +x $DIR_USER_SCRIPTS"/"$CHANGE_DEFAULTS
+  su $USUARIO "$DIR_USER_SCRIPTS/$CHANGE_DEFAULTS" 
 }
 
 copiar_accesos_directos(){
@@ -143,7 +145,9 @@ copiar_dotfiles(){
   echo "----------------------------------------------"
 
   cp -r $DIR_DOTFILES/.??* ~ &> /dev/zero && mensaje_exito "Se han copiado los ficheros de configuracion para root" || mensaje_fallo "Fallo durante la copia de los ficheros de configuracion en root"
-  
+  #Cambio de permisos de zsh
+  compaudit | xargs chmod g-w,o-w
+
   # Copia usuario
   chmod +x $DIR_USER_SCRIPTS"/"$COPY_DOTFILES
   su $USUARIO "$DIR_USER_SCRIPTS/$COPY_DOTFILES" 
