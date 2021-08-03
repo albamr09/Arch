@@ -15,7 +15,7 @@ conectar_internet(){
     echo "----------------------------------------------"
 
     nmcli device wifi
-    nmcli --ask device wifi connect &> /dev/zero && mensaje_exito "Conexion exitosa" || mensaje_fallo "Fallo de conexion: compruebe las credenciales"
+    nmcli --ask device wifi connect 
 }
 
 
@@ -100,6 +100,10 @@ configurar_i3_bar(){
     pip3 install psutil
 }
 
+configurar_ranger(){
+    ranger --copy-config=all
+}
+
 instalar_ohmyzsh(){
     
   echo "----------------------------------------------"
@@ -110,15 +114,6 @@ instalar_ohmyzsh(){
   #rm install.sh
 }
 
-copiar_accesos_directos(){
-
-  echo "----------------------------------------------"
-  echo " + Crear accesos directos"
-  echo "----------------------------------------------"
-
-  cp ../config-files/*.desktop /usr/share/applications/ &> /dev/zero && mensaje_exito "Se han copiado los accesos directos" || mensaje_fallo "Fallo durante la copia de los accesos directos"
-}
-
 establecer_predeterminados(){
 
   echo "----------------------------------------------"
@@ -126,10 +121,19 @@ establecer_predeterminados(){
   echo "----------------------------------------------"
 
   #Surf
-  xdg-settings set default-web-browser surf.desktop
+  xdg-settings set default-web-browser org.qutebrowser.qutebrowser.desktop
   #Zsh
   chsh -s /bin/zsh
   su $USUARIO $(chsh -s /bin/zsh)
+}
+
+copiar_accesos_directos(){
+
+  echo "----------------------------------------------"
+  echo " + Crear accesos directos"
+  echo "----------------------------------------------"
+
+  cp ../config-files/*.desktop /usr/share/applications/ &> /dev/zero && mensaje_exito "Se han copiado los accesos directos" || mensaje_fallo "Fallo durante la copia de los accesos directos"
 }
 
 copiar_dotfiles(){
@@ -145,25 +149,37 @@ copiar_dotfiles(){
   su $USUARIO "$DIR_USER_SCRIPTS/$COPY_DOTFILES" 
 }
 
+copiar_fonts(){
+    cp -r $DIR_FONTS/* $HOST_DIR_FONTS &> /dev/zero && mensaje_exito "Se han copiado las fuentes" || mensaje_fallo "Fallo durante la copia de las fuentes"
+}
+
 
 #Refresh keys y mirrors
 
-# Actualizacion de keys
 #actualizacion_keys
-#Actualizacion mirrors
 #actualizacion_mirrors
+#conectar_internet
 
-
-conectar_internet
+# Instalaciones display
 instalar_display_server
 instalar_lightdm
 instalar_drivers_display
+
+# Desktop environment
 instalar_tiliwing_window_manager
+
+# Software
 instalar_paquetes
 instalar_AUR_manager
 instalar_paquetes_AUR
-configurar_i3_bar
 instalar_ohmyzsh
+
+# Config
+configurar_i3_bar
+configurar_ranger
+establecer_predeterminados
+
+# Copiar dotfiles y demas
 copiar_accesos_directos
 copiar_dotfiles
-establecer_predeterminados
+copiar_fonts

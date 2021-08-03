@@ -113,6 +113,9 @@ config_usuarios(){
     # Root
 
     passwd
+    while [ $? != 0 ]; do
+        passwd
+    done
 
     # Permitir sudo
     echo "--------------------------------------"
@@ -133,6 +136,9 @@ config_usuarios(){
     elif [ "$USUARIO" != "root" ]; then
         useradd -m $USUARIO &> /dev/zero && mensaje_exito "Se ha creado el usuario: $USUARIO correctamente" || mensaje_fallo "Fallo al crear el usuario"
         passwd $USUARIO
+        while [ $? != 0 ]; do
+            passwd $USUARIO
+        done
         usermod -a -G wheel $USUARIO &> /dev/zero && mensaje_exito "Se ha anadido $USUARIO al grupo wheel (sudo)" || mensaje_fallo "Fallo al anadir $USUARIO al grupo wheel (sudo)"
         chmod -R 770 /home/$USUARIO &> /dev/zero && mensaje_exito "Se han configurado los permisos de $USUARIO" || mensaje_fallo "Fallo al configurar los permisos de $USUARIO"
     fi

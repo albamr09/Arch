@@ -32,8 +32,9 @@ DIRECTORIO_GRUB_CONF="/boot/grub/grub.cfg"
 
 TERMINAL="alacritty"
 TWM="i3-wm i3status"
-PAQUETES="nitrogen vim git wget neovim thunar python-pip zsh nano texlive-most xdg-utils"
-PAQUETES_AUR="firefox;vscode;pamixer;pacman-contrib;ttf-font-awesome;surf;foxitreader"
+PAQUETES="nitrogen vim git wget neovim python-pip zsh nano texlive-most xdg-utils qutebrowser zathura zathura-pdf-poppler ranger w3m"#thunar
+PAQUETES_AUR="vscode;pamixer;pacman-contrib;ttf-font-awesome;foxitreader"#surf;firefox;
+
 
 # -------------------------------------------------------------------------------------
 # Refresh mirrors
@@ -55,6 +56,14 @@ DIR_FONDOS_REG="\/home\/$USUARIO\/Wallpapers"
 # -------------------------------------------------------------------------------------
 
 DIR_DOTFILES="../config-files/dotfiles"
+
+# -------------------------------------------------------------------------------------
+# Fonts directory
+# -------------------------------------------------------------------------------------
+
+DIR_FONTS="../config-files/fonts"
+HOST_DIR_FONTS="/usr/share/fonts/"
+
 
 # -------------------------------------------------------------------------------------
 # User scripts directory
