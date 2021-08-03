@@ -12,8 +12,8 @@
 set $mod Mod4
 
 # Seleccionar configuracion de la barra de estado
-set $bar /home/alba/.config/i3status/mybar.sh
-#set $bar i3status
+#set $bar /home/alba/.config/i3status/mybar.sh
+set $bar i3status
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -132,14 +132,14 @@ set $ws10 "10"
 # focus_follows_mouse no
 
 # window border settings
-# default_border          none
-# default_floating_border none
+default_border          none
+default_floating_border none
 
 # hiding borders adjacent to the screen edges
-# hide_edge_borders none
+hide_edge_borders none
 
 # set popups during fullscreen mode
-# popup_during_fullscreen smart
+popup_during_fullscreen smart
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -221,9 +221,11 @@ client.placeholder      #212121 #0c0c0c #ffffff #212121   #262626
 client.background       #212121
 
 # i3-gaps: espacio entre las ventanas
-# smart_gaps on
-# gaps inner 2
-# gaps outer 2
+smart_gaps on #gaps solo cuando hay mas de una ventana
+for_window [class="^.*"] border pixel 2 # eliminar titulos
+#Tamano de gaps
+gaps inner 5
+gaps outer 5
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
