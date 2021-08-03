@@ -12,9 +12,20 @@ Instalador del sistema operativo Arch con los ficheros de configuración necesar
 
 ## Programas que se instalan
 
-- Firefox
-- Vs Code
-- neovim
+- nitrogen
 - vim
 - git
-- thunar
+- wget
+- neovim
+- python-pip
+- zsh
+- nano
+- texlive
+- qutebrowser
+- zathura
+- ranger
+- w3m
+- cmus
+
+- Vs Code
+- foxtireader
