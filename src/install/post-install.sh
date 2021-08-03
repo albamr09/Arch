@@ -146,7 +146,7 @@ copiar_dotfiles(){
 
   cp -r $DIR_DOTFILES/.??* ~ &> /dev/zero && mensaje_exito "Se han copiado los ficheros de configuracion para root" || mensaje_fallo "Fallo durante la copia de los ficheros de configuracion en root"
   #Cambio de permisos de zsh
-  compaudit | xargs chmod g-w,o-w
+  #compaudit | xargs chmod g-w,o-w
 
   # Copia usuario
   chmod +x $DIR_USER_SCRIPTS"/"$COPY_DOTFILES
