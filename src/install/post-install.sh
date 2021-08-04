@@ -162,7 +162,7 @@ copiar_fonts(){
 
 #actualizacion_keys
 #actualizacion_mirrors
-#conectar_internet
+conectar_internet
 
 # Instalaciones display
 instalar_display_server
