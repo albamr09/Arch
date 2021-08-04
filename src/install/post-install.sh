@@ -96,12 +96,31 @@ instalar_paquetes_AUR(){
 }
 
 configurar_i3_bar(){
+
+    echo "----------------------------------------------"
+    echo "------------ Configurar i3-bar ---------------"
+    echo "----------------------------------------------"
+
     # Permite mostrar informacion de uso de cpu, ram, almacenamiento, etc
     pip3 install psutil
 }
 
 configurar_ranger(){
+
+    echo "----------------------------------------------"
+    echo "------------ Configurar ranger ---------------"
+    echo "----------------------------------------------"
+    
     ranger --copy-config=all
+}
+
+configurar_nvim(){
+
+    echo "----------------------------------------------"
+    echo "------------- Configurar nvim ----------------"
+    echo "----------------------------------------------"
+
+    curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 }
 
 instalar_ohmyzsh(){
@@ -181,6 +200,7 @@ instalar_ohmyzsh
 # Config
 configurar_i3_bar
 configurar_ranger
+configurar_nvim
 establecer_predeterminados
 
 # Copiar dotfiles y demas
