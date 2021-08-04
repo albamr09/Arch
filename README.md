@@ -2,6 +2,8 @@
 
 Instalador del sistema operativo Arch con los ficheros de configuración necesarios para obtener un escritorio simple y funcional.
 
+![Example](example.png?raw=true "Title")
+
 ## Tiling Windows Manager
 
 - i3-wm
