@@ -2,17 +2,31 @@
 
 Instalador del sistema operativo Arch con los ficheros de configuración necesarios para obtener un escritorio simple y funcional.
 
+## Índice
+
+---
+
+1. [Tema](#tema)
+2. [TWM](#twm)
+3. [Package-Manager](#package-manager)
+4. [Software](#software)
+
+---
+
+## Tema 
+
 ![Example](example.png?raw=true "Title")
 
-## Tiling Windows Manager
+
+## TWM
 
 - i3-wm
 
-## Package Manager
+## Package-Manager
 
 - yay
 
-## Programas que se instalan
+## Software
 
 |Nombre |Descripción  |
 --- | --- 
