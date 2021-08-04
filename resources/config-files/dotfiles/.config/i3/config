@@ -40,10 +40,12 @@ bindsym XF86AudioRaiseVolume exec amixer set Master 1%+ && $refresh_i3status
 bindsym XF86AudioLowerVolume exec amixer set Master 1%- && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle && $refresh_i3status
 
-
 # Brightness
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+
+# Screenshots
+bindsym Print exec scrot -e 'mv $f ~/Pictures/Screenshots'
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
