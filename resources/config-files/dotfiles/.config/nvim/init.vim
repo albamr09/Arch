@@ -21,6 +21,9 @@ Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+" Linea de identacion
+Plug 'Yggdroot/indentLine'
+
 " Github
 Plug 'tpope/vim-fugitive'
 
@@ -123,3 +126,10 @@ let g:airline_powerline_fonts = 1
 " -------------- ] Documentacion en hover [ ----------------
 
 nnoremap <silent> K :call CocAction('doHover')<CR>
+
+
+" -------------- ] Linea identacion [ ----------------
+
+" No mostrar en ciertos tipos de buffers y archivos
+let g:indentLine_fileTypeExclude = ['text', 'sh', 'help', 'terminal']
+let g:indentLine_bufNameExclude = ['NERD_tree.*', 'term:.*']
