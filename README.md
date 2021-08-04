@@ -32,24 +32,3 @@ Instalador del sistema operativo Arch con los ficheros de configuración necesar
 |**cmus**| Reproductor de música |
 |**Vs Code**| IDE |
 |**foxtireader**| Editor y lector de PDF |
-
-## Aplicaciones
-
-### Neovim
-
-Para la configuración de `nvim`, primero abrimos el archivo de configuración de `neovim`:
-
-```bash
-
-nvim ~/.config/nvim/init.vim
-
-```
-
-A continuación recargamos el fichero de configuración e instalamos los plugins:
-
-```bash
-
-:so ~/.config/nvim/init.vim
-:PlugInstall
-
-```
