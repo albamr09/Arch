@@ -53,3 +53,4 @@ Instalador del sistema operativo Arch con los ficheros de configuración necesar
 |Nombre |Descripción  |
 --- | --- 
 |**config_monitors**| Configurar dual monitor al conectar por VGA al portátil |
+|**connect_usb**| Crear directorio de montaje y montar usb (`/dev/sdc1`) |
