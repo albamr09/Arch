@@ -120,10 +120,10 @@ configurar_nvim(){
     echo "------------- Configurar nvim ----------------"
     echo "----------------------------------------------"
 
-    curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    nvim -c 'so ~/.config/nvim/init.vim|q'
-    nvim -c 'PlugInstall|q|q'
-		pip3 install neovim
+    sudo -u $USUARIO curl -fLo /home/$USER/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    sudo -u $USUARIO nvim -c 'so ~/.config/nvim/init.vim|q'
+    sudo -u $USUARIO nvim -c 'PlugInstall|q|q'
+    pip3 install neovim
 }
 
 instalar_ohmyzsh(){
