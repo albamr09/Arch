@@ -10,6 +10,7 @@ Instalador del sistema operativo Arch con los ficheros de configuración necesar
 2. [TWM](#twm)
 3. [Package-Manager](#package-manager)
 4. [Software](#software)
+5. [Scripts](#scripts)
 
 ---
 
@@ -46,3 +47,9 @@ Instalador del sistema operativo Arch con los ficheros de configuración necesar
 |**cmus**| Reproductor de música |
 |**Vs Code**| IDE |
 |**foxtireader**| Editor y lector de PDF |
+
+## Scripts
+
+|Nombre |Descripción  |
+--- | --- 
+|**config_monitors**| Configurar dual monitor al conectar por VGA al portátil |
