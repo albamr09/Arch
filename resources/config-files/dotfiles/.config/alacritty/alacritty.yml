@@ -279,14 +279,14 @@ colors:
     white:   '#e8e1e3'
   # Normal colors
   normal:
-    black:   '#0e0e15'
-    red:     '#dfa9cb'
-    green:   '#e9cdb1'
-    yellow:  '#e2e2e7'
-    blue:    '#43a1bf'
-    magenta: '#c2a3e7'
-    cyan:    '#c2a3e7'
-    white:   '#abc577'
+    black:   '#24242b'
+    red:     '#fb4731'
+    green:   '#8fc17d'
+    yellow:  '#f8bd2b'
+    blue:    '#d4879c'
+    magenta: '#bd93f9'
+    cyan:    '#fabe2b'
+    white:   '#ecdcd6'
   # Dim colors
   #
   # If the dim colors are not set, they will be calculated automatically based
