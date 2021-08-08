@@ -17,7 +17,7 @@ set $bar /home/alba/.config/i3status/mybar.sh
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:VictorMono 8
+font pango:JetBrainsMono 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -217,7 +217,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #FFD180 #2b83a6 #ffffff #dddddd   #2b83a6
+client.focused          #FFD180 #2b83a6 #ffffff #dddddd   #b5bd68
 client.focused_inactive #212121 #212121 #86888c #292d2e   #5a5a5a
 client.unfocused        #212121 #212121 #86888c #292d2e   #5a5a5a
 client.urgent           #d64e4e #d64e4e #ffffff #d64e4e   #d64e4e
@@ -241,7 +241,7 @@ bar {
     position                bottom
 
     colors {
-        background  #171c1c 
+        background  #282828
         statusline  #dddddd
         separator   #8cbc7c
         # class             border  backgr. text

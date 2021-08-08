@@ -5,7 +5,7 @@
 #   status_command exec /home/alba/.config/i3status/mybar.sh
 # }
 
-bg_bar_color="#181a1c"
+bg_bar_color="#282828"
 
 # Print a left caret separator
 # @params {string} $1 text color, ex: "#FF0000"
@@ -71,7 +71,7 @@ myvpn_on() {
   bg_separator_previous=$bg
   echo -n ",{"
   echo -n "\"name\":\"id_vpn\","      
-  echo -n "\"full_text\":\" ${icon} VPN \","
+  echo -n "\"full_text\":\"  ${icon} VPN   \","
 	echo -n "\"color\":\"#000000\","
   echo -n "\"background\":\"$bg\","
   common
@@ -83,20 +83,20 @@ myip_local() {
   separator $bg $bg_separator_previous
   echo -n ",{"
   echo -n "\"name\":\"ip_local\","
-  echo -n "\"full_text\":\"  $(ip route get 1 | sed -n 's/.*src \([0-9.]\+\).*/\1/p') \","
+  echo -n "\"full_text\":\"    $(ip route get 1 | sed -n 's/.*src \([0-9.]\+\).*/\1/p')   \","
   echo -n "\"background\":\"$bg\","
   common
   echo -n "},"
 }
 
 disk_usage() {
-  local bg="#fb4731"
+  local bg="#ba3f31"
   separator $bg "#282a2e"
   echo -n ",{"
   echo -n "\"name\":\"id_disk_usage\","
-  echo -n "\"full_text\":\"  $(/home/alba/.config/i3status/disk.py)%\","
+  echo -n "\"full_text\":\"    $(/home/alba/.config/i3status/disk.py)%\","
   echo -n "\"background\":\"$bg\","
-	echo -n "\"color\":\"#000000\","
+	#echo -n "\"color\":\"#000000\","
   common
   echo -n "}"
 }
@@ -105,8 +105,8 @@ memory() {
   echo -n ",{"
   echo -n "\"name\":\"id_memory\","
   echo -n "\"full_text\":\"  $(/home/alba/.config/i3status/memory.py)%\","
-  echo -n "\"background\":\"#fb4731\","
-	echo -n "\"color\":\"#000000\","
+  echo -n "\"background\":\"#ba3f31\","
+	#echo -n "\"color\":\"#000000\","
   common
   echo -n "}"
 }
@@ -114,19 +114,19 @@ memory() {
 cpu_usage() {
   echo -n ",{"
   echo -n "\"name\":\"id_cpu_usage\","
-  echo -n "\"full_text\":\"  $(/home/alba/.config/i3status/cpu.py)% \","
-  echo -n "\"background\":\"#fb4731\","
-	echo -n "\"color\":\"#000000\","
+  echo -n "\"full_text\":\"  $(/home/alba/.config/i3status/cpu.py)%   \","
+  echo -n "\"background\":\"#ba3f31\","
+	#echo -n "\"color\":\"#000000\","
   common
   echo -n "},"
 }
 
 meteo() {
   local bg="#454a4f"
-  separator $bg "#fb4731"
+  separator $bg "#ba3f31"
   echo -n ",{"
   echo -n "\"name\":\"id_meteo\","
-  echo -n "\"full_text\":\" $(/home/alba/.config/i3status/meteo.py) \","
+  echo -n "\"full_text\":\"   $(/home/alba/.config/i3status/meteo.py)   \","
   echo -n "\"background\":\"$bg\","
   common
   echo -n "},"
@@ -137,7 +137,7 @@ mydate() {
   separator $bg "#454a4f"
   echo -n ",{"
   echo -n "\"name\":\"id_time\","
-  echo -n "\"full_text\":\"  $(date "+%a %d/%m %H:%M") \","
+  echo -n "\"full_text\":\"    $(date "+%a %d/%m %H:%M")   \","
   echo -n "\"color\":\"#000000\","
   echo -n "\"background\":\"$bg\","
   common
@@ -157,7 +157,7 @@ battery0() {
     fi
     echo -n ",{"
     echo -n "\"name\":\"battery0\","
-    echo -n "\"full_text\":\" ${icon} ${prct}% \","
+    echo -n "\"full_text\":\"   ${icon} ${prct}%   \","
     echo -n "\"background\":\"$bg\","
     common
     echo -n "},"
@@ -167,18 +167,18 @@ battery0() {
 }
 
 volume() {
-  local bg="#508c8c"
+  local bg="#2e82a5"
   separator $bg $bg_separator_previous  
   vol=$(awk '/%/ {gsub(/[\[\]]/,""); print $4}' <(amixer sget Master))
   echo -n ",{"
   echo -n "\"name\":\"id_volume\","
   if [ $vol -le 0 ]; then
-    echo -n "\"full_text\":\"  ${vol} \","
+    echo -n "\"full_text\":\"    ${vol}   \","
   else
-    echo -n "\"full_text\":\"  ${vol} \","
+    echo -n "\"full_text\":\"    ${vol}   \","
   fi
   echo -n "\"background\":\"$bg\","
-	echo -n "\"color\":\"#000000\","
+	#echo -n "\"color\":\"#000000\","
   common
   echo -n "},"
   separator $bg_bar_color $bg
@@ -189,7 +189,7 @@ systemupdate() {
   if (( $nb > 0)); then
     echo -n ",{"
     echo -n "\"name\":\"id_systemupdate\","
-    echo -n "\"full_text\":\"  ${nb}\""
+    echo -n "\"full_text\":\"    ${nb}   \""
     echo -n "}"
   fi
 }
