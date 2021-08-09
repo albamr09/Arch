@@ -49,7 +49,7 @@ Instalador del sistema operativo Arch con los ficheros de configuración necesar
 |**foxtireader**| Editor y lector de PDF |
 |**gpicview**| Visualización de imágenes |
 |**scrot**| Herramienta de screenshots |
-|**nodejs**||
+|**nodejs**| Entorno back-end de JavaScript |
 |**npm**| Administrador de paquetes para nodejs |
 
 ## Scripts
