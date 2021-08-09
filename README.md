@@ -47,6 +47,10 @@ Instalador del sistema operativo Arch con los ficheros de configuración necesar
 |**cmus**| Reproductor de música |
 |**Vs Code**| IDE |
 |**foxtireader**| Editor y lector de PDF |
+|**gpicview**| Visualización de imágenes |
+|**scrot**| Herramienta de screenshots |
+|**nodejs**||
+|**npm**| Administrador de paquetes para nodejs |
 
 ## Scripts
 
