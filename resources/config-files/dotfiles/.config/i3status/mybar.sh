@@ -104,7 +104,7 @@ disk_usage() {
 memory() {
   echo -n ",{"
   echo -n "\"name\":\"id_memory\","
-  echo -n "\"full_text\":\"  $(/home/alba/.config/i3status/memory.py)%\","
+  echo -n "\"full_text\":\"  $(/home/alba/.config/i3status/memory.py)%\","
   echo -n "\"background\":\"#ba3f31\","
 	#echo -n "\"color\":\"#000000\","
   common
@@ -114,7 +114,7 @@ memory() {
 cpu_usage() {
   echo -n ",{"
   echo -n "\"name\":\"id_cpu_usage\","
-  echo -n "\"full_text\":\"  $(/home/alba/.config/i3status/cpu.py)%   \","
+  echo -n "\"full_text\":\"  $(/home/alba/.config/i3status/cpu.py)%   \","
   echo -n "\"background\":\"#ba3f31\","
 	#echo -n "\"color\":\"#000000\","
   common
@@ -153,7 +153,7 @@ battery0() {
     charging=$(cat /sys/class/power_supply/BAT0/uevent | grep "POWER_SUPPLY_STATUS" | cut -d'=' -f2) # POWER_SUPPLY_STATUS=Discharging|Charging
     icon=""
     if [ "$charging" == "Charging" ]; then
-      icon=""
+      icon=""
     fi
     echo -n ",{"
     echo -n "\"name\":\"battery0\","
@@ -173,7 +173,7 @@ volume() {
   echo -n ",{"
   echo -n "\"name\":\"id_volume\","
   if [ $vol -le 0 ]; then
-    echo -n "\"full_text\":\"    ${vol}   \","
+    echo -n "\"full_text\":\"    ${vol}   \","
   else
     echo -n "\"full_text\":\"    ${vol}   \","
   fi
@@ -189,7 +189,7 @@ systemupdate() {
   if (( $nb > 0)); then
     echo -n ",{"
     echo -n "\"name\":\"id_systemupdate\","
-    echo -n "\"full_text\":\"    ${nb}   \""
+    echo -n "\"full_text\":\"    ${nb}   \""
     echo -n "}"
   fi
 }
