@@ -203,10 +203,10 @@ instalar_ohmyzsh
 # Config
 configurar_i3_bar
 configurar_ranger
-configurar_nvim
 establecer_predeterminados
 
 # Copiar dotfiles y demas
 copiar_accesos_directos
 copiar_dotfiles
+configurar_nvim
 copiar_fonts
