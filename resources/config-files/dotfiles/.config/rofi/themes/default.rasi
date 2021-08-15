@@ -1,6 +1,6 @@
 configuration {
 
-	font: "VictorMono 10";
+	font: "VictorMono 12";
 	width: 30;
 	line-margin: 20;
 	lines: 6;
@@ -15,7 +15,6 @@ configuration {
 }
 
 * {
-    font: "Jetbrains Mono 12";
     foreground: #f8f8f2;
     background-color: #282828;
 		alternative-background-color: #484848;
@@ -25,7 +24,11 @@ configuration {
     selected-urgent-background: @urgent-background;
     selected-active-background: @active-background;
     separatorcolor: @background;
-    bordercolor: #d2d590;
+    prompt-color: #d2d590;
+		bordercolor: #d9a856;
+		alternative-bordercolor: #7eb0a5;
+		input-text-color: #F3C2D1;
+		prompt-text-color: #eb6962;
 }
 
 #window {
@@ -56,7 +59,7 @@ configuration {
 }
 #element {
     border:  0;
-    padding: 1px 10px;
+    padding: 3px 10px;
 		margin: 0px 5px;
 }
 #element.normal.normal {
@@ -75,7 +78,7 @@ configuration {
     background-color: @selected-background;
     text-color:       @foreground;
 		border: 					1px 0px;
-		border-color: 		@bordercolor;
+		border-color: 		@alternative-bordercolor;
 }
 #element.selected.urgent {
     background-color: @selected-urgent-background;
@@ -122,11 +125,11 @@ configuration {
 }
 #entry {
     spacing:    0;
-    text-color: @bordercolor;
+    text-color: @input-text-color;
 }
 #prompt {
     spacing:    0;
-    text-color: @bordercolor;
+    text-color: @prompt-color;
 		padding: 		0px 0px 5px;
 }
 #inputbar {
@@ -134,7 +137,7 @@ configuration {
 }
 #textbox-prompt-colon {
     expand:     false;
-    str:        ":";
+    str:        "$";
     margin:     0px 0.3em 0em 0em ;
-    text-color: @foreground;
+    text-color: @prompt-text-color;
 }
