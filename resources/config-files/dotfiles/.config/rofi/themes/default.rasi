@@ -1,6 +1,6 @@
 configuration {
 
-	font: "VictorMono 10";
+	font: "VictorMono 12";
 	width: 30;
 	line-margin: 20;
 	lines: 6;
@@ -15,7 +15,6 @@ configuration {
 }
 
 * {
-    font: "Jetbrains Mono 12";
     foreground: #f8f8f2;
     background-color: #282828;
 		alternative-background-color: #484848;
