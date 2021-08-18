@@ -181,10 +181,6 @@ copiar_dotfiles(){
 configuracion_dotfiles(){
     if [ $DEFAULT_DOTFILES -eq 0 ]; then
         copiar_dotfiles
-    else 
-        # Copiar solo fondos
-        cp -r $DIR_DOTFILES/.config/wallpapers ~/.config/
-        sudo -u $USUARIO cp -r $DIR_DOTFILES/.config/wallpapers ~/.config/
     fi
 }
 
