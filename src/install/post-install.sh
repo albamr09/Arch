@@ -60,7 +60,7 @@ instalar_tiliwing_window_manager(){
     echo "----------------------------------------------"
 
     pacman -S $TWM
-    pacman -S sxhkd feh picom rofi imagemagick
+    pacman -S feh picom rofi imagemagick
 }
 
 #Paquetes adicionales
@@ -114,18 +114,6 @@ configurar_ranger(){
     ranger --copy-config=all
 }
 
-configurar_nvim(){
-
-    echo "----------------------------------------------"
-    echo "------------- Configurar nvim ----------------"
-    echo "----------------------------------------------"
-
-    sudo -u $USUARIO curl -fLo /home/$USER/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    sudo -u $USUARIO nvim -c 'so ~/.config/nvim/init.vim|q'
-    sudo -u $USUARIO nvim -c 'PlugInstall|q|q'
-    pip3 install neovim
-}
-
 instalar_ohmyzsh(){
     
   echo "----------------------------------------------"
@@ -157,7 +145,19 @@ copiar_accesos_directos(){
   echo " + Crear accesos directos"
   echo "----------------------------------------------"
 
-  cp ../config-files/*.desktop /usr/share/applications/ &> /dev/zero && mensaje_exito "Se han copiado los accesos directos" || mensaje_fallo "Fallo durante la copia de los accesos directos"
+  cp $DIR_SHORTCUTS"/*.desktop" /usr/share/applications/ &> /dev/zero && mensaje_exito "Se han copiado los accesos directos" || mensaje_fallo "Fallo durante la copia de los accesos directos"
+}
+
+configurar_nvim(){
+
+    echo "----------------------------------------------"
+    echo "------------- Configurar nvim ----------------"
+    echo "----------------------------------------------"
+
+    sudo -u $USUARIO curl -fLo /home/$USER/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    sudo -u $USUARIO nvim -c 'so ~/.config/nvim/init.vim|q'
+    sudo -u $USUARIO nvim -c 'PlugInstall|q|q'
+    pip3 install neovim
 }
 
 copiar_dotfiles(){
@@ -173,6 +173,19 @@ copiar_dotfiles(){
   # Copia usuario
   chmod +x $DIR_USER_SCRIPTS"/"$COPY_DOTFILES
   su $USUARIO "$DIR_USER_SCRIPTS/$COPY_DOTFILES" 
+
+  # Tras copia de dotfiles de nvim configurar nvim
+  configurar_nvim
+}
+
+configuracion_dotfiles(){
+    if [ $DEFAULT_DOTFILES -eq 0 ]; then
+        copiar_dotfiles
+    else 
+        # Copiar solo fondos
+        cp -r $DIR_DOTFILES/.config/wallpapers ~/.config/
+        sudo -u $USUARIO cp -r $DIR_DOTFILES/.config/wallpapers ~/.config/
+    fi
 }
 
 copiar_fonts(){
@@ -207,6 +220,4 @@ establecer_predeterminados
 
 # Copiar dotfiles y demas
 copiar_accesos_directos
-copiar_dotfiles
-configurar_nvim
 copiar_fonts

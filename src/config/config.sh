@@ -11,6 +11,7 @@ CODIFICACION="UTF-8"
 KEYMAP="es"
 DISPOSITIVO_GRUB=$DISCO_INSTALACION
 USB=1                                           # USB = 0, indica no instalacion usb
+DEFAULT_DOTFILES=0                              # DEFAULT_DOTFILES = 1, indica que se quiere utilizar la configuracion por defecto de los programas
 ZONA_HORARIA="Europe/Madrid"
 
 DIRECTORIO_BOOT="/boot"
@@ -45,25 +46,32 @@ PAQUETES_AUR="vscode;pamixer;pacman-contrib;ttf-font-awesome;foxitreader;i3-gaps
 KEYSERVER="hkp://keys.gnupg.net:80"
 ARQUITECTURA="archlinux"
 
+
 # -------------------------------------------------------------------------------------
-# Wallpaper directory
+# Resources directory
 # -------------------------------------------------------------------------------------
 
-DIR_FONDOS="/home/$USUARIO/Wallpapers"
-DIR_FONDOS_REG="\/home\/$USUARIO\/Wallpapers"
+DIR_RESOURCES="../../resources"
+
+
+# -------------------------------------------------------------------------------------
+# Shortcuts directory
+# -------------------------------------------------------------------------------------
+
+DIR_SHORTCUTS=$DIR_RESOURCES"/shortcuts"
 
 
 # -------------------------------------------------------------------------------------
 # Dotfiles directory
 # -------------------------------------------------------------------------------------
 
-DIR_DOTFILES="../config-files/dotfiles"
+DIR_DOTFILES=$DIR_RESOURCES"/home"
 
 # -------------------------------------------------------------------------------------
 # Fonts directory
 # -------------------------------------------------------------------------------------
 
-DIR_FONTS="../config-files/fonts"
+DIR_FONTS=$DIR_RESOURCES"/fonts"
 HOST_DIR_FONTS="/usr/share/fonts/"
 
 
