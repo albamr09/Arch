@@ -220,4 +220,5 @@ establecer_predeterminados
 
 # Copiar dotfiles y demas
 copiar_accesos_directos
+configuracion_dotfiles
 copiar_fonts
