@@ -123,14 +123,14 @@ copia_ficheros_config(){
   echo " + Copia de ficheros de post install"
   echo "----------------------------------------------"
 
-  mkdir -p /mnt/Arch /mnt/Arch/install/src &> /dev/zero && mensaje_exito "Se ha creado la carpeta Arch" || mensaje_fallo "Fallo durante la creacion de la carpeta Arch"
+  mkdir -p /mnt/Arch /mnt/Arch/src/install &> /dev/zero && mensaje_exito "Se ha creado la carpeta Arch" || mensaje_fallo "Fallo durante la creacion de la carpeta Arch"
   
   echo "----------------------------------------------"
   echo " + Copiar resources"
   echo "----------------------------------------------"
 
   # Copiar ficheros post install
-  cp -r post-install.sh /mnt/Arch/install/src &> /dev/zero && mensaje_exito "Se ha copiado post-install" || mensaje_fallo "Fallo durante la copia de post install"
+  cp -r post-install.sh /mnt/Arch/src/install &> /dev/zero && mensaje_exito "Se ha copiado post-install" || mensaje_fallo "Fallo durante la copia de post install"
   cp -r ../utils ../config /mnt/Arch/src &> /dev/zero && mensaje_exito "Se han copiado los scripts necesarios" || mensaje_fallo "Fallo durante la copia los scripts"
 
   # Copiar resources
