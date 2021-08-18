@@ -80,7 +80,6 @@ instalar_AUR_manager(){
     echo "--------------- Instalar yay -----------------"
     echo "----------------------------------------------"
     
-    chmod +x $DIR_USER_SCRIPTS"/"$PKG_MANAGER
     su $USUARIO "$DIR_USER_SCRIPTS/$PKG_MANAGER" 
 
 }
@@ -91,7 +90,6 @@ instalar_paquetes_AUR(){
     echo "---------- Instalar paquetes AUR -------------"
     echo "----------------------------------------------"
 
-    chmod +x $DIR_USER_SCRIPTS"/"$PKG_INSTALL
     su $USUARIO "$DIR_USER_SCRIPTS/$PKG_INSTALL" 
 }
 
@@ -135,7 +133,6 @@ establecer_predeterminados(){
   #Zsh
   chsh -s /bin/zsh
   #Usuario
-  chmod +x $DIR_USER_SCRIPTS"/"$CHANGE_DEFAULTS
   su $USUARIO "$DIR_USER_SCRIPTS/$CHANGE_DEFAULTS" 
 }
 
@@ -154,10 +151,7 @@ configurar_nvim(){
     echo "------------- Configurar nvim ----------------"
     echo "----------------------------------------------"
 
-    sudo -u $USUARIO curl -fLo /home/$USER/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    sudo -u $USUARIO nvim -c 'so ~/.config/nvim/init.vim|q'
-    sudo -u $USUARIO nvim -c 'PlugInstall|q|q'
-    pip3 install neovim
+    su $USUARIO "$DIR_USER_SCRIPTS/$CONFIG_NVIM"
 }
 
 copiar_dotfiles(){
