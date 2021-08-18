@@ -140,7 +140,7 @@ default_floating_border none
 
 # bordes solo si hay mas de una ventana
 # hide_edge_borders smart_no_gaps
-smart_borders on
+# smart_borders on
 
 # set popups during fullscreen mode
 popup_during_fullscreen smart
