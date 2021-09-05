@@ -136,15 +136,6 @@ establecer_predeterminados(){
   su $USUARIO "$DIR_USER_SCRIPTS/$CHANGE_DEFAULTS" 
 }
 
-copiar_accesos_directos(){
-
-  echo "----------------------------------------------"
-  echo " + Crear accesos directos"
-  echo "----------------------------------------------"
-
-  cp $DIR_SHORTCUTS"/*.desktop" /usr/share/applications/ &> /dev/zero && mensaje_exito "Se han copiado los accesos directos" || mensaje_fallo "Fallo durante la copia de los accesos directos"
-}
-
 configurar_nvim(){
 
     echo "----------------------------------------------"
@@ -209,6 +200,5 @@ configurar_ranger
 establecer_predeterminados
 
 # Copiar dotfiles y demas
-# copiar_accesos_directos
 configuracion_dotfiles
 copiar_fonts
