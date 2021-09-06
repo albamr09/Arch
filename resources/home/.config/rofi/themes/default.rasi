@@ -1,10 +1,6 @@
 configuration {
 
 	font: "VictorMono 12";
-	width: 30;
-	line-margin: 20;
-	lines: 6;
-	columns: 1;
 
   display-ssh:    "";
   display-run:    " ";
@@ -15,7 +11,7 @@ configuration {
 }
 
 * {
-    foreground: #f8f8f2;
+    foreground: #ffffff;
     background-color: #282828;
 		alternative-background-color: #484848;
     active-background: @alternative-background-color;
@@ -32,7 +28,7 @@ configuration {
 }
 
 #window {
-    background-color: @background;
+    background-color: @background-color;
     border:           3px;
     border-color: 		@alternative-background-color;
     padding:          5;
@@ -51,7 +47,7 @@ configuration {
 }
 #listview {
     fixed-height: 0;
-    border:       1px dash 2px 2px;
+    border:       1px;
     border-color: @bordercolor;
     spacing:      5px;
     scrollbar:    false;
@@ -63,7 +59,7 @@ configuration {
 		margin: 0px 5px;
 }
 #element.normal.normal {
-    background-color: @background;
+    background-color: @background-color;
     text-color:       @foreground;
 }
 #element.normal.urgent {
@@ -75,8 +71,7 @@ configuration {
     text-color:       @foreground;
 }
 #element.selected.normal {
-    background-color: @selected-background;
-    text-color:       @foreground;
+    text-color:       @prompt-color;
 		border: 					1px 0px;
 		border-color: 		@alternative-bordercolor;
 }
@@ -101,7 +96,6 @@ configuration {
     text-color:       @foreground;
 }
 #scrollbar {
-    width:        2px ;
     border:       0;
     handle-width: 8px ;
     padding:      0;
