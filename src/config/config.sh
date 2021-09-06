@@ -74,7 +74,6 @@ DIR_DOTFILES=$DIR_RESOURCES"/home"
 DIR_FONTS=$DIR_RESOURCES"/fonts"
 HOST_DIR_FONTS="/usr/share/fonts/"
 
-
 # -------------------------------------------------------------------------------------
 # Services directory
 # -------------------------------------------------------------------------------------

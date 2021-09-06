@@ -118,7 +118,7 @@ configurar_servicios(){
 		echo "-------- Copiar y configurar servicios ------------"
 		echo "---------------------------------------------------"
 
-		sudo cp $DIR_SERVICES* /etc/systemd/system &> /dev/zero && mensaje_exito "Se han copiado los servicios" || mensaje_fallo "Fallo durante la copia de servicios"
+		sudo cp $DIR_SERVICES/* /etc/systemd/system &> /dev/zero && mensaje_exito "Se han copiado los servicios" || mensaje_fallo "Fallo durante la copia de servicios"
 		sudo systemctl enable suspend@alba &> /dev/zero && mensaje_exito "Se han activado los servicios" || mensaje_fallo "Fallo durante la activación de los servicios"
 		#Actualizar
 		sudo systemctl daemon-reload

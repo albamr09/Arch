@@ -84,8 +84,6 @@ config_arranque () {
         grub-install --target=$TARGET_GRUB_EFI --efi-directory="$DIRECTORIO_BOOT" --boot-directory="$DIRECTORIO_BOOT" $DISPOSITIVO_GRUB &> /dev/zero && mensaje_exito "Instalacion GRUB EFI finalizada correctamente" || mensaje_fallo "Fallo en la instalacion de GRUB EFI"
     fi
 
-    
-
     echo "----------------------------------------------"
     echo " + Generacion del archivo de configuracion de grub"
     echo "----------------------------------------------"
