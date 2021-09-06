@@ -94,7 +94,7 @@ config_arranque () {
     echo " + Generacion de tabla de particiones"
     echo "----------------------------------------------"
 
-		sudo genfstab -U / > /etc/fstab &> /dev/zero && mensaje_exito "Generacion de tabla de particiones" || mensaje_fallo "Fallo durante la generacion de la tabla de particiones"
+		sudo genfstab -U / > /mnt/etc/fstab &> /dev/zero && mensaje_exito "Generacion de tabla de particiones" || mensaje_fallo "Fallo durante la generacion de la tabla de particiones"
 
 
 }
