@@ -112,6 +112,18 @@ configurar_ranger(){
     ranger --copy-config=all
 }
 
+configurar_servicios(){
+
+		echo "---------------------------------------------------"
+		echo "-------- Copiar y configurar servicios ------------"
+		echo "---------------------------------------------------"
+
+		sudo cp $DIR_SERVICES* /etc/systemd/system
+		sudo systemctl enable suspend@alba
+		#Actualizar
+		sudo systemctl daemon-reload
+}
+
 instalar_ohmyzsh(){
     
   echo "----------------------------------------------"

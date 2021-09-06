@@ -19,12 +19,27 @@ font pango:JetBrainsMono 8
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
+#-----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
+# HIBERNATION AND SUSPEND MANAGERS
+#-----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+# Screen is idle for N minutes? Dim it down to minimum brightness
+# exec --no-startup-id xset s 10 10
+# Screen is still idle? Lock it
+# dpms (1) (2) (3)
+# 1: Screensaver (dim screen)
+# 2: Suspend
+# 3: Turn off time
+exec --no-startup-id xset dpms 0 1800 0 &
+#Screen is still idle? Turn it off
+exec --no-startup-id xss-lock -- $HOME/.config/scripts/i3lock/launch.sh &
+#Detect if media is playing
+exec --no-startup-id /usr/bin/caffeine start &
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -173,17 +188,18 @@ bindsym $mod+Shift+r restart
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # Create Log out, Reboot, Poweroff bindings
-mode "Exit (L)ogout, (R)eboot, (P)oweroff" {
+mode "(L)ock, (R)eboot, (P)oweroff, (E)xit session" {
         bindsym $mod+r exec systemctl reboot
-        bindsym $mod+l exit
+        bindsym $mod+e exit
         bindsym $mod+p exec systemctl poweroff
+        bindsym $mod+l exec "$HOME/.config/scripts/i3lock/launch.sh && i3-msg mode default"
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
 
-bindsym $mod+Shift+e mode "Exit (L)ogout, (R)eboot, (P)oweroff"
+bindsym $mod+Shift+e mode "(L)ock, (R)eboot, (P)oweroff, (E)xit session" 
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -220,12 +236,12 @@ client.urgent           #d64e4e #d64e4e #ffffff #d64e4e   #d64e4e
 client.placeholder      #212121 #0c0c0c #ffffff #212121   #262626
 client.background       #212121
 
-# i3-gaps: espacio entre las ventanas
-smart_gaps on #gaps solo cuando hay mas de una ventana
-for_window [class="^.*"] border pixel 2 # eliminar titulos
+# Window title
+for_window [class="^.*"] border pixel 2
+
 #Tamano de gaps
-gaps inner 5
-gaps outer 5
+gaps inner 3
+gaps outer 3
 
 # Animacion de cambio de ventana
 exec_always --no-startup-id picom --experimental-backends &

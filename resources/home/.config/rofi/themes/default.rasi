@@ -1,6 +1,6 @@
 configuration {
 
-	font: "VictorMono 12";
+	font: "Iosevka Regular 12";
 
   display-ssh:    "";
   display-run:    " ";
@@ -48,7 +48,6 @@ configuration {
 #listview {
     fixed-height: 0;
     border:       1px;
-    border-color: @bordercolor;
     spacing:      5px;
     scrollbar:    false;
     padding:      7px 0px 7px ;
@@ -58,6 +57,12 @@ configuration {
     padding: 3px 10px;
 		margin: 0px 5px;
 }
+
+element-text {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
 #element.normal.normal {
     background-color: @background-color;
     text-color:       @foreground;
@@ -71,7 +76,7 @@ configuration {
     text-color:       @foreground;
 }
 #element.selected.normal {
-    text-color:       @prompt-color;
+    text-color:       @foreground;
 		border: 					1px 0px;
 		border-color: 		@alternative-bordercolor;
 }
@@ -119,7 +124,8 @@ configuration {
 }
 #entry {
     spacing:    0;
-    text-color: @input-text-color;
+    text-color: @foreground;
+		font: "Jetbrains Mono Italic 12";
 }
 #prompt {
     spacing:    0;
