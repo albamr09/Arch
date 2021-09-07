@@ -35,7 +35,7 @@ TERMINAL="alacritty"
 TWM="i3-wm i3status"
 PAQUETES="nitrogen vim git wget neovim python-pip zsh nano texlive-most xdg-utils qutebrowser zathura zathura-pdf-poppler ranger w3m cmus gpicview scrot nodejs npm awesome-terminal-fonts playerctl"
 #thunar smplayer
-PAQUETES_AUR="pamixer;pacman-contrib;ttf-font-awesome;foxitreader;polybar-git;i3-gaps-rounded-git;xss-lock;i3lock-color;caffeine-ng;"
+PAQUETES_AUR="pamixer;pacman-contrib;ttf-font-awesome;foxitreader;polybar-git;i3-gaps-rounded-git;xss-lock;i3lock-color;caffeine-ng;libappindicator-gtk3;pulseaduio;"
 #surf;firefox;
 
 
