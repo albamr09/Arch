@@ -1,3 +1,3 @@
 #!/bin/bash
 
-$HOME/.config/scripts/i3lock/gruvbox/lock.sh
+$HOME/.config/scripts/i3lock/default/lock.sh

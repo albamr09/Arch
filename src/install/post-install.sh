@@ -60,7 +60,6 @@ instalar_tiliwing_window_manager(){
     echo "----------------------------------------------"
 
     pacman -S $TWM
-    pacman -S feh picom rofi imagemagick
 }
 
 #Paquetes adicionales
@@ -119,7 +118,7 @@ configurar_servicios(){
 		echo "---------------------------------------------------"
 
 		sudo cp $DIR_SERVICES/* /etc/systemd/system &> /dev/zero && mensaje_exito "Se han copiado los servicios" || mensaje_fallo "Fallo durante la copia de servicios"
-		sudo systemctl enable suspend@alba &> /dev/zero && mensaje_exito "Se han activado los servicios" || mensaje_fallo "Fallo durante la activación de los servicios"
+		sudo systemctl enable suspend@$USUARIO &> /dev/zero && mensaje_exito "Se han activado los servicios" || mensaje_fallo "Fallo durante la activación de los servicios"
 		#Actualizar
 		sudo systemctl daemon-reload
 }
@@ -175,12 +174,6 @@ copiar_dotfiles(){
   configurar_nvim
 }
 
-configuracion_dotfiles(){
-    if [ $DEFAULT_DOTFILES -eq 0 ]; then
-        copiar_dotfiles
-    fi
-}
-
 copiar_fonts(){
     cp -r $DIR_FONTS/* $HOST_DIR_FONTS &> /dev/zero && mensaje_exito "Se han copiado las fuentes" || mensaje_fallo "Fallo durante la copia de las fuentes"
 }
@@ -213,5 +206,5 @@ configurar_servicios
 establecer_predeterminados
 
 # Copiar dotfiles y demas
-configuracion_dotfiles
+copiar_dotfiles
 copiar_fonts

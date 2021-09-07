@@ -3,8 +3,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Temas
-Plug 'gruvbox-community/gruvbox'
-Plug 'dracula/vim'
+Plug 'haishanh/night-owl.vim'
 
 " File explorer
 Plug 'scrooloose/nerdtree'
@@ -32,14 +31,13 @@ Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
 
-
 " --------------- ] Tema [  --------------- 
 
 if (has("termguicolors"))
  set termguicolors
 endif
 syntax enable
-colorscheme gruvbox
+colorscheme night-owl
 
 " --------------- ] Config neovim [  --------------- 
 

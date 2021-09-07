@@ -23,8 +23,6 @@ bucle_infinito(){
 
 bucle_infinito &
 
-
-
 # IDIOMAR DE TECLADO A ESPAÑOL
 
 setxkbmap es
