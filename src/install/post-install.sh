@@ -175,7 +175,22 @@ copiar_dotfiles(){
 }
 
 copiar_fonts(){
+
+    echo "----------------------------------------------"
+    echo " + Copiar fuentes"
+    echo "----------------------------------------------"
+
     cp -r $DIR_FONTS/* $HOST_DIR_FONTS &> /dev/zero && mensaje_exito "Se han copiado las fuentes" || mensaje_fallo "Fallo durante la copia de las fuentes"
+}
+
+delete_all(){
+
+    echo "----------------------------------------------"
+    echo " + Eliminar ficheros fuente"
+    echo "----------------------------------------------"
+
+    cd /
+    rm -r Arch  &> /dev/zero && mensaje_exito "Se han eliminado los ficheros fuente" || mensaje_fallo "Fallo durante la eliminacion de los ficheros fuente"
 }
 
 
@@ -208,3 +223,6 @@ establecer_predeterminados
 # Copiar dotfiles y demas
 copiar_dotfiles
 copiar_fonts
+
+# Finalizacion
+delete_all
