@@ -91,6 +91,19 @@ config_arranque () {
     grub-mkconfig -o "$DIRECTORIO_GRUB_CONF" &> /dev/zero && mensaje_exito "Generacion del archivo de configuracion finalizada" || mensaje_fallo "Fallo durante la generacion del archivo de configuracion"
 }
 
+#Generar fstab
+generar_fstab(){
+
+  echo "----------------------------------------------"
+  echo "-------------- Generar fstab -----------------"
+  echo "----------------------------------------------"
+
+  pacman -S arch-install-scripts
+  genfstab -U / > /etc/fstab &> /dev/zero && mensaje_exito "Se ha generado fstab" || mensaje_fallo "Fallo durante la generacion de fstab"
+  pacman -R arch-install-scripts
+
+}
+
 #Internet
 config_net () {
 
@@ -173,6 +186,8 @@ config_sistema
 config_imagen
 #Grub
 config_arranque
+#Fstab
+generar_fstab
 #Internet
 config_net
 #Nuevo usuario
