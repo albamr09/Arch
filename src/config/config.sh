@@ -33,7 +33,7 @@ DIRECTORIO_GRUB_CONF="/boot/grub/grub.cfg"
 TERMINAL="alacritty"
 TWM="i3-wm i3status"
 PAQUETES="feh picom rofi imagemagick nitrogen vim git wget neovim python-pip zsh nano texlive-most xdg-utils qutebrowser zathura zathura-pdf-poppler ranger w3m cmus gpicview scrot nodejs npm"
-PAQUETES_AUR="pamixer;pacman-contrib;foxitreader;xss-lock;i3lock-color;caffeine-ng;libappindicator-gtk3;pulseaduio;"
+PAQUETES_AUR="pamixer;pacman-contrib;foxitreader;xss-lock;i3lock-color;caffeine-ng;libappindicator-gtk3;pulseaudio;"
 
 
 # -------------------------------------------------------------------------------------
