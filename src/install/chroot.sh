@@ -89,15 +89,6 @@ config_arranque () {
     echo "----------------------------------------------"
 
     grub-mkconfig -o "$DIRECTORIO_GRUB_CONF" &> /dev/zero && mensaje_exito "Generacion del archivo de configuracion finalizada" || mensaje_fallo "Fallo durante la generacion del archivo de configuracion"
-
-    echo "----------------------------------------------"
-    echo " + Generacion de tabla de particiones"
-    echo "----------------------------------------------"
-
-    pacman -S arch-install-scripts
-	sudo genfstab -U / > /etc/fstab &> /dev/zero && mensaje_exito "Generacion de tabla de particiones" || mensaje_fallo "Fallo durante la generacion de la tabla de particiones"
-    pacman -R arch-install-scripts
-
 }
 
 #Internet
