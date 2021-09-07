@@ -96,9 +96,6 @@ configuracion_sistema(){
   
   # Copia de ficheros de configuracion
   copia_ficheros_config
-  
-  # Generar fstab
-  generar_fstab
 
   echo "----------------------------------------------"
   echo " + Fin de la instalacion"
