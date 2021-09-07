@@ -99,7 +99,7 @@ generar_fstab(){
   echo "----------------------------------------------"
 
   pacman -S arch-install-scripts
-  genfstab -U / > /etc/fstab &> /dev/zero && mensaje_exito "Se ha generado fstab" || mensaje_fallo "Fallo durante la generacion de fstab"
+  $(genfstab -U / > /etc/fstab) &> /dev/zero && mensaje_exito "Se ha generado fstab" || mensaje_fallo "Fallo durante la generacion de fstab"
   pacman -R arch-install-scripts
 
 }
