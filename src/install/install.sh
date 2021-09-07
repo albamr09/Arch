@@ -108,6 +108,9 @@ configuracion_sistema(){
   
   # Copia de ficheros de configuracion
   copia_ficheros_config
+  
+  # Generar fstab
+  generar_fstab
 
   echo "----------------------------------------------"
   echo " + Fin de la instalacion"
@@ -145,5 +148,4 @@ particionamiento
 formatear_particiones
 montar_sistema_ficheros
 instalar_so
-generar_fstab
 configuracion_sistema
