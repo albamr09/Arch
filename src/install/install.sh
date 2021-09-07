@@ -72,18 +72,6 @@ instalar_so(){
 
 }
 
-#Generar fstab
-
-generar_fstab(){
-
-  echo "----------------------------------------------"
-  echo "-------------- Generar fstab -----------------"
-  echo "----------------------------------------------"
-
-  genfstab -U /mnt > /mnt/etc/fstab &> /dev/zero && mensaje_exito "Se ha generado fstab" || mensaje_fallo "Fallo durante la generacion de fstab"
-
-}
-
 #Chroot
 
 configuracion_sistema(){
