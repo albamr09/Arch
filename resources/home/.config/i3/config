@@ -36,6 +36,7 @@ font pango:JetBrainsMono 8
 # 2: Suspend
 # 3: Turn off time
 exec --no-startup-id xset dpms 0 1800 0 &
+exec --no-startup-id xset s 1800 1800 &
 #Screen is still idle? Turn it off
 exec --no-startup-id xss-lock -- $HOME/.config/scripts/i3lock/launch.sh &
 #Detect if media is playing
@@ -233,5 +234,6 @@ bar {
 
 	colors{
 		background #0D1C29
+                urgent_workspace #0D1C29 #0D1C29 #FFFFFF
 	}
 }
