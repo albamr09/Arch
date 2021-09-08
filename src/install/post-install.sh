@@ -163,7 +163,7 @@ copiar_dotfiles(){
   echo "----------------------------------------------"
 
   cp -r $DIR_DOTFILES/.??* ~ &> /dev/zero && mensaje_exito "Se han copiado los ficheros de configuracion para root" || mensaje_fallo "Fallo durante la copia de los ficheros de configuracion en root"
-  cp $DIR_RESOURCES/etc/* /etc &> /dev/zero && mensaje_exito "Se ha copiado directorio etc" || mensaje_fallo "Fallo durante la copia del directorio etc"
+  cp -r $DIR_RESOURCES/etc/* /etc &> /dev/zero && mensaje_exito "Se ha copiado directorio etc" || mensaje_fallo "Fallo durante la copia del directorio etc"
 
   # Copia usuario
   chmod +x $DIR_USER_SCRIPTS"/"$COPY_DOTFILES
