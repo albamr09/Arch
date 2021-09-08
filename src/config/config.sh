@@ -10,7 +10,7 @@ IDIOMA="es_ES.UTF-8"
 CODIFICACION="UTF-8"
 KEYMAP="es"
 DISPOSITIVO_GRUB=$DISCO_INSTALACION
-USB=1                                           # USB = 0, indica no instalacion usb
+USB=0                                           # USB = 0, indica no instalacion usb
 ZONA_HORARIA="Europe/Madrid"
 
 DIRECTORIO_BOOT="/boot"
