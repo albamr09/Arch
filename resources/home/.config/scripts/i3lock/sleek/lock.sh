@@ -45,9 +45,9 @@ i3lock \
 	--blur 3 \
   --clock \
 	--indicator\
-	--ind-pos="w/2-r/2:h-r*2"\
+	--ind-pos="w/2-r/2:h-r*4"\
   --time-str="%H:%M:%S" \
-	--time-pos="w/2:h/2"\
+	--time-pos="w/2:h/2-r*2"\
   --date-str="%a %b %e %Y" \
 	--date-pos="tx:ty+80"\
   --verif-text="" \
