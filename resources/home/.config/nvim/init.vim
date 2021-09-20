@@ -8,7 +8,6 @@ Plug 'haishanh/night-owl.vim'
 " File explorer
 Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Syntax highlighting
 Plug 'leafgarland/typescript-vim'
@@ -27,12 +26,16 @@ Plug 'Yggdroot/indentLine'
 " Github
 Plug 'airblade/vim-gitgutter'
 
-" Busqueda de ficheros
-Plug 'ctrlpvim/ctrlp.vim'
-
 " Tab navigation
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'romgrk/barbar.nvim'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
+" Scroll
+Plug 'karb94/neoscroll.nvim'
+
+" File search
+Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 
 call plug#end()
 
@@ -145,6 +148,48 @@ let g:indentLine_bufNameExclude = ['NERD_tree.*', 'term:.*']
 " -------------- ] Git update time [ ----------------
 
 set updatetime=100
+
+" -------------- ] Scroll [ ----------------
+
+lua <<EOF
+require'neoscroll'.setup {
+    mappings = {'<C-u>', '<C-d>', '<C-f>',
+                '<C-y>', '<C-e>', 'zt', 'zz', 'zb'}
+}
+EOF
+
+" -------------- ] File search [ ----------------
+
+"" Map leader to ,
+let mapleader=','
+
+" Disable default mapping
+let g:Lf_ShortcutF = ''
+let g:Lf_ShortcutB = ''
+
+" Do not use cache file
+let g:Lf_UseCache = 0
+" Refresh each time we call leaderf
+let g:Lf_UseMemoryCache = 0
+
+" popup mode
+let g:Lf_WindowPosition = 'popup'
+let g:Lf_PreviewInPopup = 1
+
+" Search files in popup window
+nnoremap <silent> <leader>f :<C-U>Leaderf file<CR>
+" Search vim help files
+nnoremap <silent> <leader>h :<C-U>Leaderf help --popup<CR>
+
+" Ignore certain files and directories when searching files
+let g:Lf_WildIgnore = {
+  \ 'dir': ['.git', '__pycache__', '.DS_Store'],
+  \ 'file': ['*.exe', '*.dll', '*.so', '*.o', '*.pyc', '*.jpg', '*.png',
+  \ '*.gif', '*.svg', '*.ico', '*.db', '*.tgz', '*.tar.gz', '*.gz',
+  \ '*.zip', '*.bin', '*.pptx', '*.xlsx', '*.docx', '*.pdf', '*.tmp',
+  \ '*.wmv', '*.mkv', '*.mp4', '*.rmvb', '*.ttf', '*.ttc', '*.otf',
+  \ '*.mp3', '*.aac']
+  \}
 
 " -------------- ] Tabs navigation [ ----------------
 
