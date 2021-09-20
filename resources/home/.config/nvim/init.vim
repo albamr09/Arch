@@ -24,7 +24,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'Yggdroot/indentLine'
 
 " Github
-Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 " Busqueda de ficheros
 Plug 'ctrlpvim/ctrlp.vim'
@@ -32,6 +32,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 " Tab navigation
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'romgrk/barbar.nvim'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 call plug#end()
 
@@ -83,6 +84,9 @@ let g:NERDTreeStatusline = ''
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " Toggle
 nnoremap <silent> <C-b> :NERDTreeToggle<CR>
+
+" Git status
+let g:NERDTreeGitStatusUseNerdFonts = 1
 
 " -------------- ] Integrated Terminal [ ----------------
 
