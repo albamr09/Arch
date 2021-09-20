@@ -37,6 +37,9 @@ Plug 'karb94/neoscroll.nvim'
 " File search
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 
+" Smooth scrolling
+Plug 'karb94/neoscroll.nvim'
+
 call plug#end()
 
 
@@ -149,6 +152,7 @@ let g:indentLine_bufNameExclude = ['NERD_tree.*', 'term:.*']
 
 set updatetime=100
 
+<<<<<<< HEAD
 " -------------- ] Scroll [ ----------------
 
 lua <<EOF
@@ -190,6 +194,11 @@ let g:Lf_WildIgnore = {
   \ '*.wmv', '*.mkv', '*.mp4', '*.rmvb', '*.ttf', '*.ttc', '*.otf',
   \ '*.mp3', '*.aac']
   \}
+=======
+" -------------- ] Smooth scrolling [ ----------------
+
+lua require('neoscroll').setup()
+>>>>>>> 80b9cb734e4585e6cce3255eb7542b1d61a6a4d2
 
 " -------------- ] Tabs navigation [ ----------------
 
