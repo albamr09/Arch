@@ -8,6 +8,7 @@ Plug 'haishanh/night-owl.vim'
 " File explorer
 Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Syntax highlighting
 Plug 'leafgarland/typescript-vim'
@@ -32,7 +33,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 " Tab navigation
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'romgrk/barbar.nvim'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 
 call plug#end()
 
