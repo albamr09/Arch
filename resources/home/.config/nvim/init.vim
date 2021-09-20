@@ -34,6 +34,9 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'romgrk/barbar.nvim'
 
+" Smooth scrolling
+Plug 'karb94/neoscroll.nvim'
+
 call plug#end()
 
 
@@ -145,6 +148,10 @@ let g:indentLine_bufNameExclude = ['NERD_tree.*', 'term:.*']
 " -------------- ] Git update time [ ----------------
 
 set updatetime=100
+
+" -------------- ] Smooth scrolling [ ----------------
+
+lua require('neoscroll').setup()
 
 " -------------- ] Tabs navigation [ ----------------
 
