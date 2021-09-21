@@ -15,7 +15,12 @@ Instalador del sistema operativo Arch con los ficheros de configuración necesar
 
 ## Tema
 
-![Example](example.png?raw=true "Title")
+|                                                            |                                                    |
+| ---------------------------------------------------------- | -------------------------------------------------- |
+| ![Example](screens/home.png?raw=true "Homepage")    | ![Example](screens/rofi.png?raw=true "Rofi")       |
+| ![Example](screens/terminal_qt.png?raw=true "Qutebrowser") | ![Example](screens/zathura.png?raw=true "Ranger") |
+| ![Example](screens/ranger.png?raw=true "Ranger")         | ![Example](screens/nvim.png?raw=true "Nvim") |
+
 
 ## TWM
 
