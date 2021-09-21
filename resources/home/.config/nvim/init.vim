@@ -40,6 +40,9 @@ Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 " Smooth scrolling
 Plug 'karb94/neoscroll.nvim'
 
+" Markdownpreview
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+
 call plug#end()
 
 

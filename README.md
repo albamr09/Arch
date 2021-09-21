@@ -15,12 +15,11 @@ Instalador del sistema operativo Arch con los ficheros de configuración necesar
 
 ## Tema
 
-|                                                            |                                                    |
-| ---------------------------------------------------------- | -------------------------------------------------- |
-| ![Example](screens/home.png?raw=true "Homepage")    | ![Example](screens/rofi.png?raw=true "Rofi")       |
+|                                                            |                                                   |
+| ---------------------------------------------------------- | ------------------------------------------------- |
+| ![Example](screens/home.png?raw=true "Homepage")           | ![Example](screens/rofi.png?raw=true "Rofi")      |
 | ![Example](screens/terminal_qt.png?raw=true "Qutebrowser") | ![Example](screens/zathura.png?raw=true "Ranger") |
-| ![Example](screens/ranger.png?raw=true "Ranger")         | ![Example](screens/nvim.png?raw=true "Nvim") |
-
+| ![Example](screens/ranger.png?raw=true "Ranger")           | ![Example](screens/nvim.png?raw=true "Nvim")      |
 
 ## TWM
 
@@ -54,3 +53,4 @@ Instalador del sistema operativo Arch con los ficheros de configuración necesar
 | **scrot**       | Herramienta de screenshots                                             |
 | **nodejs**      | Entorno back-end de JavaScript                                         |
 | **npm**         | Administrador de paquetes para nodejs                                  |
+| **yarn**        | Administrador de paquetes para nodejs                                  |
