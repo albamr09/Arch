@@ -212,3 +212,11 @@ nnoremap <silent>    <A-9> :BufferLast<CR>
 
 " Close buffer
 nnoremap <silent>    <A-c> :BufferClose<CR>
+
+" -------------- ] Markdown Preview [ ----------------
+
+" Echo the url when the command is executed
+let g:mkdp_echo_preview_url = 1
+
+" Mappings
+nmap <C-s> <Plug>MarkdownPreview        " Open preview
