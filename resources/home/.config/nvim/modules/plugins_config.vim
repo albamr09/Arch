@@ -40,6 +40,12 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " Git status
 let g:NERDTreeGitStatusUseNerdFonts = 1
 
+" -------------- ] Integrated Terminal [ ----------------
+
+" open new split panes to right and below
+set splitright
+set splitbelow
+
 " -------------- ] Airline configuracion [ -----------------
  
 let g:airline_powerline_fonts = 1
