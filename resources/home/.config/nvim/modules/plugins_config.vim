@@ -95,3 +95,8 @@ let g:Lf_WildIgnore = {
 
 " Echo the url when the command is executed
 let g:mkdp_echo_preview_url = 1
+
+" -------------- ] Vimwiki [ ----------------
+
+" Vimwiki working directory
+let g:vimwiki_list = [{'path': '~/Desktop/MyNotes'}]

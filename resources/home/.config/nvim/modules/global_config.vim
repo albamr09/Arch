@@ -19,3 +19,6 @@ set smartcase
 set softtabstop=0 noexpandtab
 set shiftwidth=2
 set encoding=UTF-8
+
+" spell languages
+set spelllang=en,cjk

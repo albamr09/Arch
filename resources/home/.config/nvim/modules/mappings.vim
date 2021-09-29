@@ -73,3 +73,8 @@ nnoremap <silent>    <A-c> :BufferClose<CR>
 
 " Open preview
 nmap <C-s> <Plug>MarkdownPreview        
+
+" -------------- ] Toggle spell check [ ----------------
+
+nnoremap <silent> <F11> :set spell!<cr>
+inoremap <silent> <F11> <C-O>:set spell!<cr>
