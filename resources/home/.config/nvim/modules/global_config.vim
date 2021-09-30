@@ -20,5 +20,8 @@ set softtabstop=0 noexpandtab
 set shiftwidth=2
 set encoding=UTF-8
 
+" Relative numbers
+set rnu
+
 " spell languages
 set spelllang=en,cjk
