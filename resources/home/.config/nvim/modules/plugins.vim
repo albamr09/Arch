@@ -60,4 +60,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
 " Vimwiki
 Plug 'vimwiki/vimwiki'
 
+" Latex
+Plug 'lervag/vimtex'
+
 call plug#end()
