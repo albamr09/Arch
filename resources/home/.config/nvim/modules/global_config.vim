@@ -12,13 +12,16 @@
 "------------------------------------------------------------------------------
 
 set background=dark
-set tabstop=2
 set smartindent
 set nu
 set smartcase
-set softtabstop=0 noexpandtab
-set shiftwidth=2
 set encoding=UTF-8
+
+" Tab
+set softtabstop=4
+set tabstop=4
+set shiftwidth=4
+set expandtab
 
 " Relative numbers
 set rnu
