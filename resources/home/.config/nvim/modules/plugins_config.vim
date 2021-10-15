@@ -53,7 +53,8 @@ let g:airline_powerline_fonts = 1
 " -------------- ] Linea identacion [ ----------------
 
 " No mostrar en ciertos tipos de buffers y archivos
-let g:indentLine_fileTypeExclude = ['text', 'sh', 'help', 'terminal']
+" Avoid conceallevel problem (e.g. not showing links)
+let g:indentLine_fileTypeExclude = ['text', 'sh', 'help', 'terminal', 'json', 'vimwiki', 'markdown', 'tex']
 let g:indentLine_bufNameExclude = ['NERD_tree.*', 'term:.*']
 
 " -------------- ] Git update time [ ----------------
