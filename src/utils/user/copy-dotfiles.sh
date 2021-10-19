@@ -12,6 +12,6 @@ sudo cp -r $DIR_DOTFILES/.??* /home/$USUARIO &> /dev/zero && mensaje_exito "Se h
 # Cambiar owner y permisos
 
 sudo chown -R $USUARIO /home/$USUARIO/.??* && sudo chmod -R 775 /home/$USUARIO/.??* &> /dev/zero && mensaje_exito "Se han cambiado los permisos para $USUARIO" || mensaje_fallo "Fallo durante el cambio de permisos en $USUARIO"
-sudo chown -R $USUARIO /home/$USUARIO/* && sudo chmod -R 775 /home/$USUARIO/??* &> /dev/zero && mensaje_exito "Se han cambiado los permisos para $USUARIO" || mensaje_fallo "Fallo durante el cambio de permisos en $USUARIO"
+#sudo chown -R $USUARIO /home/$USUARIO/* && sudo chmod -R 775 /home/$USUARIO/??* &> /dev/zero && mensaje_exito "Se han cambiado los permisos para $USUARIO" || mensaje_fallo "Fallo durante el cambio de permisos en $USUARIO"
 chmod 775 /home/$USUARIO/.xsession &> /dev/zero && mensaje_exito "Se han cambiado los permisos para $USUARIO de xsession" || mensaje_fallo "Fallo durante el cambio de permisos en $USUARIO se xsession"
 #compaudit | xargs chmod g-w,o-w &> /dev/zero && mensaje_exito "Se han cambiado los permisos de zsh" || mensaje_fallo "Fallo durante el cambio de permisos de zsh"
