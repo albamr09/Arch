@@ -27,7 +27,7 @@ instalar_display_server(){
     echo "---------- Instalar display server -----------"
     echo "----------------------------------------------"
 
-    pacman -S xorg-server xorg-apps xorg-xinit
+    pacman -S xorg-server xorg-apps xorg-xinit --noconfirm
 }
 
 #Lightdm
@@ -38,7 +38,7 @@ instalar_lightdm(){
     echo "-------------- Instalar lightdm --------------"
     echo "----------------------------------------------"
 
-    pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+    pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings --noconfirm
     systemctl enable lightdm.service
 }
 
@@ -49,7 +49,7 @@ instalar_drivers_display(){
     echo "--------- Instalar drivers display -----------"
     echo "----------------------------------------------"
 
-    pacman -S $DRIVERS
+    pacman -S $DRIVERS --noconfirm
 }
 
 #Tiling window manager
@@ -59,7 +59,7 @@ instalar_tiliwing_window_manager(){
     echo "--------------- Instalar TWM -----------------"
     echo "----------------------------------------------"
 
-    pacman -S $TWM
+    pacman -S $TWM --noconfirm
 }
 
 #Paquetes adicionales
@@ -69,8 +69,8 @@ instalar_paquetes(){
     echo "------------ Instalar paquetes ---------------"
     echo "----------------------------------------------"
 
-    pacman -S $TERMINAL
-    pacman -S $PAQUETES
+    pacman -S $TERMINAL --noconfirm
+    pacman -S $PAQUETES --noconfirm
 }
 
 instalar_AUR_manager(){
