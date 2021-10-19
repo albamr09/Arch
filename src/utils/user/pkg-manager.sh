@@ -29,7 +29,7 @@
 
 # Dependencias yay
 
-sudo pacman -S --needed base-devel git
+sudo pacman -S --needed base-devel git --noconfirm
 
 # Instalar yay
 cd /tmp 
