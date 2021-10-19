@@ -15,5 +15,5 @@ do
     echo " + Instalando $paquete"
     echo "----------------------------------------------"
         
-    yay -S $paquete 
+    yay -S $paquete --answerdiff None --answerclean None
 done
