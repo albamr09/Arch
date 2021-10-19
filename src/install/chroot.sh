@@ -60,7 +60,7 @@ config_arranque () {
     echo "------- Configurar gestor de arranque --------"
     echo "----------------------------------------------"
 
-    pacman -S grub parted && mensaje_exito "GRUB instalado correctamente" || mensaje_fallo "Ha habido un error al instalar GRUB"
+    pacman -S grub parted --noconfirm && mensaje_exito "GRUB instalado correctamente" || mensaje_fallo "Ha habido un error al instalar GRUB"
 
     if [ -z "$DISPOSITIVO_GRUB" ]; then
         mensaje_fallo "\$DISPOSITIVO_GRUB no tiene un valor valido"
@@ -98,9 +98,9 @@ generar_fstab(){
   echo "-------------- Generar fstab -----------------"
   echo "----------------------------------------------"
 
-  pacman -S arch-install-scripts
+  pacman -S arch-install-scripts --noconfirm
   $(genfstab -U / > /etc/fstab) &> /dev/zero && mensaje_exito "Se ha generado fstab" || mensaje_fallo "Fallo durante la generacion de fstab"
-  pacman -R arch-install-scripts
+  pacman -R arch-install-scripts --noconfirm
 
 }
 
@@ -133,7 +133,7 @@ config_usuarios(){
     echo " + Permitir sudo"
     echo "--------------------------------------"
 
-    pacman -S sudo || mensaje_fallo "Fallo al instalar sudo"
+    pacman -S sudo --noconfirm || mensaje_fallo "Fallo al instalar sudo"
     sed -i '82 s/^##*//' /etc/sudoers && mensaje_exito "Se ha habilitado sudo en sudoers" || mensaje_fallo "Fallo al habilitar sudo en el archivo de configuracion"
 
     # Nuevo usuario con sudo
@@ -175,7 +175,7 @@ config_sonido(){
     echo "-- Configuracion de herramientas de sonido ---"
     echo "----------------------------------------------"
     
-    pacman -S alsa-utils
+    pacman -S alsa-utils --noconfirm
 }
 
 
