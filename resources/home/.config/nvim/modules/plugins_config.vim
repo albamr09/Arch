@@ -46,9 +46,9 @@ let g:NERDTreeGitStatusUseNerdFonts = 1
 set splitright
 set splitbelow
 
-" -------------- ] Airline configuracion [ -----------------
+" -------------- ] Lualine [ -----------------
  
-let g:airline_powerline_fonts = 1
+source ~/.config/nvim/plugins/lualine/themes/bubbles.vim
 
 " -------------- ] Linea identacion [ ----------------
 
@@ -70,34 +70,6 @@ require'neoscroll'.setup {
 }
 EOF
 
-" -------------- ] File search [ ----------------
-
-"" Map leader to ,
-let mapleader=','
-
-" Disable default mapping
-let g:Lf_ShortcutF = ''
-let g:Lf_ShortcutB = ''
-
-" Do not use cache file
-let g:Lf_UseCache = 0
-" Refresh each time we call leaderf
-let g:Lf_UseMemoryCache = 0
-
-" popup mode
-let g:Lf_WindowPosition = 'popup'
-let g:Lf_PreviewInPopup = 1
-
-" Ignore certain files and directories when searching files
-let g:Lf_WildIgnore = {
-  \ 'dir': ['.git', '__pycache__', '.DS_Store'],
-  \ 'file': ['*.exe', '*.dll', '*.so', '*.o', '*.pyc', '*.jpg', '*.png',
-  \ '*.gif', '*.svg', '*.ico', '*.db', '*.tgz', '*.tar.gz', '*.gz',
-  \ '*.zip', '*.bin', '*.pptx', '*.xlsx', '*.docx', '*.pdf', '*.tmp',
-  \ '*.wmv', '*.mkv', '*.mp4', '*.rmvb', '*.ttf', '*.ttc', '*.otf',
-  \ '*.mp3', '*.aac']
-  \}
-
 " -------------- ] Markdown Preview [ ----------------
 
 " Echo the url when the command is executed
@@ -105,8 +77,40 @@ let g:mkdp_echo_preview_url = 1
 
 " -------------- ] Vimwiki [ ----------------
 
-" Vimwiki working directory
-let g:vimwiki_list = [{'path': '~/Desktop/MyNotes'}]
+let g:vimwiki_list = [{
+  \ 'path': '$HOME/Desktop/MyNotes',
+\}]
+
+" Allow for autocompletion in vimwiki
+
+" disable table mappings
+let g:vimwiki_key_mappings = {
+            \ 'all_maps': 1,
+            \ 'global': 1,
+            \ 'headers': 1,
+            \ 'text_objs': 1,
+            \ 'table_format': 1,
+            \ 'table_mappings': 0,
+            \ 'lists': 1,
+            \ 'links': 1,
+            \ 'html': 1,
+            \ 'mouse': 0,
+            \ }
+augroup VimwikiRemaps
+    autocmd!
+    " unmap tab in insert mode
+    autocmd Filetype vimwiki silent! iunmap <buffer> <Tab>
+    " remap table tab mappings to M-n M-p
+    autocmd Filetype vimwiki inoremap <silent><expr><buffer> <M-n> vimwiki#tbl#kbd_tab()
+    autocmd Filetype vimwiki inoremap <silent><expr><buffer> <M-p> vimwiki#tbl#kbd_shift_tab()
+    " on enter if completion is open, complete first element otherwise use
+    " default vimwiki mapping
+    autocmd Filetype vimwiki inoremap <silent><expr><buffer> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "<C-]><Esc>:VimwikiReturn 1 5<CR>"
+augroup end
+
+" Filetype vimwiki only in wiki directory
+let g:vimwiki_global_ext = 0
 
 " -------------- ] Latex Preview [ ----------------
  

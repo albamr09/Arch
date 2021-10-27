@@ -59,12 +59,14 @@ nnoremap <Up> :resize -5 <CR>
 
 nnoremap <silent> K :call CocAction('doHover')<CR>
 
-" -------------- ] File search [ ----------------
 
-" Search files in popup window
-nnoremap <silent> <leader>f :<C-U>Leaderf file<CR>
-" Search vim help files
-nnoremap <silent> <leader>h :<C-U>Leaderf help --popup<CR>
+" -------------- ] Telescope: fuzzy search [ ----------------
+
+"" Map leader to ,
+let mapleader=','
+
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " --------------- ] Tab Navigation [  --------------- 
 
@@ -91,3 +93,4 @@ nmap <C-s> <Plug>MarkdownPreview
 
 nnoremap <silent> <F11> :set spell!<cr>
 inoremap <silent> <F11> <C-O>:set spell!<cr>
+

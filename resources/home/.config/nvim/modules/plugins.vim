@@ -1,18 +1,7 @@
-
-"------------------------------------------------------------------------------
-" ________  ___       ___  ___  ________  ___  ________   ________      
-"|\   __  \|\  \     |\  \|\  \|\   ____\|\  \|\   ___  \|\   ____\     
-"\ \  \|\  \ \  \    \ \  \\\  \ \  \___|\ \  \ \  \\ \  \ \  \___|_    
-" \ \   ____\ \  \    \ \  \\\  \ \  \  __\ \  \ \  \\ \  \ \_____  \   
-"  \ \  \___|\ \  \____\ \  \\\  \ \  \|\  \ \  \ \  \\ \  \|____|\  \  
-"   \ \__\    \ \_______\ \_______\ \_______\ \__\ \__\\ \__\____\_\  \ 
-"    \|__|     \|_______|\|_______|\|_______|\|__|\|__| \|__|\_________\
-"                                                           \|_________|
-"
-"------------------------------------------------------------------------------
-
-
 call plug#begin('~/.vim/plugged')
+" Devicons
+Plug 'kyazdani42/nvim-web-devicons'
+
 " Autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -30,8 +19,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Linea estado abajo
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'nvim-lualine/lualine.nvim'
 
 " Linea de identacion
 Plug 'Yggdroot/indentLine'
@@ -40,15 +28,16 @@ Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 
 " Tab navigation
-" Plug 'kyazdani42/nvim-web-devicons'
-" Plug 'romgrk/barbar.nvim'
+"Plug 'romgrk/barbar.nvim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Scroll
 Plug 'karb94/neoscroll.nvim'
 
 " File search
-Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+" Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 " Smooth scrolling
 Plug 'karb94/neoscroll.nvim'

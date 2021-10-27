@@ -18,9 +18,10 @@ set smartcase
 set encoding=UTF-8
 
 " Tab
-set softtabstop=4
-set tabstop=4
-set shiftwidth=4
+set smarttab
+set softtabstop=2
+set tabstop=2
+set shiftwidth=2
 set expandtab
 
 " Relative numbers
