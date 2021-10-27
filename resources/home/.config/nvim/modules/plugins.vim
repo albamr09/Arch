@@ -16,19 +16,18 @@ call plug#begin('~/.vim/plugged')
 " Autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" LSP
+Plug 'neovim/nvim-lspconfig'
+
 " Temas
-Plug 'haishanh/night-owl.vim'
+Plug 'kyoz/purify', { 'rtp': 'vim' }
 
 " File explorer
 Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 
 " Syntax highlighting
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'pangloss/vim-javascript'
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Linea estado abajo
 Plug 'vim-airline/vim-airline'
@@ -41,8 +40,8 @@ Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 
 " Tab navigation
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'romgrk/barbar.nvim'
+" Plug 'kyazdani42/nvim-web-devicons'
+" Plug 'romgrk/barbar.nvim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Scroll
