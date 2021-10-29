@@ -64,7 +64,7 @@ bindsym Print exec scrot -e 'mv $f ~/Pictures/Screenshots'
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec LIBGL_ALWAYS_SOFTWARE=1 i3-sensible-terminal
 
 # start default browser
 bindsym $mod+Shift+Return exec xdg-settings get default-web-browser | xargs gtk-launch
