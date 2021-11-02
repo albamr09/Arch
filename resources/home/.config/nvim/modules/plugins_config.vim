@@ -70,6 +70,15 @@ require'neoscroll'.setup {
 }
 EOF
 
+" -------------- ] Telescope: fuzzy search [ ----------------
+lua <<EOF
+require'telescope'.setup{
+  defaults = {
+    file_ignore_patterns = { 'node_modules' }
+  }
+}
+EOF
+
 " -------------- ] Markdown Preview [ ----------------
 
 " Echo the url when the command is executed
