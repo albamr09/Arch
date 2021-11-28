@@ -40,6 +40,27 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " Git status
 let g:NERDTreeGitStatusUseNerdFonts = 1
 
+" ------------------ ] Tree Sitter [ --------------------
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+    disable = {},
+  },
+  indent = {
+    enable = false,
+    disable = {},
+  },
+  ensure_installed = {
+    "javascript",
+    "json",
+    "html",
+    "scss"
+  },
+}
+EOF
+
 " -------------- ] Integrated Terminal [ ----------------
 
 " open new split panes to right and below
