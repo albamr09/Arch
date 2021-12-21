@@ -73,7 +73,7 @@ hide_duplicate_count = yes
 offset = 15x39
 
 # Roundness of corners
-corner_radius = 2
+corner_radius = 1
 
 # Shrink window if it's smaller than the width.  Will be ignored if
 # width is 0.
@@ -82,7 +82,7 @@ shrink = no
 # The transparency of the window.  Range: [0; 100].
 # This option will only work if a compositing windowmanager is
 # present (e.g. xcompmgr, compiz, etc.).
-transparency = 5
+transparency = 0
 
 # Don't remove messages, if the user is idle (no mouse or keyboard input)
 # for longer than idle_threshold seconds.
@@ -184,24 +184,21 @@ frame_color = "#8EC07C"
 [urgency_low]
   # IMPORTANT: colors have to be defined in quotation marks.
   # Otherwise the "#" and following would be interpreted as a comment.
-  frame_color = "#3B7C87"
-  foreground = "#3B7C87"
-  background = "#191311"
-  #background = "#2B313C"
+  frame_color = "#285577"
+  foreground = "#b8bec6"
+  background = "#011627"
   timeout = 4
 
 [urgency_normal]
-  frame_color = "#5B8234"
-  foreground = "#5B8234"
-  background = "#191311"
-  #background = "#2B313C"
+  frame_color = "#285577"
+  foreground = "#b8bec6"
+  background = "#011627"
   timeout = 6
 
 [urgency_critical]
   frame_color = "#B7472A"
-  foreground = "#B7472A"
-  background = "#191311"
-  #background = "#2B313C"
+  foreground = "#b8bec6"
+  background = "#011627"
   timeout = 8
 
 # Every section that isn't one of the above is interpreted as a rules to
