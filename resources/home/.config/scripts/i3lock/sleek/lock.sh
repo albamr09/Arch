@@ -71,5 +71,6 @@ i3lock \
 	--verif-size=25\
 	--wrong-size=25\
 	--greeter-size=25\
+  -n
 sleep 1
 exit

@@ -119,7 +119,11 @@ configurar_servicios(){
 
 		sudo cp $DIR_SERVICES/* /etc/systemd/system &> /dev/zero && mensaje_exito "Se han copiado los servicios" || mensaje_fallo "Fallo durante la copia de servicios"
 		sudo systemctl enable suspend@$USUARIO &> /dev/zero && mensaje_exito "Se han activado los servicios" || mensaje_fallo "Fallo durante la activación de los servicios"
-		#Actualizar
+		# Servicio de notificación de batería
+        su -c "systemctl --user enable check-battery-user.timer" $USUARIO
+        # Servicio de notificación de batería
+        su -c "systemctl --user start check-battery-user.service" $USUARIO
+        #Actualizar
 		sudo systemctl daemon-reload
 }
 
@@ -156,6 +160,15 @@ configurar_nvim(){
     su $USUARIO "$DIR_USER_SCRIPTS/$CONFIG_NVIM"
 }
 
+configurar_dunst(){
+
+    echo "----------------------------------------------"
+    echo "------------ Configurar dunst ----------------"
+    echo "----------------------------------------------"
+
+    su $USUARIO "$DIR_USER_SCRIPTS/$CONFIG_DUNST"
+}
+
 copiar_dotfiles(){
 
   echo "----------------------------------------------"
@@ -169,8 +182,9 @@ copiar_dotfiles(){
   chmod +x $DIR_USER_SCRIPTS"/"$COPY_DOTFILES
   su $USUARIO "$DIR_USER_SCRIPTS/$COPY_DOTFILES" 
 
-  # Tras copia de dotfiles de nvim configurar nvim
+  # Tras copia de dotfiles de nvim y dunst configurar nvim y dunst
   configurar_nvim
+  configurar_dunst
 }
 
 copiar_fonts(){
