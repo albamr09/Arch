@@ -35,3 +35,7 @@
 " Execute racket
 autocmd FileType scheme map <buffer> <F9> :w<CR>:exec '!racket' shellescape(@%, 1)<CR>
 autocmd FileType scheme imap <buffer> <F9> <esc>:w<CR>:exec '!racket' shellescape(@%, 1)<CR>
+
+" Execute bash
+autocmd FileType sh map <buffer> <F9> :w<CR>:exec '!bash' shellescape(@%, 1)<CR>
+autocmd FileType sh imap <buffer> <F9> <esc>:w<CR>:exec '!bash' shellescape(@%, 1)<CR>
