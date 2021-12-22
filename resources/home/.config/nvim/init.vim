@@ -35,3 +35,7 @@ source ~/.config/nvim/modules/plugins_config.vim
 
 source ~/.config/nvim/modules/mappings.vim
 
+" --------------- ] Commands [  --------------- 
+
+source ~/.config/nvim/modules/commands.vim
+
