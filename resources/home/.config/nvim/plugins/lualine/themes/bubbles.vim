@@ -5,7 +5,7 @@ lua <<EOF
 
 -- stylua: ignore
 local colors = {
-  bg_c   = '#011627',
+  bg_c   = '#152638',
   bg_b   = '#24293c',
   blue   = '#51afef',
   cyan   = '#7fdbca',
