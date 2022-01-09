@@ -178,42 +178,37 @@ font:
 
 # The definition of color schemes.
 schemes:
-  night_owl: &night_owl # Default colors
-    primary:
-      background: "#011627"
-      foreground: "#d6deeb"
-
-    cursor:
-      text: "#011627"
-      cursor: "#d6deeb"
-
-    selection:
-      background: "#1b90dd"
-
-      # Normal colors
-    normal:
-      black: "#011627"
-      red: "#ef5350"
-      green: "#22da6e"
-      yellow: "#c5e478"
-      blue: "#82aaff"
-      magenta: "#c792ea"
-      cyan: "#21c7a8"
-      white: "#ffffff"
-
-      # Bright colors
+  hivacruz: &hivacruz # Default colors
     bright:
-      black: "#575656"
-      red: "#ef5350"
-      green: "#22da6e"
-      yellow: "#ffeb95"
-      blue: "#82aaff"
-      magenta: "#c792ea"
-      cyan: "#7fdbca"
-      white: "#ffffff"
+      black: '#6b7394'
+      blue: '#898ea4'
+      cyan: '#9c637a'
+      green: '#73ad43'
+      magenta: '#dfe2f1'
+      red: '#c76b29'
+      white: '#f5f7ff'
+      yellow: '#5e6687'
+    cursor:
+      cursor: '#979db4'
+      text: '#202746'
+    normal:
+      black: '#202746'
+      blue: '#3d8fd1'
+      cyan: '#22a2c9'
+      green: '#ac9739'
+      magenta: '#6679cc'
+      red: '#c94922'
+      white: '#979db4'
+      yellow: '#c08b30'
+    primary:
+      background: '#132638'
+      foreground: '#ede4e4'
+    selection:
+      background: '#5e6687'
+      text: '#979db4'
 
 # Apply the color scheme.
-colors: *night_owl
+colors: *hivacruz
 # Colors (Tomorrow Night)
 #colors:
 # Default colors
