@@ -107,9 +107,8 @@ let g:mkdp_echo_preview_url = 1
 
 " -------------- ] Vimwiki [ ----------------
 
-let g:vimwiki_list = [{
-  \ 'path': '$HOME/Desktop/MyNotes',
-\}]
+" Vimwiki working directory
+let g:vimwiki_list = [{'path': '~/Desktop/VimWiki'}]
 
 " Relative path on links
 let g:vimwiki_auto_chdir = 1
