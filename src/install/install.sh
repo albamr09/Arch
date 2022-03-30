@@ -102,7 +102,7 @@ configuracion_sistema(){
   echo "----------------------------------------------"
 
   swapoff "$DISCO_INSTALACION"3 && mensaje_exito "Se ha desactivado el swap" || mensaje_fallo "Fallo al desactivar el swap"
-  umount "$DISCO_INSTALACION"4 "$DISCO_INSTALACION"2 && mensaje_exito "Se han desmontado las particiones" || mensaje fallo "Fallo al desmontar las particiones"
+  umount "$DISCO_INSTALACION"4 "$DISCO_INSTALACION"2 && mensaje_exito "Se han desmontado las particiones" || mensaje_fallo "Fallo al desmontar las particiones"
 }
 
 copia_ficheros_config(){
