@@ -111,6 +111,9 @@ let g:vimwiki_list = [{
   \ 'path': '$HOME/Desktop/MyNotes',
 \}]
 
+" Relative path on links
+let g:vimwiki_auto_chdir = 1
+
 " Allow for autocompletion in vimwiki
 
 " disable table mappings
