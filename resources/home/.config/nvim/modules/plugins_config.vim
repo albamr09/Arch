@@ -107,8 +107,12 @@ let g:mkdp_echo_preview_url = 1
 
 " -------------- ] Vimwiki [ ----------------
 
-" Vimwiki working directory
-let g:vimwiki_list = [{'path': '~/Desktop/VimWiki'}]
+" Vimwiki working directory, and template
+let g:vimwiki_list = [{
+    \ 'path': '~/Desktop/VimWiki',
+    \ 'template_path': '$HOME/.config/vimwiki/templates',
+    \ 'template_default': 'default',
+    \ 'template_ext': '.html'}]
 
 " Relative path on links
 let g:vimwiki_auto_chdir = 1
