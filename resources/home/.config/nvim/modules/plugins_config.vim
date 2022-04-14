@@ -114,6 +114,12 @@ let g:vimwiki_list = [{
     \ 'template_default': 'default',
     \ 'template_ext': '.html'}]
 
+" Code highlight
+let wiki_settings={
+\ 'nested_syntaxes': {
+\ 'js':'javascript',
+\ }}
+
 " Relative path on links
 let g:vimwiki_auto_chdir = 1
 
