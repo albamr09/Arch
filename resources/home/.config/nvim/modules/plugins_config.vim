@@ -118,6 +118,7 @@ let g:vimwiki_list = [{
 let wiki_settings={
 \ 'nested_syntaxes': {
 \ 'js':'javascript',
+\ 'py':'python',
 \ }}
 
 " Relative path on links
