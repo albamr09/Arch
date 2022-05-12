@@ -178,22 +178,43 @@ local on_attach = function(client, bufnr)
   local opts = { noremap=true, silent=true }
 
   -- See `:help vim.lsp.*` for documentation on any of the below functions
-  buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  buf_set_keymap('n', '<leader>gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  buf_set_keymap('n', '<leader>gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', '<leader>K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  buf_set_keymap('n', '<leader>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  buf_set_keymap('n', '<leader>gr', "<cmd>lua require'telescope.builtin'.lsp_references()<CR>", opts)
+  -- buf_set_keymap('n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+  -- buf_set_keymap('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+  -- buf_set_keymap('n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+  -- buf_set_keymap('n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+  -- buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  -- buf_set_keymap('n', '<leader><CR>', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+  -- buf_set_keymap('v', '<leader><CR>', '<cmd>lua vim.lsp.buf.range_code_action()<CR>', opts)
+  -- buf_set_keymap('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
+  -- buf_set_keymap('n', '<leader>ovr', '<cmd>Telescope lsp_document_symbols<cr>', opts)
+  -- buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next{severity = { min = vim.diagnostic.severity.HINT, max = vim.diagnostic.severity.WARN }}<CR>', opts)
+  -- buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev{severity = { min = vim.diagnostic.severity.HINT, max = vim.diagnostic.severity.WARN }}<CR>', opts)
+  -- buf_set_keymap('n', ']e', '<cmd>lua vim.diagnostic.goto_next{severity = { min = vim.diagnostic.severity.ERROR }}<CR>', opts)
+  -- buf_set_keymap('n', '[e', '<cmd>lua vim.diagnostic.goto_prev{severity = { min = vim.diagnostic.severity.ERROR }}<CR>', opts)
+  -- buf_set_keymap('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
+
 
 end
 
--- Use a loop to conveniently call 'setup' on multiple servers and
+-- Use a loop to conveniently install and call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'tsserver' }
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
+local servers = { 'tsserver', 'pyright' }
+require("nvim-lsp-installer").setup {
+  ensure_installed = servers
+}
+
+for _, server in ipairs(servers) do
+  nvim_lsp[server].setup {
     on_attach = on_attach,
     flags = {
       debounce_text_changes = 150,
     }
   }
 end
+
 EOF
