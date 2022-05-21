@@ -1,6 +1,13 @@
 <html>
   <head>
+    <!-- Normal styling from vimwiki -->
     <link rel="Stylesheet" type="text/css" href="%root_path%style.css" />
+    <!-- Styling for search -->
+    <link
+      rel="Stylesheet"
+      type="text/css"
+      href="https://albamr09.github.io/search.css"
+    />
     <title>%title%</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- For LaTeX -->
@@ -31,6 +38,11 @@
       "
       >Index</a
     >
+    <form id="search_form" class="search-form">
+      <input required type="search" id="search_term" class="searchTerm" />
+      <button type="submit" class="searchButton">Search</button>
+    </form>
+    <div id="search-result" class="search-result-hide"></div>
     <hr />
     <div class="content">%content%</div>
   </body>
@@ -41,6 +53,14 @@
   <script
     type="text/javascript"
     src="https://albamr09.github.io/zepto.min.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://albamr09.github.io/lunr.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://albamr09.github.io/search.js"
   ></script>
   <script type="text/javascript">
     $("pre").each(function (index, item) {
