@@ -94,3 +94,6 @@ nmap <C-s> <Plug>MarkdownPreview
 nnoremap <silent> <F11> :set spell!<cr>
 inoremap <silent> <F11> <C-O>:set spell!<cr>
 
+" -------------- ] Floating Term [ ----------------
+
+nnoremap <Leader>at :FloatermToggle<CR>

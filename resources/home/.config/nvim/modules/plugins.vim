@@ -53,4 +53,7 @@ Plug 'vimwiki/vimwiki'
 " Latex
 Plug 'lervag/vimtex'
 
+" Floating term
+Plug 'voldikss/vim-floaterm'
+
 call plug#end()

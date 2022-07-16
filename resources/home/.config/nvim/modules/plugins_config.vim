@@ -107,9 +107,9 @@ let g:mkdp_echo_preview_url = 1
 
 " -------------- ] Vimwiki [ ----------------
 
-" Vimwiki working directory, and template
+" Vimwiki working directory
 let g:vimwiki_list = [{
-    \ 'path': '~/Desktop/VimWiki',
+    \ 'path': '~/Documentos/GitRepos/NoteWorld/VimWiki',
     \ 'template_path': '$HOME/.config/vimwiki/templates',
     \ 'template_default': 'default',
     \ 'template_ext': '.html'}]
@@ -118,7 +118,10 @@ let g:vimwiki_list = [{
 let wiki_settings={
 \ 'nested_syntaxes': {
 \ 'js':'javascript',
-\ 'py':'python',
+\ 'py': 'python',
+\ 'm': 'octave',
+\ 'sh': 'bash',
+\ 'java': 'java',
 \ }}
 
 " Relative path on links
@@ -203,7 +206,7 @@ end
 
 -- Use a loop to conveniently install and call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'tsserver', 'pyright' }
+local servers = { 'tsserver', 'pyright', 'clangd', 'cmake' }
 require("nvim-lsp-installer").setup {
   ensure_installed = servers
 }
@@ -216,5 +219,19 @@ for _, server in ipairs(servers) do
     }
   }
 end
-
 EOF
+
+" -------------- ] Floating Term [ ----------------
+
+let g:floaterm_title=''
+let g:floaterm_autoinsert=1
+let g:floaterm_width=0.5
+let g:floaterm_height=0.5
+let g:floaterm_wintitle=0
+let g:floaterm_autoclose=2
+let g:floaterm_borderchars = "─│─│╭╮╯╰"
+
+" Set floaterm window's background to black
+" hi Floaterm guibg=black
+" Set floating window border line color to cyan, and background to orange
+hi FloatermBorder guifg=white
