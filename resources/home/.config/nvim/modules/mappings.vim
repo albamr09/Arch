@@ -97,3 +97,7 @@ inoremap <silent> <F11> <C-O>:set spell!<cr>
 " -------------- ] Floating Term [ ----------------
 
 nnoremap <Leader>at :FloatermToggle<CR>
+
+" -------------- ] CPP Clangd Format [ ----------------
+
+nnoremap <Leader>f :<C-u>ClangFormat<CR>
