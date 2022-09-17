@@ -319,6 +319,7 @@ dap.configurations.python = {
 
 -- Highlight colors
 vim.highlight.create('DapBreakpoint', { ctermbg=0, guifg='#7a5e6f', guibg='#dd92b8' }, false)
+vim.highlight.create('DapStopped', { ctermbg=0, guifg='#3b5cb1', guibg='#939ede' }, false)
 vim.highlight.create('DapLogPoint', { ctermbg=0, guifg='#7a735e', guibg='#d5dd92' }, false)
 
 -- Cutomize breakpoints
@@ -326,7 +327,7 @@ vim.fn.sign_define('DapBreakpoint', {text='🚩', texthl='', linehl='DapBreakpoi
 vim.fn.sign_define('DapBreakpointCondition', {text='❔', texthl='DapBreakpoint', linehl='', numhl=''})
 vim.fn.sign_define('DapBreakpointRejected', {text='✖️', texthl='DapBreakpoint', linehl='', numhl=''})
 vim.fn.sign_define('DapLogPoint', { text='📜', texthl='', linehl='DapLogPoint', numhl= '' })
-vim.fn.sign_define('DapStopped', { text='👁️', txthl='', linehl='debugPC', numhl='' })
+vim.fn.sign_define('DapStopped', { text='👁️', txthl='', linehl='DapStopped', numhl='' })
 EOF
 
 " --------------- ] Debugger UI [  --------------- 
