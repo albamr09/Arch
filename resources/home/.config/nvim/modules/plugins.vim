@@ -62,4 +62,8 @@ Plug 'vim-syntastic/syntastic'
 " CPP Clangd Format
 Plug 'rhysd/vim-clang-format'
 
+" Debugger
+Plug 'mfussenegger/nvim-dap'
+Plug 'rcarriga/nvim-dap-ui'
+Plug 'theHamsta/nvim-dap-virtual-text'
 call plug#end()
