@@ -114,6 +114,7 @@ require'telescope'.setup{
     file_ignore_patterns = { 'node_modules' }
   }
 }
+require('telescope').load_extension('dap')
 EOF
 
 " -------------- ] Markdown Preview [ ----------------
@@ -318,9 +319,9 @@ dap.configurations.python = {
 }
 
 -- Highlight colors
-vim.highlight.create('DapBreakpoint', { ctermbg=0, guifg='#7a5e6f', guibg='#dd92b8' }, false)
-vim.highlight.create('DapStopped', { ctermbg=0, guifg='#3b5cb1', guibg='#939ede' }, false)
-vim.highlight.create('DapLogPoint', { ctermbg=0, guifg='#7a735e', guibg='#d5dd92' }, false)
+vim.highlight.create('DapBreakpoint', { ctermbg=0, guifg='#292d3e', guibg='#dd92b8' }, false)
+vim.highlight.create('DapStopped', { ctermbg=0, guifg='#292d3e', guibg='#939ede' }, false)
+vim.highlight.create('DapLogPoint', { ctermbg=0, guifg='#292d3e', guibg='#d5dd92' }, false)
 
 -- Cutomize breakpoints
 vim.fn.sign_define('DapBreakpoint', {text='🚩', texthl='', linehl='DapBreakpoint', numhl=''})
