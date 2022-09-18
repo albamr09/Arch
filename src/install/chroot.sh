@@ -145,15 +145,13 @@ config_usuarios(){
     if [ -z "$USUARIO" ]; then
         mensaje_exito "\$USUARIO no tiene valor, no se creara un usuario"
     elif [ "$USUARIO" != "root" ]; then
-        useradd -m $USUARIO &> /dev/zero && mensaje_exito "Se ha creado el usuario: $USUARIO correctamente" || mensaje_fallo "Fallo al crear el usuario"
+        useradd -m -G wheel -s /bin/bash $USUARIO &> /dev/zero && mensaje_exito "Se ha creado el usuario: $USUARIO correctamente" || mensaje_fallo "Fallo al crear el usuario"
         passwd $USUARIO
         while [ $? != 0 ]; do
             passwd $USUARIO
         done
-        usermod -a -G wheel $USUARIO &> /dev/zero && mensaje_exito "Se ha anadido $USUARIO al grupo wheel (sudo)" || mensaje_fallo "Fallo al anadir $USUARIO al grupo wheel (sudo)"
         chmod -R 770 /home/$USUARIO &> /dev/zero && mensaje_exito "Se han configurado los permisos de $USUARIO" || mensaje_fallo "Fallo al configurar los permisos de $USUARIO"
-    fi
-    
+    fi   
 }
 
 #Configuracion extra para unidad usb
