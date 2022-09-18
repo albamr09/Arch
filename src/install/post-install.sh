@@ -175,6 +175,8 @@ copiar_dotfiles(){
   echo " + Copiar dotfiles"
   echo "----------------------------------------------"
 
+  configurar_nvim
+  
   cp -r $DIR_DOTFILES/.??* ~ &> /dev/zero && mensaje_exito "Se han copiado los ficheros de configuracion para root" || mensaje_fallo "Fallo durante la copia de los ficheros de configuracion en root"
   cp -r $DIR_RESOURCES/etc/* /etc &> /dev/zero && mensaje_exito "Se ha copiado directorio etc" || mensaje_fallo "Fallo durante la copia del directorio etc"
 
@@ -182,8 +184,6 @@ copiar_dotfiles(){
   chmod +x $DIR_USER_SCRIPTS"/"$COPY_DOTFILES
   su $USUARIO "$DIR_USER_SCRIPTS/$COPY_DOTFILES" 
 
-  # Tras copia de dotfiles de nvim y dunst configurar nvim y dunst
-  configurar_nvim
   configurar_dunst
 }
 

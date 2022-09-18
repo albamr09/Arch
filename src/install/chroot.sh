@@ -151,6 +151,7 @@ config_usuarios(){
             passwd $USUARIO
         done
         chmod -R 770 /home/$USUARIO &> /dev/zero && mensaje_exito "Se han configurado los permisos de $USUARIO" || mensaje_fallo "Fallo al configurar los permisos de $USUARIO"
+        sudo sed -i "s/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/g" /etc/sudoers &> /dev/zero && mensaje_exito "Se ha añadido $USUARIO a sudoers" || mensaje_fallo "Fallo al añadir $USUARIO a sudoers"
     fi   
 }
 
