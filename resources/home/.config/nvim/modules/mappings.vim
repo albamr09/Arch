@@ -58,6 +58,8 @@ nnoremap <Up> :resize -5 <CR>
 " -------------- ] Documentacion en hover [ ----------------
 
 nnoremap <silent> K :call CocAction('doHover')<CR>
+" Fixes when on pressing enter to autocomplete makes a new line
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 
 " -------------- ] Telescope: fuzzy search [ ----------------
