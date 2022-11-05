@@ -56,8 +56,8 @@ Plug 'lervag/vimtex'
 " Floating term
 Plug 'voldikss/vim-floaterm'
 
-" CPP Linting
-Plug 'vim-syntastic/syntastic'
+" Error Linting
+Plug 'dense-analysis/ale'
 
 " CPP Clangd Format
 Plug 'rhysd/vim-clang-format'
