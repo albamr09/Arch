@@ -24,7 +24,11 @@
       href="https://albamr09.github.io/atom-one-light.min.css"
     />
     <!-- Page icon -->
-    <link rel="icon" type="image/svg+xml" href="https://albamr09.github.io/icon.svg">
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="https://albamr09.github.io/icon.svg"
+    />
   </head>
   <body>
     <a
@@ -44,7 +48,15 @@
       <input required type="search" id="search_term" class="searchTerm" />
       <button type="submit" class="searchButton">Search</button>
     </form>
-    <div id="search-result" class="search-result-hide"></div>
+    <div id="search-background" class="search-background">
+      <div id="search-result" class="search-result-hide"></div>
+      <div id="search-form-modal" class="search-form-modal">
+        <form id="search-form-in-modal">
+          <input required type="search" id="search-input-in-modal" class="search-input-in-modal" placeholder="Search whatever..."/>
+          <button type="submit" class="searchButton">Search</button>
+        </form>
+      </div>
+    </div>
     <hr />
     <div class="content">%content%</div>
   </body>
