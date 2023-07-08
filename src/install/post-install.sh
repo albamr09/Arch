@@ -169,6 +169,15 @@ configurar_dunst(){
     su $USUARIO "$DIR_USER_SCRIPTS/$CONFIG_DUNST"
 }
 
+configurar_tmux() {
+
+    echo "----------------------------------------------"
+    echo "------------ Configurar tmux -----------------"
+    echo "----------------------------------------------"
+
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+}
+
 copiar_dotfiles(){
 
   echo "----------------------------------------------"
@@ -185,6 +194,7 @@ copiar_dotfiles(){
   su $USUARIO "$DIR_USER_SCRIPTS/$COPY_DOTFILES" 
 
   configurar_dunst
+  configurar_tmux
 }
 
 copiar_fonts(){
@@ -205,7 +215,6 @@ delete_all(){
     cd /
     rm -r Arch  &> /dev/zero && mensaje_exito "Se han eliminado los ficheros fuente" || mensaje_fallo "Fallo durante la eliminacion de los ficheros fuente"
 }
-
 
 #Refresh keys y mirrors
 
