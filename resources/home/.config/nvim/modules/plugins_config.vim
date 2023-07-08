@@ -314,9 +314,9 @@ dap.configurations.python = {
 }
 
 -- Highlight colors
-vim.highlight.create('DapBreakpoint', { ctermbg=0, guifg='#292d3e', guibg='#dd92b8' }, false)
-vim.highlight.create('DapStopped', { ctermbg=0, guifg='#292d3e', guibg='#939ede' }, false)
-vim.highlight.create('DapLogPoint', { ctermbg=0, guifg='#292d3e', guibg='#d5dd92' }, false)
+vim.api.nvim_set_hl(0, 'DapBreakpoint', { ctermbg=0, fg='#292d3e', bg='#dd92b8' })
+vim.api.nvim_set_hl(0, 'DapStopped', { ctermbg=0, fg='#292d3e', bg='#939ede' })
+vim.api.nvim_set_hl(0, 'DapLogPoint', { ctermbg=0, fg='#292d3e', bg='#d5dd92' })
 
 -- Cutomize breakpoints
 vim.fn.sign_define('DapBreakpoint', {text='🚩', texthl='', linehl='DapBreakpoint', numhl=''})
