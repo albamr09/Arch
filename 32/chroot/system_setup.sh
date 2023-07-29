@@ -90,14 +90,20 @@ copy_dotfiles() {
 install_neovim_plugins() {
 
     title_msg "Installing neovim plugins"
-
-    nvim -c 'PlugInstall|q|q'
-    nvim -c 'so ~/.config/nvim/init.vim|q'
     nvim -c 'PlugInstall|q|q|q'
+}
+
+define_defaults(){
+
+    title_msg "Define defaults"
+
+    xdg-settings set default-web-browser org.qutebrowser.qutebrowser.desktop
+    chsh -s /bin/zsh
 }
 
 # connect_network
 # install_packages
 # configure_packages
 # copy_dotfiles
-install_neovim_plugins
+# install_neovim_plugins
+define_defaults
