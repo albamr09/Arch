@@ -109,7 +109,7 @@ copy_dotfiles(){
 
     title_msg "Copying dotfiles"
 
-    mkdir -p /mnt/$INSTALL_FOLDER/dotfiles && log "Created dotfiles directory"
+    mkdir -p /mnt/$INSTALL_FOLDER/resources && log "Created resources directory"
     cp -r $DIR_RESOURCES /mnt/Arch &> /dev/zero && log "Copied dotfiles"
 }
 
@@ -129,9 +129,9 @@ cleanup() {
 # mounting_filesystems
 # 4
 # installing_firmware
+# 6
+copy_dotfiles
 # 5
 system_configuration
-# 6
-# copy_dotfiles
 # 7
 # cleanup
