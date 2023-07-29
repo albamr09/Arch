@@ -100,7 +100,6 @@ define_defaults(){
     execute chsh -s /bin/zsh
 }
 
-
 ## Execute steps
 install_packages
 configure_packages

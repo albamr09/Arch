@@ -79,7 +79,7 @@ mounting_filesystems(){
 
     execute mount "$INSTALLATION_DISK"4 /mnt
 
-    execute mkdir "/mnt/$BOOT_DIRECTORY" && mount "$INSTALLATION_DISK"2 "/mnt/$BOOT_DIRECTORY"
+    execute mkdir -p "/mnt/$BOOT_DIRECTORY" && mount "$INSTALLATION_DISK"2 "/mnt/$BOOT_DIRECTORY"
 }
 
 # Fourth step: install basic linux firmware
@@ -99,9 +99,9 @@ system_configuration(){
     title_msg "System configuration and setup"
 
     execute cp -rf $WORKDIR /mnt
-    arch-chroot /mnt /bin/bash -c "cd ./$INSTALL_FOLDER/chroot/ && ./system_config.sh"
+    arch-chroot /mnt /bin/bash -c "cd $HOST_INSTALL_FOLDER/chroot/ && ./system_config.sh"
     # It is important to execute this as regular user
-    arch-chroot /mnt /bin/bash -c "cd ./$INSTALL_FOLDER/chroot/ && sudo -u $USER ./system_setup.sh"
+    arch-chroot /mnt /bin/bash -c "cd $HOST_INSTALL_FOLDER/chroot/ && sudo -u $USER ./system_setup.sh"
 }
 
 copy_dotfiles(){
