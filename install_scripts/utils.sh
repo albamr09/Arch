@@ -33,13 +33,14 @@ title_msg() {
 
 execute() {
 
-    info_msg "$@"
+    local command = ""$@""
+    info_msg $command
 
     "$@" && success_msg || error_msg
 }
 
 info_msg(){
-    echo_with_color " -> $@" $YELLOW
+    echo_with_color " -> $1" $YELLOW
 }
 
 error_msg(){
