@@ -48,17 +48,14 @@ config_grub () {
 
     title_msg "Configuring BIOS Legacy"
 
-    grub-install --target=$TARGET_GRUB_LEGACY --boot-directory="$BOOT_DIRECTORY" \ 
-        $GRUB_PARTITION &> /dev/zero && log "Installing BIOS Legacy"
+    grub-install --target=$TARGET_GRUB_LEGACY --boot-directory="$BOOT_DIRECTORY" $GRUB_PARTITION &> /dev/zero && log "Installing BIOS Legacy"
 
     title_msg "Configuring EFI"
 
     if [ $USB -eq 1 ]; then
-        grub-install --target=$TARGET_GRUB_EFI --efi-directory="$BOOT_DIRECTORY" --boot-directory="$BOOT_DIRECTORY" \ 
-            --removable $GRUB_PARTITION &> /dev/zero && log "Installing EFI with USB"
+        grub-install --target=$TARGET_GRUB_EFI --efi-directory="$BOOT_DIRECTORY" --boot-directory="$BOOT_DIRECTORY" --removable $GRUB_PARTITION &> /dev/zero && log "Installing EFI with USB"
     else
-        grub-install --target=$TARGET_GRUB_EFI --efi-directory="$BOOT_DIRECTORY" --boot-directory="$BOOT_DIRECTORY" \ 
-            $GRUB_PARTITION &> /dev/zero && log "Installing EFI"
+        grub-install --target=$TARGET_GRUB_EFI --efi-directory="$BOOT_DIRECTORY" --boot-directory="$BOOT_DIRECTORY" $GRUB_PARTITION &> /dev/zero && log "Installing EFI"
     fi
 
     title_msg "Generating GRUB configuration file"
