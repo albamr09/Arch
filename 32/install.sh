@@ -12,7 +12,7 @@
 partitioning_helper(){
   echo " + Partitioning disk $1"
 
-  sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' << EOF | gdisk $DISCO_INSTALACION
+  sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' << EOF | gdisk $INSTALLATION_DISK
   o     # Borrar tabla de particiones
   Y     # Confirmar borrado
   n     # Nueva particion
