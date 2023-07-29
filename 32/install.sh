@@ -100,7 +100,7 @@ system_configuration(){
     title_msg "System configuration and setup"
 
     cp -rf $WORKDIR /mnt && log "Copying install folder on mnt"
-    # arch-chroot /mnt /bin/bash -c "cd ./$INSTALL_FOLDER/chroot/ && ./system_config.sh" && log "Performing chroot on system config"
+    arch-chroot /mnt /bin/bash -c "cd ./$INSTALL_FOLDER/chroot/ && ./system_config.sh" && log "Performing chroot on system config"
     # It is important to execute this as regular user
     arch-chroot /mnt /bin/bash -c "cd ./$INSTALL_FOLDER/chroot/ && sudo -u $USER ./system_setup.sh" && log "Performing chroot on system setup"
 }
