@@ -32,13 +32,10 @@ install_packages() {
     fi
 
     title_msg "Installing oh-my-zsh"
-    execute "sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)""
+    sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 }
 
 configure_packages() {
-
-    title_msg "Configuring i3-bar"
-    execute pip3 install psutil
 
     title_msg "Configuring ranger"
     execute ranger --copy-config=all
@@ -81,13 +78,17 @@ copy_dotfiles() {
     execute sudo cp -r $DIR_DOTFILES/.??* /home/$USER
     execute sudo chown -R $USER /home/$USER/.??* && sudo chmod -R 775 /home/$USER/.??*
     execute chmod 775 /home/$USER/.xsession
+    # Needed so telescope installs successfully, will be copied again after plugins are installed
+    execute rm -rf /home/$USER/.vim
 }
 
 install_neovim_plugins() {
 
     title_msg "Installing neovim plugins"
-    execute nvim -c 'PlugInstall|q|q|'
-    execute nvim -c 'PlugInstall|q|q|q'
+    # TODO: add command so errors are not shown
+    execute nvim -c 'PlugInstall'
+    # Copy dotfiles for telescope that we removed earlier
+    execute cp -rf -r $DIR_DOTFILES/.vim /home/$USER
 }
 
 define_defaults(){
@@ -103,6 +104,5 @@ define_defaults(){
 install_packages
 configure_packages
 copy_dotfiles
-## TODO: these are not working
 install_neovim_plugins
 define_defaults
