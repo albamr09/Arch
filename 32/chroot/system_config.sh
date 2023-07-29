@@ -1,7 +1,9 @@
 #!/bin/bash
 
-.  ../utils.sh
-.  ../config.sh
+ls
+
+. ../utils.sh
+. ../config.sh
 
 config_system() {
 
