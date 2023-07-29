@@ -100,7 +100,7 @@ system_configuration(){
     title_msg "System configuration"
 
     cp -r $WORKDIR /mnt
-    arch-chroot /mnt ./$WORKDIR/chroot.sh && log "Executing chroot"
+    arch-chroot /mnt ./$WORKDIR/chroot/system_config.sh && log "Performing chroot on system config"
 
 #   echo "----------------------------------------------"
 #   echo " + Limipeza"
@@ -122,11 +122,11 @@ system_configuration(){
 
 ### Execute steps
 # 1
-partitioning
+# partitioning
 # 2
-format_partitions
+# format_partitions
 # 3
-mounting_filesystems
+# mounting_filesystems
 # 4
 installing_firmware
 # 5

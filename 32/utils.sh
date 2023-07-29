@@ -53,7 +53,7 @@ is_machine_32() {
 
 update_pacman_keys() {
     if is_machine_32; then
-        pacman -S archlinux-keyring32
+        pacman -S archlinux32-keyring
     else
         pacman -S archlinux-keyring
     fi

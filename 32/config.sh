@@ -17,6 +17,13 @@ MACHINE_ARCH=$(uname -m)
 INSTALLATION_DISK="/dev/sda"
 BOOT_DIRECTORY="/boot"
 
+# System config
+
+USER="alba"
+LANG="es_ES.UTF-8"
+CODEC="UTF-8"
+KEYMAP="es"
+
 # Packages
 
 FIRMWARE="base base-devel linux linux-firmware networkmanager efibootmgr"
