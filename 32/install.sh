@@ -1,7 +1,7 @@
 #!/bin/bash
 
-.  ../config.sh
-.  ../utils.sh
+.  config.sh
+.  utils.sh
 
 ############################################################################
 ## INSTALLATION SCRIPT
