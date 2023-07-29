@@ -117,7 +117,7 @@ cleanup() {
     title_msg "Finishing installation"
     
     execute swapoff "$INSTALLATION_DISK"3
-    execute umount /mnt
+    execute umount "$INSTALLATION_DISK"2 "$INSTALLATION_DISK"4
 
     success_msg "Installation finished! Remember to execute the post_install script after reboot!"
 }
