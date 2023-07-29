@@ -122,16 +122,16 @@ cleanup() {
 
 ### Execute steps
 # 1
-# partitioning
+partitioning
 # 2
-# format_partitions
+format_partitions
 # 3
-# mounting_filesystems
+mounting_filesystems
 # 4
-# installing_firmware
+installing_firmware
 # 6
-# copy_dotfiles
+copy_dotfiles
 # 5
 system_configuration
 # 7
-# cleanup
+cleanup
