@@ -65,9 +65,7 @@ configure_nvim() {
 
     title_msg "Installing plugin manager"
     curl -fLo /home/$USER/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    # nvim -c 'PlugInstall|q|q'
-    # nvim -c 'so ~/.config/nvim/init.vim|q'
-    # nvim -c 'PlugInstall|q|q|q'
+
     pip3 install neovim cpplint pynvim
 }
 
@@ -82,9 +80,24 @@ copy_dotfiles() {
     title_msg "Copying dotfiles for root"
     sudo cp -r $DIR_DOTFILES/.??* /root &> /dev/zero && log "Copying dotfiles for root"
 
+    title_msg "Copying fonts"
+    sudo cp -r $DIR_FONTS/* "/usr/share/fonts/" &> /dev/zero && log "Copying fonts"
+
+    title_msg "Copying system configuration files"
+    sudo cp -r $DIR_RESOURCES/etc/* /etc &> /dev/zero && log "Copying system config files"
+}
+
+install_neovim_plugins() {
+
+    title_msg "Installing neovim plugins"
+
+    nvim -c 'PlugInstall|q|q'
+    nvim -c 'so ~/.config/nvim/init.vim|q'
+    nvim -c 'PlugInstall|q|q|q'
 }
 
 # connect_network
 # install_packages
 # configure_packages
 copy_dotfiles
+# install_neovim_plugins

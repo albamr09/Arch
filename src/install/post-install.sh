@@ -50,34 +50,6 @@ establecer_predeterminados(){
   su $USUARIO "$DIR_USER_SCRIPTS/$CHANGE_DEFAULTS" 
 }
 
-copiar_dotfiles(){
-
-  echo "----------------------------------------------"
-  echo " + Copiar dotfiles"
-  echo "----------------------------------------------"
-
-  configurar_nvim
-  
-  cp -r $DIR_DOTFILES/.??* ~ &> /dev/zero && mensaje_exito "Se han copiado los ficheros de configuracion para root" || mensaje_fallo "Fallo durante la copia de los ficheros de configuracion en root"
-  cp -r $DIR_RESOURCES/etc/* /etc &> /dev/zero && mensaje_exito "Se ha copiado directorio etc" || mensaje_fallo "Fallo durante la copia del directorio etc"
-
-  # Copia usuario
-  chmod +x $DIR_USER_SCRIPTS"/"$COPY_DOTFILES
-  su $USUARIO "$DIR_USER_SCRIPTS/$COPY_DOTFILES" 
-
-  configurar_dunst
-  configurar_tmux
-}
-
-copiar_fonts(){
-
-    echo "----------------------------------------------"
-    echo " + Copiar fuentes"
-    echo "----------------------------------------------"
-
-    cp -r $DIR_FONTS/* $HOST_DIR_FONTS &> /dev/zero && mensaje_exito "Se han copiado las fuentes" || mensaje_fallo "Fallo durante la copia de las fuentes"
-}
-
 delete_all(){
 
     echo "----------------------------------------------"
