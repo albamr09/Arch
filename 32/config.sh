@@ -10,6 +10,7 @@
 # Installation metadata
 
 WORKDIR="$PWD"
+INSTALL_FOLDER=$(basename $WORKDIR)
 MACHINE_ARCH=$(uname -m)
 
 # Installation modifiable information
