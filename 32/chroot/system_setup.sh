@@ -74,17 +74,17 @@ copy_dotfiles() {
     title_msg "Copying dotfiles for root"
     execute sudo cp -r $DIR_DOTFILES/.??* /root/ &> /dev/zero "Copying dotfiles for root"
 
-    title_msg "Copying fonts"
-    sudo cp -r $DIR_FONTS/* "/usr/share/fonts/"
+    # title_msg "Copying fonts"
+    # sudo cp -r $DIR_FONTS/* "/usr/share/fonts/"
 
-    title_msg "Copying system configuration files"
-    sudo cp -r $DIR_RESOURCES/etc/* /etc
+    # title_msg "Copying system configuration files"
+    # sudo cp -r $DIR_RESOURCES/etc/* /etc
 
-    title_msg "Copying dotfiles for $USER"
+    # title_msg "Copying dotfiles for $USER"
 
-    sudo cp -r $DIR_DOTFILES/.??* /home/$USER &> /dev/zero && log "Copying dotfiles for $USER"
-    sudo chown -R $USER /home/$USER/.??* && sudo chmod -R 775 /home/$USER/.??* &> /dev/zero && log "Changing permissions for $USER"
-    chmod 775 /home/$USER/.xsession &> /dev/zero && log "Changing xsession permission for $USER"
+    # sudo cp -r $DIR_DOTFILES/.??* /home/$USER &> /dev/zero && log "Copying dotfiles for $USER"
+    # sudo chown -R $USER /home/$USER/.??* && sudo chmod -R 775 /home/$USER/.??* &> /dev/zero && log "Changing permissions for $USER"
+    # chmod 775 /home/$USER/.xsession &> /dev/zero && log "Changing xsession permission for $USER"
 }
 
 install_neovim_plugins() {
