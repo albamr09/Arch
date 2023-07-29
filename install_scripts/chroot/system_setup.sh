@@ -30,10 +30,9 @@ install_packages() {
         title_msg "Installing AUR packages for 32 bit version"
         execute yay -S $PACKAGES_AUR_32 --answerdiff None --answerclean None
     fi
-}
 
     title_msg "Installing oh-my-zsh"
-    execute sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    execute "sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)""
 }
 
 configure_packages() {
@@ -101,7 +100,6 @@ define_defaults(){
 
 
 ## Execute steps
-connect_network
 install_packages
 configure_packages
 copy_dotfiles
