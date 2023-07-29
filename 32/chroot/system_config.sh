@@ -80,6 +80,31 @@ config_network() {
     systemctl enable NetworkManager &> /dev/zero && log "Network configuraiton"
 }
 
+config_users(){
+
+    title_msg "Configuring root user"
+
+    passwd
+    while [ $? != 0 ]; do
+        passwd
+    done
+
+    title_msg "Adding root to sudo"
+
+    pacman -S sudo --noconfirm
+    sed -i '82 s/^##*//' /etc/sudoers && log "Adding root to group"
+
+    title_msg "Adding user"
+
+    useradd -m -G wheel -s /bin/bash $USER &> /dev/zero && log "Creating $USER user"
+    passwd $USER
+    while [ $? != 0 ]; do
+        passwd $USER
+    done
+    chmod -R 770 /home/$USER &> /dev/zero && log "Configuring permissions for $USER"
+    sudo sed -i "s/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/g" /etc/sudoers &> /dev/zero && log "Adding $USER to sudoers"
+}
+
 
 ## Execute every step
 update_pacman_keys
@@ -87,4 +112,5 @@ update_pacman_keys
 # config_image
 # config_grub
 # generate_fstab
-config_network
+# config_network
+config_users
