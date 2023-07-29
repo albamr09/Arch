@@ -12,7 +12,7 @@
 WORKDIR="$PWD"
 INSTALL_FOLDER="$(basename $WORKDIR)"
 MACHINE_ARCH=$(uname -m)
-DIR_RESOURCES="$(dirname $WORKDIR)/dotfiles"
+DIR_RESOURCES="$(dirname $WORKDIR)/resources"
 DIR_DOTFILES=$DIR_RESOURCES"/home"
 DIR_FONTS=$DIR_RESOURCES"/fonts"
 
