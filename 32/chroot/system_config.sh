@@ -62,9 +62,20 @@ config_grub () {
     grub-mkconfig -o "$GRUB_CONF_DIR" &> /dev/zero && log "Generating GRUB config file"
 }
 
+generate_fstab(){
+
+  title_msg "Generating fstab"
+
+  pacman -S arch-install-scripts --noconfirm
+  $(genfstab -U / > /etc/fstab) &> /dev/zero && log "Generating fstab"
+  pacman -R arch-install-scripts --noconfirm
+
+}
+
 
 ## Execute every step
 update_pacman_keys
 # config_system
 # config_image
-config_grub
+# config_grub
+generate_fstab
