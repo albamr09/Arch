@@ -67,6 +67,7 @@ config_grub () {
 
 
 ## Execute every step
+update_pacman_keys
 # config_system
 # config_image
 config_grub
