@@ -10,3 +10,4 @@
 # Installation modifiable information
 
 INSTALLATION_DISK="/dev/sda"
+BOOT_DIRECTORY="/boot"

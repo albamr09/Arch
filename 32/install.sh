@@ -61,19 +61,34 @@ format_partitions(){
     
     title_msg "Formatting partitions"
 
-    # mkfs.fat -F32 "$INSTALLATION_DISK"2 && log "Formatting EFI partition"
+    mkfs.fat -F32 "$INSTALLATION_DISK"2 && log "Formatting EFI partition"
     
-    # if [ $USB -eq 1 ]; then
-    #     mkfs.ext4 -O "^has_journal" "$INSTALLATION_DISK"4 && log "Formatting "$INSTALLATION_DISK"4"
-    # else
-    #     mkfs.ext4 "$INSTALLATION_DISK"4 && log "Formatting "$INSTALLATION_DISK"4"
-    # fi
+    if [ $USB -eq 1 ]; then
+        mkfs.ext4 -O "^has_journal" "$INSTALLATION_DISK"4 && log "Formatting "$INSTALLATION_DISK"4"
+    else
+        mkfs.ext4 "$INSTALLATION_DISK"4 && log "Formatting "$INSTALLATION_DISK"4"
+    fi
 
-    # mkswap "$INSTALLATION_DISK"3 && log "Formatting swap"
+    mkswap "$INSTALLATION_DISK"3 && log "Formatting swap"
+}
+
+# Third step: after partitions are formatted mount them 
+
+mounting_filesystems(){
+
+    title_msg "Mounting filesystems"
+
+    swapon "$INSTALLATION_DISK"3 && log "Activating swap"
+
+    mount "$INSTALLATION_DISK"4 /mnt &> /dev/zero && log "Mounting "$INSTALLATION_DISK"4"
+
+    mkdir "/mnt/$BOOT_DIRECTORY" && mount "$INSTALLATION_DISK"2 "/mnt/$BOOT_DIRECTORY" &> /dev/zero && log "Mounting EFI partition"
 }
 
 ### Execute steps
-#1
-#partitioning
-#2
-format_partitions
+# 1
+# partitioning
+# 2
+# format_partitions
+# 3
+mounting_filesystems
