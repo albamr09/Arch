@@ -3,15 +3,6 @@
 . ../utils.sh
 . ../config.sh
 
-# TODO: Move this to post-install
-connect_network(){
-    
-    title_msg "Setting up network connection"
-
-    nmcli device wifi
-    nmcli --ask device wifi connect
-}
-
 install_packages() {
     
     title_msg "Installing display server"
@@ -97,13 +88,15 @@ define_defaults(){
 
     title_msg "Define defaults"
 
-    xdg-settings set default-web-browser org.qutebrowser.qutebrowser.desktop
-    chsh -s /bin/zsh
+    xdg-settings set default-web-browser org.qutebrowser.qutebrowser.desktop && log "Changing default browser"
+    chsh -s /bin/zsh && log "Changing default terminal interpreter"
 }
 
-# connect_network
-# install_packages
-# configure_packages
-# copy_dotfiles
-# install_neovim_plugins
+
+## Execute steps
+connect_network
+install_packages
+configure_packages
+copy_dotfiles
+install_neovim_plugins
 define_defaults

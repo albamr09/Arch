@@ -15,6 +15,7 @@ MACHINE_ARCH=$(uname -m)
 DIR_RESOURCES="$(dirname $WORKDIR)/resources"
 DIR_DOTFILES=$DIR_RESOURCES"/home"
 DIR_FONTS=$DIR_RESOURCES"/fonts"
+DIR_SERVICES=$DIR_RESOURCES"/services"
 
 # Installation modifiable information
 

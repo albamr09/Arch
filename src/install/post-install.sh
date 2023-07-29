@@ -8,16 +8,6 @@
 
 # Internet
 
-#Lightdm
-
-instalar_lightdm(){
-    
-    echo "----------------------------------------------"
-    echo "-------------- Instalar lightdm --------------"
-    echo "----------------------------------------------"
-
-    systemctl enable lightdm.service
-}
 
 
 configurar_servicios(){
@@ -34,20 +24,6 @@ configurar_servicios(){
         su -c "systemctl --user start check-battery-user.service" $USUARIO
         #Actualizar
 		sudo systemctl daemon-reload
-}
-
-establecer_predeterminados(){
-
-  echo "----------------------------------------------"
-  echo " + Establecer programas predeterminados"
-  echo "----------------------------------------------"
-
-  #Surf
-  xdg-settings set default-web-browser org.qutebrowser.qutebrowser.desktop
-  #Zsh
-  chsh -s /bin/zsh
-  #Usuario
-  su $USUARIO "$DIR_USER_SCRIPTS/$CHANGE_DEFAULTS" 
 }
 
 delete_all(){
