@@ -103,18 +103,18 @@ system_configuration(){
     arch-chroot /mnt /bin/bash -c "cd ./$INSTALL_FOLDER/chroot/ && ./system_config.sh" && log "Performing chroot on system config"
 }
 
+system_setup() {
+
+    title_msg "System setup"
+
+    arch-chroot /mnt /bin/bash -c "cd ./$INSTALL_FOLDER/chroot/ && ./system_setup.sh" && log "Performing chroot on system setup"
+}
+
 copy_dotfiles(){
 
     title_msg "Copying dotfiles"
     mkdir -p /mnt/$INSTALL_FOLDER/dotfiles && log "Created dotfiles directory"
     cp -r $DIR_RESOURCES /mnt/Arch &> /dev/zero && log "Copied dotfiles"
-
-#   echo "----------------------------------------------"
-#   echo " + Fin de la instalacion"
-#   echo "----------------------------------------------"
-
-#   swapoff "$DISCO_INSTALACION"3 && mensaje_exito "Se ha desactivado el swap" || mensaje_fallo "Fallo al desactivar el swap"
-#   umount "$DISCO_INSTALACION"4 "$DISCO_INSTALACION"2 && mensaje_exito "Se han desmontado las particiones" || mensaje_fallo "Fallo al desmontar las particiones"
 }
 
 ### Execute steps
@@ -129,4 +129,5 @@ copy_dotfiles(){
 # 5
 # system_configuration
 # 6
-copy_dotfiles
+system_setup
+# copy_dotfiles
