@@ -91,7 +91,6 @@ installing_firmware(){
 
     update_pacman_keys && log "Updating pacman keys"
     pacstrap /mnt $FIRMWARE && log "Installing firmware"
-
 }
 
 # Fifth step: executing chroot
@@ -101,7 +100,7 @@ system_configuration(){
     title_msg "System configuration"
 
     cp -r $WORKDIR /mnt
-    arch-chroot /mnt ./install/chroot.sh && log "Executing chroot"
+    arch-chroot /mnt ./$WORKDIR/chroot.sh && log "Executing chroot"
 
 #   echo "----------------------------------------------"
 #   echo " + Limipeza"

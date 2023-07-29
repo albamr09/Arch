@@ -43,10 +43,18 @@ success_msg(){
     echo_with_color " + $1" $GREEN
 }
 
+is_marchine_32() {
+    if [ "$MACHINE_ARCH" = "i686" ]; then
+        return 0
+    else
+        return 1
+    fi
+}
+
 update_pacman_keys() {
-    pacman -S archlinux-keyring
-    pacman-key --init
-    # TODO: differentiate between archs
-    pacman-key --populate archlinux archlinux32
-    pacman -Sy
+    if is_machine_32; then
+        pacman -S archlinux-keyring32
+    else
+        pacman -S archlinux-keyring
+    fi
 }
