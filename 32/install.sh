@@ -80,4 +80,4 @@ format_partitions(){
 
 ### Execute steps
 #1
-partitioning()
+partitioning
