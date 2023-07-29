@@ -33,5 +33,5 @@ install_packages() {
     yay -S $PACKAGES_AUR --answerdiff None --answerclean None
 }
 
-connect_network
+# connect_network
 install_packages

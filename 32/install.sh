@@ -101,6 +101,7 @@ system_configuration(){
 
     cp -rf $WORKDIR /mnt && log "Copying install folder on mnt"
     arch-chroot /mnt /bin/bash -c "cd ./$INSTALL_FOLDER/chroot/ && ./system_config.sh" && log "Performing chroot on system config"
+    arch-chroot /mnt /bin/bash -c "cd ./$INSTALL_FOLDER && ./post_install.sh" && log "Performing chroot on post_install"
 }
 
 copy_dotfiles(){
@@ -130,6 +131,6 @@ installing_firmware
 # 5
 system_configuration
 # 6
-copy_dotfiles
+# copy_dotfiles
 # 7
-cleanup
+# cleanup
