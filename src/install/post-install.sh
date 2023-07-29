@@ -8,28 +8,6 @@
 
 # Internet
 
-conectar_internet(){
-    
-    echo "----------------------------------------------"
-    echo "-------------- Activar internet --------------"
-    echo "----------------------------------------------"
-
-    nmcli device wifi
-    nmcli --ask device wifi connect 
-}
-
-
-#Xorg
-
-instalar_display_server(){
-    
-    echo "----------------------------------------------"
-    echo "---------- Instalar display server -----------"
-    echo "----------------------------------------------"
-
-    pacman -S xorg-server xorg-apps xorg-xinit --noconfirm
-}
-
 #Lightdm
 
 instalar_lightdm(){
@@ -38,78 +16,9 @@ instalar_lightdm(){
     echo "-------------- Instalar lightdm --------------"
     echo "----------------------------------------------"
 
-    pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings --noconfirm
     systemctl enable lightdm.service
 }
 
-# Drivers
-instalar_drivers_display(){
-
-    echo "----------------------------------------------"
-    echo "--------- Instalar drivers display -----------"
-    echo "----------------------------------------------"
-
-    pacman -S $DRIVERS --noconfirm
-}
-
-#Tiling window manager
-instalar_tiliwing_window_manager(){
-
-    echo "----------------------------------------------"
-    echo "--------------- Instalar TWM -----------------"
-    echo "----------------------------------------------"
-
-    pacman -S $TWM --noconfirm
-}
-
-#Paquetes adicionales
-instalar_paquetes(){
-
-    echo "----------------------------------------------"
-    echo "------------ Instalar paquetes ---------------"
-    echo "----------------------------------------------"
-
-    pacman -S $TERMINAL --noconfirm
-    pacman -S $PAQUETES --noconfirm
-}
-
-instalar_AUR_manager(){
-
-    echo "----------------------------------------------"
-    echo "--------------- Instalar yay -----------------"
-    echo "----------------------------------------------"
-    
-    su $USUARIO "$DIR_USER_SCRIPTS/$PKG_MANAGER" 
-
-}
-
-instalar_paquetes_AUR(){
-    
-    echo "----------------------------------------------"
-    echo "---------- Instalar paquetes AUR -------------"
-    echo "----------------------------------------------"
-
-    su $USUARIO "$DIR_USER_SCRIPTS/$PKG_INSTALL" 
-}
-
-configurar_i3_bar(){
-
-    echo "----------------------------------------------"
-    echo "------------ Configurar i3-bar ---------------"
-    echo "----------------------------------------------"
-
-    # Permite mostrar informacion de uso de cpu, ram, almacenamiento, etc
-    pip3 install psutil
-}
-
-configurar_ranger(){
-
-    echo "----------------------------------------------"
-    echo "------------ Configurar ranger ---------------"
-    echo "----------------------------------------------"
-    
-    ranger --copy-config=all
-}
 
 configurar_servicios(){
 
@@ -127,16 +36,6 @@ configurar_servicios(){
 		sudo systemctl daemon-reload
 }
 
-instalar_ohmyzsh(){
-    
-  echo "----------------------------------------------"
-  echo " + Intalar oh-my-zsh"
-  echo "----------------------------------------------"
-
-  sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-  #rm install.sh
-}
-
 establecer_predeterminados(){
 
   echo "----------------------------------------------"
@@ -149,33 +48,6 @@ establecer_predeterminados(){
   chsh -s /bin/zsh
   #Usuario
   su $USUARIO "$DIR_USER_SCRIPTS/$CHANGE_DEFAULTS" 
-}
-
-configurar_nvim(){
-
-    echo "----------------------------------------------"
-    echo "------------- Configurar nvim ----------------"
-    echo "----------------------------------------------"
-
-    su $USUARIO "$DIR_USER_SCRIPTS/$CONFIG_NVIM"
-}
-
-configurar_dunst(){
-
-    echo "----------------------------------------------"
-    echo "------------ Configurar dunst ----------------"
-    echo "----------------------------------------------"
-
-    su $USUARIO "$DIR_USER_SCRIPTS/$CONFIG_DUNST"
-}
-
-configurar_tmux() {
-
-    echo "----------------------------------------------"
-    echo "------------ Configurar tmux -----------------"
-    echo "----------------------------------------------"
-
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 }
 
 copiar_dotfiles(){

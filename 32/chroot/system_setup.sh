@@ -50,20 +50,20 @@ configure_packages() {
     title_msg "Configuring tmux"
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-    title_msg "Configuring neovim"
     configure_nvim
-
-    title_msg "Configuring dunst"
-    killall dunst
-    dunst -config ~/.config/dunst/dunstrc &
 }
 
 configure_nvim() {
+
+    title_msg "Configuring neovim"
+
+    title_msg "Configuring virtualenv"
     # Virtualenvs for python
     mkdir -p /home/$USER/.virtualenvs && cd /home/$USER/.virtualenvs
     python -m venv debugpy
-    /home/$USER/.virtualenvs/debugpy/bin/pip3 install debugpy && cd $PWD
+    /home/$USER/.virtualenvs/debugpy/bin/pip3 install debugpy && cd /$INSTALL_FOLDER/chroot
 
+    title_msg "Installing plugin manager"
     curl -fLo /home/$USER/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     # nvim -c 'PlugInstall|q|q'
     # nvim -c 'so ~/.config/nvim/init.vim|q'
@@ -71,6 +71,20 @@ configure_nvim() {
     pip3 install neovim cpplint pynvim
 }
 
+copy_dotfiles() {
+
+    title_msg "Copying dotfiles for $USER"
+
+    sudo cp -r $DIR_DOTFILES/.??* /home/$USER &> /dev/zero && log "Copying dotfiles for $USER"
+    sudo chown -R $USER /home/$USER/.??* && sudo chmod -R 775 /home/$USER/.??* &> /dev/zero && log "Changing permissions for $USER"
+    chmod 775 /home/$USER/.xsession &> /dev/zero && log "Changing xsession permission for $USER"
+
+    title_msg "Copying dotfiles for root"
+    sudo cp -r $DIR_DOTFILES/.??* /root &> /dev/zero && log "Copying dotfiles for root"
+
+}
+
 # connect_network
-install_packages
-configure_packages
+# install_packages
+# configure_packages
+copy_dotfiles
