@@ -123,17 +123,10 @@ cleanup() {
 }
 
 ### Execute steps
-# 1
 partitioning
-# 2
 format_partitions
-# 3
 mounting_filesystems
-# 4
 installing_firmware
-# 6
 copy_dotfiles
-# 5
 system_configuration
-# 7
 cleanup
