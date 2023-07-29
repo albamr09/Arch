@@ -32,7 +32,7 @@ title_msg() {
 }
 
 log() {
-    success_msg "Success on $1" || error_msg "Failure on $2"
+    success_msg "Success on $1" || error_msg "Failure on $1"
 }
 
 error_msg(){
