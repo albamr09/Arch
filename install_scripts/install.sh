@@ -48,9 +48,8 @@ partitioning(){
         error_msg "\$INSTALLATION_DISK does not have a valid value"
     fi
 
-    partprobe -d -s $INSTALLATION_DISK &> /dev/zero && log "Disk check"
-    
-    partitioning_helper $INSTALLATION_DISK && log "Performing partitioning"
+    execute partprobe -d -s $INSTALLATION_DISK &> /dev/zero
+    execute partitioning_helper $INSTALLATION_DISK
 }
 
 ### Second step after partitions are defined is to format them
@@ -59,15 +58,15 @@ format_partitions(){
     
     title_msg "Formatting partitions"
 
-    mkfs.fat -F32 "$INSTALLATION_DISK"2 && log "Formatting EFI partition"
+    execute mkfs.fat -F32 "$INSTALLATION_DISK"2
     
     if [ $USB -eq 1 ]; then
-        mkfs.ext4 -O "^has_journal" "$INSTALLATION_DISK"4 && log "Formatting "$INSTALLATION_DISK"4"
+        execute mkfs.ext4 -O "^has_journal" "$INSTALLATION_DISK"4
     else
-        mkfs.ext4 "$INSTALLATION_DISK"4 && log "Formatting "$INSTALLATION_DISK"4"
+        execute mkfs.ext4 "$INSTALLATION_DISK"4
     fi
 
-    mkswap "$INSTALLATION_DISK"3 && log "Formatting swap"
+    execute mkswap "$INSTALLATION_DISK"3
 }
 
 # Third step: after partitions are formatted mount them 
@@ -76,11 +75,11 @@ mounting_filesystems(){
 
     title_msg "Mounting filesystems"
 
-    swapon "$INSTALLATION_DISK"3 && log "Activating swap"
+    execute swapon "$INSTALLATION_DISK"3
 
-    mount "$INSTALLATION_DISK"4 /mnt &> /dev/zero && log "Mounting "$INSTALLATION_DISK"4"
+    execute mount "$INSTALLATION_DISK"4 /mnt &> /dev/zero
 
-    mkdir "/mnt/$BOOT_DIRECTORY" && mount "$INSTALLATION_DISK"2 "/mnt/$BOOT_DIRECTORY" &> /dev/zero && log "Mounting EFI partition"
+    execute mkdir "/mnt/$BOOT_DIRECTORY" && mount "$INSTALLATION_DISK"2 "/mnt/$BOOT_DIRECTORY" &> /dev/zero
 }
 
 # Fourth step: install basic linux firmware
@@ -89,8 +88,8 @@ installing_firmware(){
 
     title_msg "Installing firmware"
 
-    update_pacman_keys && log "Updating pacman keys"
-    pacstrap /mnt $FIRMWARE && log "Installing firmware"
+    execute update_pacman_keys
+    execute pacstrap /mnt $FIRMWARE
 }
 
 # Fifth step: executing chroot
@@ -99,25 +98,26 @@ system_configuration(){
 
     title_msg "System configuration and setup"
 
-    cp -rf $WORKDIR /mnt && log "Copying install folder on mnt"
-    arch-chroot /mnt /bin/bash -c "cd ./$INSTALL_FOLDER/chroot/ && ./system_config.sh" && log "Performing chroot on system config"
+    execute cp -rf $WORKDIR /mnt
+    execute arch-chroot /mnt /bin/bash -c "cd ./$INSTALL_FOLDER/chroot/ && ./system_config.sh"
     # It is important to execute this as regular user
-    arch-chroot /mnt /bin/bash -c "cd ./$INSTALL_FOLDER/chroot/ && sudo -u $USER ./system_setup.sh" && log "Performing chroot on system setup"
+    execute arch-chroot /mnt /bin/bash -c "cd ./$INSTALL_FOLDER/chroot/ && sudo -u $USER ./system_setup.sh"
 }
 
 copy_dotfiles(){
 
     title_msg "Copying dotfiles"
 
-    mkdir -p /mnt/$INSTALL_FOLDER/dotfiles && log "Created dotfiles directory"
-    cp -rf $DIR_RESOURCES /mnt/$INSTALL_FOLDER &> /dev/zero && log "Copied dotfiles"
+    execute mkdir -p /mnt/$INSTALL_FOLDER/dotfiles
+    execute cp -rf $DIR_RESOURCES /mnt/$INSTALL_FOLDER &> /dev/zero
 }
 
 cleanup() {
 
     title_msg "Finishing installation"
-    swapoff "$INSTALLATION_DISK"3 && log "Deactivating swap"
-    umount /mnt && log "Unmounting partitions"
+    
+    execute swapoff "$INSTALLATION_DISK"3
+    execute umount /mnt
 }
 
 ### Execute steps

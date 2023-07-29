@@ -31,16 +31,23 @@ title_msg() {
     echo_with_color "----------------------------------------------" $CYAN bold
 }
 
-log() {
-    success_msg "Success on $1" || error_msg "Failure on $1"
+execute() {
+    
+    info_msg "$@"
+
+    "$@" && success_msg || error_msg
+}
+
+info_msg(){
+    echo_with_color " -> $1" $YELLOW
 }
 
 error_msg(){
-    echo_with_color " - $1" $RED; exit
+    echo_with_color "Success" $RED; exit
 }
 
 success_msg(){
-    echo_with_color " + $1" $GREEN
+    echo_with_color "Failure" $GREEN
 }
 
 is_machine_32() {
@@ -53,9 +60,9 @@ is_machine_32() {
 
 update_pacman_keys() {
     if is_machine_32; then
-        pacman -S archlinux32-keyring --noconfirm
+        execute pacman -S archlinux32-keyring --noconfirm
     else
-        pacman -S archlinux-keyring --noconfirm
+        execute pacman -S archlinux-keyring --noconfirm
     fi
 }
 
@@ -65,15 +72,15 @@ config_usb(){
     title_msg "Configuring USB"
 
     if [ $USB -eq 1 ]; then
-        sed -i "s/^#Storage=.*/Storage=volatile/g" /etc/systemd/journald.conf &> /dev/zero && log "Configuring Storage journal"
-        sed -i "s/^#RuntimeMaxUse=.*/RuntimeMaxUse=30/g" /etc/systemd/journald.conf &> /dev/zero && log "Configuring RuntimeMaxUse journal"
+        execute sed -i "s/^#Storage=.*/Storage=volatile/g" /etc/systemd/journald.conf &> /dev/zero
+        execute sed -i "s/^#RuntimeMaxUse=.*/RuntimeMaxUse=30/g" /etc/systemd/journald.conf &> /dev/zero
     fi
 }
 
 install_yay(){
 
     title_msg "Installing yay"
-    sudo pacman -S --needed base-devel git --noconfirm
+    execute sudo pacman -S --needed base-devel git --noconfirm
 
-    cd /tmp && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si && log "Installing yay"
+    execute cd /tmp && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
 }

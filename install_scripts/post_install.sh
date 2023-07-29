@@ -17,19 +17,19 @@ configure_services(){
     systemctl enable lightdm.service
 
 
-	sudo cp $DIR_SERVICES/* /etc/systemd/system &> /dev/zero && log "Copying services configuration files"
-	sudo systemctl enable suspend@$USER &> /dev/zero && log "Activating services"
+	execute sudo cp $DIR_SERVICES/* /etc/systemd/system &> /dev/zero
+	execute sudo systemctl enable suspend@$USER &> /dev/zero
 	# Battery notifcation service
-    su -c "systemctl --user enable check-battery-user.timer" $USER
-    su -c "systemctl --user start check-battery-user.service" $USER
-	sudo systemctl daemon-reload
+    execute su -c "systemctl --user enable check-battery-user.timer" $USER
+    execute su -c "systemctl --user start check-battery-user.service" $USER
+	execute sudo systemctl daemon-reload
 }
 
 cleanup() {
 
     title_msg "Removing installation files"
 
-    cd / && rm -r $INSTALL_FOLDER  &> /dev/zero && log "Removing installation files"
+    execute cd / && rm -r $INSTALL_FOLDER  &> /dev/zero
 }
 
 connect_network
