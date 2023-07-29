@@ -101,7 +101,8 @@ system_configuration(){
 
     cp -rf $WORKDIR /mnt && log "Copying install folder on mnt"
     # arch-chroot /mnt /bin/bash -c "cd ./$INSTALL_FOLDER/chroot/ && ./system_config.sh" && log "Performing chroot on system config"
-    arch-chroot /mnt /bin/bash -c "cd ./$INSTALL_FOLDER && sudo -u $USER ./post_install.sh" && log "Performing chroot on post_install"
+    # It is important to execute this as regular user
+    arch-chroot /mnt /bin/bash -c "cd ./$INSTALL_FOLDER/chroot/ && sudo -u $USER ./system_setup.sh" && log "Performing chroot on post_install"
 }
 
 copy_dotfiles(){
