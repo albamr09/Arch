@@ -15,9 +15,9 @@ WORKDIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 DIR_RESOURCES="$(dirname $WORKDIR)/dotfiles"
 # Directory on the host where we copy the scripts and resources for later usage
 INSTALL_FOLDER=$(basename $WORKDIR)
-DIR_DOTFILES=$INSTALL_FOLDER"/dotfiles/home"
-DIR_FONTS=$INSTALL_FOLDER"/dotfiles/fonts"
-DIR_SERVICES=$INSTALL_FOLDER"/dotfiles/services"
+DIR_DOTFILES="dotfiles/home"
+DIR_FONTS="dotfiles/fonts"
+DIR_SERVICES="dotfiles/services"
 MACHINE_ARCH=$(uname -m)
 
 # Installation modifiable information

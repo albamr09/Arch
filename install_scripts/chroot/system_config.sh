@@ -6,7 +6,7 @@
 config_system() {
 
     title_msg "Configuring language"
-    echo "$LANG $CODEC" >> /etc/locale.gen )
+    echo "$LANG $CODEC" >> /etc/locale.gen
     execute locale-gen
     echo "LANG=$LANG" > /etc/locale.conf
 
