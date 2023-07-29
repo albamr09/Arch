@@ -26,6 +26,12 @@ install_packages() {
     title_msg "Installing AUR packages"
     yay -S $PACKAGES_AUR --answerdiff None --answerclean None
 
+    if is_machine_32; then
+        title_msg "Installing AUR packages for 32 bit version"
+        yay -S $PACKAGES_AUR_32 --answerdiff None --answerclean None
+    fi
+}
+
     title_msg "Installing oh-my-zsh"
     sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 }

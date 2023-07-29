@@ -54,3 +54,4 @@ DESKTOP_ENV_PACKAGES="lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings $
 UTILITIES_PACKAGES="alsa-utils $TERMINAL git wget python-pip texlive-most"
 PROGRAM_PACKAGES="qutebrowser zathura zathura-pdf-poppler nodejs npm yarn vim neovim nano"
 PACKAGES_AUR="pamixer pacman-contrib foxitreader xss-lock i3lock-color caffeine-ng libappindicator-gtk3 pulseaudio neofetch llvm clang cmake ripgrep lldb tmux pipewire pipewire-pulse pipewire-jack pipewire-alsa pipewire-audio bluez bluez-utils"
+PACKAGES_AUR_32="llvm14"
