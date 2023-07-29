@@ -11,3 +11,7 @@
 
 INSTALLATION_DISK="/dev/sda"
 BOOT_DIRECTORY="/boot"
+
+# Packages
+
+FIRMWARE="base base-devel linux linux-firmware networkmanager efibootmgr"

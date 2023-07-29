@@ -10,8 +10,6 @@
 ### First step is to partition our disk
 
 partitioning_helper(){
-  echo " + Partitioning disk $1"
-
   sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' << EOF | gdisk $INSTALLATION_DISK
   o     # Borrar tabla de particiones
   Y     # Confirmar borrado
@@ -52,7 +50,7 @@ partitioning(){
 
     partprobe -d -s $INSTALLATION_DISK &> /dev/zero && log "Disk check"
     
-    partitioning_helper $INSTALLATION_DISK
+    partitioning_helper $INSTALLATION_DISK && log "Performing partitioning"
 }
 
 ### Second step after partitions are defined is to format them
@@ -85,10 +83,22 @@ mounting_filesystems(){
     mkdir "/mnt/$BOOT_DIRECTORY" && mount "$INSTALLATION_DISK"2 "/mnt/$BOOT_DIRECTORY" &> /dev/zero && log "Mounting EFI partition"
 }
 
+# Fourth step: install basic linux firmware
+
+installing_firmware(){
+
+    title_msg "Installing firmware"
+
+    pacstrap /mnt $FIRMWARE && log "Installing firmware"
+
+}
+
 ### Execute steps
 # 1
 # partitioning
 # 2
 # format_partitions
 # 3
-mounting_filesystems
+# mounting_filesystems
+# 4
+installing_firmware
