@@ -44,38 +44,32 @@ EOF
 
 partitioning(){
 
-  echo "----------------------------------------------"
-  echo "--------------- Partitioning -----------------"
-  echo "----------------------------------------------"
+    title_msg "Partitioning"
 
-
-  if [ -z "$INSTALLATION_DISK" ]; then
+    if [ -z "$INSTALLATION_DISK" ]; then
         error_msg "\$INSTALLATION_DISK does not have a valid value"
-  fi
+    fi
 
-  partprobe -d -s $INSTALLATION_DISK &> /dev/zero && success_msg "Disk check was successful" || error_msg "$INSLLATION_DISK does not exist"
-  
-  partitioning_helper $INSTALLATION_DISK
+    partprobe -d -s $INSTALLATION_DISK &> /dev/zero && log "Disk check"
+    
+    partitioning_helper $INSTALLATION_DISK
 }
 
 ### Second step after partitions are defined is to format them
 
 format_partitions(){
-  
-  echo "----------------------------------------------"
-  echo "----------- Formatting partitions ------------"
-  echo "----------------------------------------------"
+    
+    title_msg "Formatting partitions"
 
+    # mkfs.fat -F32 "$INSTALLATION_DISK"2 && log "Formatting EFI partition"
+    
+    # if [ $USB -eq 1 ]; then
+    #     mkfs.ext4 -O "^has_journal" "$INSTALLATION_DISK"4 && log "Formatting "$INSTALLATION_DISK"4"
+    # else
+    #     mkfs.ext4 "$INSTALLATION_DISK"4 && log "Formatting "$INSTALLATION_DISK"4"
+    # fi
 
-  mkfs.fat -F32 "$INSTALLATION_DISK"2 && success_msg "Successfully formatted EFI partition" || error_msg "Error while formatting EFI partition"
-  
-  if [ $USB -eq 1 ]; then
-      mkfs.ext4 -O "^has_journal" "$INSTALLATION_DISK"4 && success_msg "Successfully formatted "$INSTALLATION_DISK"4" || error_msg "Error formatting "$INSTALLATION_DISK"4" 
-  else
-      mkfs.ext4 "$INSTALLATION_DISK"4 && success_msg "Formateo exitoso" || error_msg "Fallo en el formateo"
-  fi
-
-  mkswap "$INSTALLATION_DISK"3 && success_msg "Formateo exitoso de swap" || error_msg "Fallo en el formateo de swap"
+    # mkswap "$INSTALLATION_DISK"3 && log "Formatting swap"
 }
 
 ### Execute steps
