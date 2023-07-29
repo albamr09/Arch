@@ -84,7 +84,7 @@ install_neovim_plugins() {
 
     title_msg "Installing neovim plugins"
     # TODO: add command so errors are not shown
-    execute nvim -c 'PlugInstall'
+    nvim -c 'PlugInstall'
     # Copy dotfiles for telescope that we removed earlier
     execute cp -rf -r $DIR_DOTFILES/.vim /home/$USER
 }
