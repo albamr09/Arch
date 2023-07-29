@@ -81,6 +81,7 @@ copy_dotfiles() {
 install_neovim_plugins() {
 
     title_msg "Installing neovim plugins"
+    nvim -c 'PlugInstall|q|q|'
     nvim -c 'PlugInstall|q|q|q'
 }
 
@@ -98,5 +99,6 @@ connect_network
 install_packages
 configure_packages
 copy_dotfiles
+## TODO: these are not working
 install_neovim_plugins
 define_defaults
