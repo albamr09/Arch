@@ -1,8 +1,5 @@
 #!/bin/bash
 
-ls
-echo $PWD
-
 . ../utils.sh
 . ../config.sh
 
@@ -44,5 +41,5 @@ config_image(){
 
 
 ## Execute every step
-config_system
-# config_image
+# config_system
+config_image
