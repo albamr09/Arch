@@ -99,5 +99,5 @@ install_neovim_plugins() {
 # connect_network
 # install_packages
 # configure_packages
-copy_dotfiles
-# install_neovim_plugins
+# copy_dotfiles
+install_neovim_plugins

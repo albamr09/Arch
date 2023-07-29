@@ -130,7 +130,7 @@ cleanup() {
 # 4
 # installing_firmware
 # 6
-copy_dotfiles
+# copy_dotfiles
 # 5
 system_configuration
 # 7
