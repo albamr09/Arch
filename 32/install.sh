@@ -121,6 +121,6 @@ copy_dotfiles(){
 # 4
 # installing_firmware
 # 5
-# system_configuration
+system_configuration
 # 6
 # copy_dotfiles
