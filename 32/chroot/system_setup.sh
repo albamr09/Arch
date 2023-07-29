@@ -7,6 +7,7 @@ connect_network(){
     
     title_msg "Setting up network connection"
 
+    systemctl restart NetworkManager
     nmcli device wifi
     nmcli --ask device wifi connect
 }
@@ -17,5 +18,5 @@ install_display_server() {
     pacman -S xorg-server xorg-apps xorg-xinit --noconfirm
 }
 
-# connect_network
-install_display_server
+connect_network
+# install_display_server
