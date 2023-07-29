@@ -32,6 +32,7 @@ title_msg() {
 }
 
 log() {
+    echo $?
     success_msg "Success on $1" || error_msg "Failure on $2"
 }
 
