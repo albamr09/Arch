@@ -128,6 +128,6 @@ system_configuration(){
 # 3
 # mounting_filesystems
 # 4
-installing_firmware
+# installing_firmware
 # 5
-# system_configuration
+system_configuration

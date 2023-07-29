@@ -24,6 +24,22 @@ config_system() {
     fi
 
     title_msg "Configuring time"
-    ln -sf /usr/share/zoneinfo/$ZONA_HORARIA /etc/localtime  && mensaje_exito "Configuracion de hora finalizada" || mensaje_fallo "Ha habido algun error durante la configuracion horaria"
+    ln -sf /usr/share/zoneinfo/$TIMEZONE /etc/localtime  && log "Configuring timezone"
     hwclock --systohc
 }
+
+config_image(){
+
+    title_msg "Configuring linux image"
+
+    sed -i "s/HOOKS=\(.*\)/HOOKS=$HOOKS_MKINITCPIO/g" /etc/mkinitcpio.conf &> /dev/zero && log "Configuring mkinitcpio"
+    
+    title_msg "Rebuilding linux image"
+
+    mkinitcpio -p linux && log "Rebuilt linux image"
+}
+
+
+## Execute every step
+config_system
+# config_image

@@ -23,6 +23,11 @@ USER="alba"
 LANG="es_ES.UTF-8"
 CODEC="UTF-8"
 KEYMAP="es"
+TIMEZONE="Europe/Madrid"
+
+# Image config
+
+HOOKS_MKINITCPIO="(base udev block filesystems keyboard fsck)"
 
 # Packages
 
