@@ -77,3 +77,7 @@ format_partitions(){
 
   mkswap "$INSTALLATION_DISK"3 && success_msg "Formateo exitoso de swap" || error_msg "Fallo en el formateo de swap"
 }
+
+### Execute steps
+#1
+partitioning()
