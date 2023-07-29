@@ -7,6 +7,7 @@ connect_network(){
     
     title_msg "Setting up network connection"
 
+    pacman -S networkmanager --noconfirm
     systemctl restart NetworkManager
     nmcli device wifi
     nmcli --ask device wifi connect
