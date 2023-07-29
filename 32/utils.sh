@@ -43,7 +43,7 @@ success_msg(){
     echo_with_color " + $1" $GREEN
 }
 
-is_marchine_32() {
+is_machine_32() {
     if [ "$MACHINE_ARCH" = "i686" ]; then
         return 0
     else

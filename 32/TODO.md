@@ -1,3 +1,4 @@
 - Add an initial text showing things you might need to do before installing
     - Setup size of iso image
     - How to setup wifi
+- Move resources to another github repository, so it can be downloaded separately
