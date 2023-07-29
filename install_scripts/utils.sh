@@ -39,7 +39,7 @@ execute() {
 }
 
 info_msg(){
-    echo_with_color " -> $1" $YELLOW
+    echo_with_color " -> $@" $YELLOW
 }
 
 error_msg(){
