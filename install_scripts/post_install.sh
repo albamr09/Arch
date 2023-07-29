@@ -16,7 +16,6 @@ configure_services(){
     title_msg "Configuring services"
     systemctl enable lightdm.service
 
-    execute sudo cp $DIR_SERVICES/* /etc/systemd/system
     execute sudo systemctl enable suspend@$USER
     # Battery notifcation service
     execute su -c "systemctl --user enable check-battery-user.timer" $USER

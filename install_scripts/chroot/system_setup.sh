@@ -71,6 +71,9 @@ copy_dotfiles() {
     title_msg "Copying system configuration files"
     execute sudo cp -r $DIR_RESOURCES/etc/* /etc
 
+    title_msg "Copying service configuration files"
+    execute sudo cp $DIR_SERVICES/* /etc/systemd/system
+
     title_msg "Copying dotfiles for $USER"
 
     execute sudo cp -r $DIR_DOTFILES/.??* /home/$USER
