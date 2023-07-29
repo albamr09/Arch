@@ -63,12 +63,12 @@ configure_nvim() {
     /home/$USER/.virtualenvs/debugpy/bin/pip3 install debugpy && cd $PWD
 
     curl -fLo /home/$USER/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    nvim -c 'PlugInstall|q|q'
-    nvim -c 'so ~/.config/nvim/init.vim|q'
-    nvim -c 'PlugInstall|q|q|q'
+    # nvim -c 'PlugInstall|q|q'
+    # nvim -c 'so ~/.config/nvim/init.vim|q'
+    # nvim -c 'PlugInstall|q|q|q'
     pip3 install neovim cpplint pynvim
 }
 
 # connect_network
-install_packages
-# configure_packages
+# install_packages
+configure_packages
