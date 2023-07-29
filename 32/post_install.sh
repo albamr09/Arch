@@ -1,7 +1,7 @@
 #!/bin/bash
 
-. ../utils.sh
-. ../config.sh
+. utils.sh
+. config.sh
 
 connect_network(){
     
