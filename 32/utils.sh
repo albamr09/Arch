@@ -27,7 +27,7 @@ function echo_with_color {
 
 title_msg() {
     echo_with_color "----------------------------------------------" $CYAN bold
-    echo_with_color " ℹ $1" $CYAN bold
+    echo_with_color " ==> $1" $CYAN bold
     echo_with_color "----------------------------------------------" $CYAN bold
 }
 
@@ -36,15 +36,14 @@ log() {
 }
 
 error_msg(){
-    echo_with_color " ✗ $1" $RED; exit
+    echo_with_color " - $1" $RED; exit
 }
 
 success_msg(){
-    echo_with_color " ✓ $1" $GREEN
+    echo_with_color " + $1" $GREEN
 }
 
 update_pacman_keys() {
-    rm -R /etc/pacman.d/gnupg/
     pacman -S archlinux-keyring
     pacman-key --init
     pacman-key --populate archlinux
