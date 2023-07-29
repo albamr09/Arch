@@ -8,5 +8,7 @@ connect_network(){
     title_msg "Setting up network connection"
 
     nmcli device wifi
-    nmcli --ask device wifi connect 
+    nmcli --ask device wifi connect
 }
+
+connect_network
