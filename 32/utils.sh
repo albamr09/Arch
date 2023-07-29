@@ -69,3 +69,11 @@ config_usb(){
         sed -i "s/^#RuntimeMaxUse=.*/RuntimeMaxUse=30/g" /etc/systemd/journald.conf &> /dev/zero && log "Configuring RuntimeMaxUse journal"
     fi
 }
+
+install_yay(){
+
+    title_msg "Installing yay"
+    sudo pacman -S --needed base-devel git --noconfirm
+
+    cd /tmp && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si && log "Installing yay"
+}
