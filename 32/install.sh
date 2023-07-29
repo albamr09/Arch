@@ -100,7 +100,7 @@ system_configuration(){
     title_msg "System configuration and setup"
 
     cp -rf $WORKDIR /mnt && log "Copying install folder on mnt"
-    # arch-chroot /mnt /bin/bash -c "cd ./$INSTALL_FOLDER/chroot/ && ./system_config.sh" && log "Performing chroot on system config"
+    arch-chroot /mnt /bin/bash -c "cd ./$INSTALL_FOLDER/chroot/ && ./system_config.sh" && log "Performing chroot on system config"
 }
 
 copy_dotfiles(){
@@ -115,21 +115,21 @@ cleanup() {
 
     title_msg "Finishing installation"
     swapoff "$INSTALLATION_DISK"3 && log "Deactivating swap"
-    umount "$INSTALLATION_DISK"4 "$INSTALLATION_DISK"2 && log "Unmounting partitions"
+    umount /mnt && log "Unmounting partitions"
 }
 
 ### Execute steps
 # 1
-# partitioning
+partitioning
 # 2
-# format_partitions
+format_partitions
 # 3
-# mounting_filesystems
+mounting_filesystems
 # 4
-# installing_firmware
+installing_firmware
 # 5
 system_configuration
 # 6
-# copy_dotfiles
+copy_dotfiles
 # 7
 cleanup
