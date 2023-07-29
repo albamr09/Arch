@@ -58,8 +58,6 @@ configure_nvim() {
 
     title_msg "Installing plugin manager"
     execute curl -fLo /home/$USER/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-    execute pip3 install neovim cpplint pynvim
 }
 
 copy_dotfiles() {

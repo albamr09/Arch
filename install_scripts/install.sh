@@ -119,7 +119,7 @@ cleanup() {
     execute swapoff "$INSTALLATION_DISK"3
     execute umount "$INSTALLATION_DISK"2 "$INSTALLATION_DISK"4
 
-    success_msg "Installation finished! Remember to execute the post_install script after reboot!"
+    title_msg "Installation finished! Remember to execute the post_install script after reboot!"
 }
 
 ### Execute steps
