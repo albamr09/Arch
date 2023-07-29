@@ -9,7 +9,7 @@
 
 # Installation metadata
 
-WORKDIR=""
+WORKDIR="$PWD"
 
 # Installation modifiable information
 

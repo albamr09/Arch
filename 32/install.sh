@@ -100,7 +100,7 @@ system_configuration(){
 
     title_msg "System configuration"
 
-    cp -r ../32 /mnt
+    cp -r $WORKDIR /mnt
     arch-chroot /mnt ./install/chroot.sh && log "Executing chroot"
 
 #   echo "----------------------------------------------"
