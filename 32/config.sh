@@ -7,6 +7,10 @@
 ## CONFIG
 ############################################################################
 
+# Installation metadata
+
+WORKDIR=""
+
 # Installation modifiable information
 
 INSTALLATION_DISK="/dev/sda"

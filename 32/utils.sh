@@ -42,3 +42,10 @@ error_msg(){
 success_msg(){
     echo_with_color " + $1" $GREEN
 }
+
+update_pacman_keys() {
+    pacman -S archlinux-keyring
+    pacman-key --init
+    pacman-key --populate archlinux
+    pacman -Sy
+}

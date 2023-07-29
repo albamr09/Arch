@@ -89,16 +89,46 @@ installing_firmware(){
 
     title_msg "Installing firmware"
 
+    update_pacman_keys && log "Updating pacman keys"
     pacstrap /mnt $FIRMWARE && log "Installing firmware"
 
 }
 
+# Fifth step: executing chroot
+
+system_configuration(){
+
+    title_msg "System configuration"
+
+    cp -r ../32 /mnt
+    arch-chroot /mnt ./install/chroot.sh && log "Executing chroot"
+
+#   echo "----------------------------------------------"
+#   echo " + Limipeza"
+#   echo "----------------------------------------------"
+
+#   # Limipeza de chroot
+#   rm -r /mnt/install /mnt/config /mnt/utils &> /dev/zero && mensaje_exito "Se ha eliminado el script chroot" || mensaje_fallo "Fallo durante la eliminacion del script de chroot"
+  
+#   # Copia de ficheros de configuracion
+#   copia_ficheros_config
+
+#   echo "----------------------------------------------"
+#   echo " + Fin de la instalacion"
+#   echo "----------------------------------------------"
+
+#   swapoff "$DISCO_INSTALACION"3 && mensaje_exito "Se ha desactivado el swap" || mensaje_fallo "Fallo al desactivar el swap"
+#   umount "$DISCO_INSTALACION"4 "$DISCO_INSTALACION"2 && mensaje_exito "Se han desmontado las particiones" || mensaje_fallo "Fallo al desmontar las particiones"
+}
+
 ### Execute steps
 # 1
-# partitioning
+partitioning
 # 2
-# format_partitions
+format_partitions
 # 3
-# mounting_filesystems
+mounting_filesystems
 # 4
 installing_firmware
+# 5
+# system_configuration
