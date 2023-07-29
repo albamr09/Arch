@@ -99,8 +99,8 @@ system_configuration(){
 
     title_msg "System configuration"
 
-    cp -rf $WORKDIR /mnt
-    arch-chroot /mnt/$INSTALL_FOLDER/chroot ./$INSTALL_FOLDER/chroot/system_config.sh && log "Performing chroot on system config"
+    cp -rf $WORKDIR /mnt && cd /mnt/$INSTALL_FOLDER/chroot && log "Created and moved into install folder on mnt"
+    arch-chroot /mnt ./$INSTALL_FOLDER/chroot/system_config.sh && log "Performing chroot on system config"
 
 #   echo "----------------------------------------------"
 #   echo " + Limipeza"
