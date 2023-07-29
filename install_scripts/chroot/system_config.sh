@@ -32,7 +32,7 @@ config_image(){
 
     title_msg "Configuring linux image"
 
-    execute sed -i "s/HOOKS=\(.*\)/HOOKS=$HOOKS_MKINITCPIO/g" /etc/mkinitcpio.conf &> /dev/zero
+    sed -i "s/HOOKS=\(.*\)/HOOKS=$HOOKS_MKINITCPIO/g" /etc/mkinitcpio.conf
     
     title_msg "Rebuilding linux image"
 
@@ -44,22 +44,22 @@ config_grub () {
     title_msg "Configuring GRUB"
 
     execute pacman -S grub parted --noconfirm
-    execute partprobe -d -s $GRUB_PARTITION &> /dev/zero
+    execute partprobe -d -s $GRUB_PARTITION
 
     title_msg "Configuring BIOS Legacy"
 
-    execute grub-install --target=$TARGET_GRUB_LEGACY --boot-directory="$BOOT_DIRECTORY" $GRUB_PARTITION &> /dev/zero
+    execute grub-install --target=$TARGET_GRUB_LEGACY --boot-directory="$BOOT_DIRECTORY" $GRUB_PARTITION
 
     title_msg "Configuring EFI"
 
     if [ $USB -eq 1 ]; then
-        execute grub-install --target=$TARGET_GRUB_EFI --efi-directory="$BOOT_DIRECTORY" --boot-directory="$BOOT_DIRECTORY" --removable $GRUB_PARTITION &> /dev/zero
+        execute grub-install --target=$TARGET_GRUB_EFI --efi-directory="$BOOT_DIRECTORY" --boot-directory="$BOOT_DIRECTORY" --removable $GRUB_PARTITION
     else
-        execute grub-install --target=$TARGET_GRUB_EFI --efi-directory="$BOOT_DIRECTORY" --boot-directory="$BOOT_DIRECTORY" $GRUB_PARTITION &> /dev/zero
+        execute grub-install --target=$TARGET_GRUB_EFI --efi-directory="$BOOT_DIRECTORY" --boot-directory="$BOOT_DIRECTORY" $GRUB_PARTITION
     fi
 
     title_msg "Generating GRUB configuration file"
-    execute grub-mkconfig -o "$GRUB_CONF_DIR" &> /dev/zero
+    execute grub-mkconfig -o "$GRUB_CONF_DIR"
 }
 
 generate_fstab(){
@@ -67,7 +67,7 @@ generate_fstab(){
   title_msg "Generating fstab"
 
   execute pacman -S arch-install-scripts --noconfirm
-  execute $(genfstab -U / > /etc/fstab) &> /dev/zero
+  execute $(genfstab -U / > /etc/fstab)
   execute pacman -R arch-install-scripts --noconfirm
 
 }
@@ -77,7 +77,7 @@ config_network() {
     
     title_msg "Configuring network"
 
-    execute systemctl enable NetworkManager &> /dev/zero
+    execute systemctl enable NetworkManager
 }
 
 config_users(){
@@ -96,13 +96,13 @@ config_users(){
 
     title_msg "Adding user"
 
-    execute useradd -m -G wheel -s /bin/bash $USER &> /dev/zero
+    execute useradd -m -G wheel -s /bin/bash $USER
     passwd $USER
     while [ $? != 0 ]; do
         passwd $USER
     done
-    execute chmod -R 770 /home/$USER &> /dev/zero
-    execute sudo sed -i "s/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/g" /etc/sudoers &> /dev/zero
+    execute chmod -R 770 /home/$USER
+    sudo sed -i "s/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/g" /etc/sudoers
 }
 
 

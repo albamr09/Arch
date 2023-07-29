@@ -48,7 +48,7 @@ partitioning(){
         error_msg "\$INSTALLATION_DISK does not have a valid value"
     fi
 
-    execute partprobe -d -s $INSTALLATION_DISK &> /dev/zero
+    execute partprobe -d -s $INSTALLATION_DISK
     execute partitioning_helper $INSTALLATION_DISK
 }
 
@@ -77,9 +77,9 @@ mounting_filesystems(){
 
     execute swapon "$INSTALLATION_DISK"3
 
-    execute mount "$INSTALLATION_DISK"4 /mnt &> /dev/zero
+    execute mount "$INSTALLATION_DISK"4 /mnt
 
-    execute mkdir "/mnt/$BOOT_DIRECTORY" && mount "$INSTALLATION_DISK"2 "/mnt/$BOOT_DIRECTORY" &> /dev/zero
+    execute mkdir "/mnt/$BOOT_DIRECTORY" && mount "$INSTALLATION_DISK"2 "/mnt/$BOOT_DIRECTORY"
 }
 
 # Fourth step: install basic linux firmware
@@ -99,9 +99,9 @@ system_configuration(){
     title_msg "System configuration and setup"
 
     execute cp -rf $WORKDIR /mnt
-    execute arch-chroot /mnt /bin/bash -c "cd ./$INSTALL_FOLDER/chroot/ && ./system_config.sh"
+    arch-chroot /mnt /bin/bash -c "cd ./$INSTALL_FOLDER/chroot/ && ./system_config.sh"
     # It is important to execute this as regular user
-    execute arch-chroot /mnt /bin/bash -c "cd ./$INSTALL_FOLDER/chroot/ && sudo -u $USER ./system_setup.sh"
+    arch-chroot /mnt /bin/bash -c "cd ./$INSTALL_FOLDER/chroot/ && sudo -u $USER ./system_setup.sh"
 }
 
 copy_dotfiles(){
@@ -109,7 +109,7 @@ copy_dotfiles(){
     title_msg "Copying dotfiles"
 
     execute mkdir -p /mnt/$INSTALL_FOLDER/dotfiles
-    execute cp -rf $DIR_RESOURCES /mnt/$INSTALL_FOLDER &> /dev/zero
+    execute cp -rf $DIR_RESOURCES /mnt/$INSTALL_FOLDER
 }
 
 cleanup() {

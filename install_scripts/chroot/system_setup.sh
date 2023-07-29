@@ -79,9 +79,9 @@ copy_dotfiles() {
 
     title_msg "Copying dotfiles for $USER"
 
-    execute sudo cp -r $DIR_DOTFILES/.??* /home/$USER &> /dev/zero
-    execute sudo chown -R $USER /home/$USER/.??* && sudo chmod -R 775 /home/$USER/.??* &> /dev/zero
-    execute chmod 775 /home/$USER/.xsession &> /dev/zero
+    execute sudo cp -r $DIR_DOTFILES/.??* /home/$USER
+    execute sudo chown -R $USER /home/$USER/.??* && sudo chmod -R 775 /home/$USER/.??*
+    execute chmod 775 /home/$USER/.xsession
 }
 
 install_neovim_plugins() {
