@@ -78,7 +78,7 @@ copy_dotfiles() {
     chmod 775 /home/$USER/.xsession &> /dev/zero && log "Changing xsession permission for $USER"
 
     title_msg "Copying dotfiles for root"
-    sudo cp -r $DIR_DOTFILES/.??* /root
+    sudo cp -r $DIR_DOTFILES/.??* /root/
 
     title_msg "Copying fonts"
     sudo cp -r $DIR_FONTS/* "/usr/share/fonts/"
