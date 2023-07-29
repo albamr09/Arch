@@ -68,9 +68,6 @@ configure_nvim() {
     pip3 install neovim cpplint pynvim
 }
 
-# Execute all of this as a regular user
-sudo su $USER
-
 # connect_network
 install_packages
 # configure_packages
