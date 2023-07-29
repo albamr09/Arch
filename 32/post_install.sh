@@ -16,24 +16,24 @@ install_packages() {
     title_msg "Installing display server"
     sudo pacman -S $DISPLAY_PACKAGES --noconfirm
 
-    title_msg "Installing display drivers"
-    sudo pacman -S $DISPLAY_DRIVER_PACKAGES --noconfirm
+    # title_msg "Installing display drivers"
+    # sudo pacman -S $DISPLAY_DRIVER_PACKAGES --noconfirm
 
-    title_msg "Installing desktop environment packages"
-    sudo pacman -S $DESKTOP_ENV_PACKAGES --noconfirm
+    # title_msg "Installing desktop environment packages"
+    # sudo pacman -S $DESKTOP_ENV_PACKAGES --noconfirm
 
-    title_msg "Installing utilities packages"
-    sudo pacman -S $UTILITIES_PACKAGES --noconfirm
+    # title_msg "Installing utilities packages"
+    # sudo pacman -S $UTILITIES_PACKAGES --noconfirm
 
-    title_msg "Installing programs packages"
-    sudo pacman -S $PROGRAM_PACKAGES --noconfirm
+    # title_msg "Installing programs packages"
+    # sudo pacman -S $PROGRAM_PACKAGES --noconfirm
 
-    install_yay
-    title_msg "Installing AUR packages"
-    yay -S $PACKAGES_AUR --answerdiff None --answerclean None
+    # install_yay
+    # title_msg "Installing AUR packages"
+    # yay -S $PACKAGES_AUR --answerdiff None --answerclean None
 
-    title_msg "Installing oh-my-zsh"
-    sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    # title_msg "Installing oh-my-zsh"
+    # sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 }
 
 configure_packages() {
@@ -68,8 +68,9 @@ configure_nvim() {
     pip3 install neovim cpplint pynvim
 }
 
+# Execute all of this as a regular user
 sudo su $USER
 
 # connect_network
-# install_packages
+install_packages
 # configure_packages
