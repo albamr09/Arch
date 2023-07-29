@@ -110,7 +110,7 @@ copy_dotfiles(){
     title_msg "Copying dotfiles"
 
     mkdir -p /mnt/$INSTALL_FOLDER/resources && log "Created resources directory"
-    cp -r $DIR_RESOURCES /mnt/$INSTALL_FOLDER/resources &> /dev/zero && log "Copied resources"
+    cp -rf $DIR_RESOURCES /mnt/$INSTALL_FOLDER &> /dev/zero && log "Copied resources"
 }
 
 cleanup() {
