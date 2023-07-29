@@ -32,7 +32,7 @@ title_msg() {
 }
 
 execute() {
-    
+
     info_msg "$@"
 
     "$@" && success_msg || error_msg
@@ -43,11 +43,11 @@ info_msg(){
 }
 
 error_msg(){
-    echo_with_color "Success" $RED; exit
+    echo_with_color " - Failure" $RED; exit
 }
 
 success_msg(){
-    echo_with_color "Failure" $GREEN
+    echo_with_color " + Success" $GREEN
 }
 
 is_machine_32() {
