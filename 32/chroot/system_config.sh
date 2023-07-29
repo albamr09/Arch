@@ -72,10 +72,19 @@ generate_fstab(){
 
 }
 
+#Internet
+config_network() {
+    
+    title_msg "Configuring network"
+
+    systemctl enable NetworkManager &> /dev/zero && log "Network configuraiton"
+}
+
 
 ## Execute every step
 update_pacman_keys
 # config_system
 # config_image
 # config_grub
-generate_fstab
+# generate_fstab
+config_network
