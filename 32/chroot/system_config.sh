@@ -1,6 +1,7 @@
 #!/bin/bash
 
 ls
+echo $PWD
 
 . ../utils.sh
 . ../config.sh
