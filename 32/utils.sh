@@ -58,3 +58,14 @@ update_pacman_keys() {
         pacman -S archlinux-keyring --noconfirm
     fi
 }
+
+## Extra configuration for when installing on USB
+config_usb(){
+
+    title_msg "Configuring USB"
+
+    if [ $USB -eq 1 ]; then
+        sed -i "s/^#Storage=.*/Storage=volatile/g" /etc/systemd/journald.conf &> /dev/zero && log "Configuring Storage journal"
+        sed -i "s/^#RuntimeMaxUse=.*/RuntimeMaxUse=30/g" /etc/systemd/journald.conf &> /dev/zero && log "Configuring RuntimeMaxUse journal"
+    fi
+}

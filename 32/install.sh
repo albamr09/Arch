@@ -101,16 +101,13 @@ system_configuration(){
 
     cp -rf $WORKDIR /mnt && log "Creating install folder on mnt"
     arch-chroot /mnt /bin/bash -c "cd ./$INSTALL_FOLDER/chroot/ && ./system_config.sh" && log "Performing chroot on system config"
+}
 
-#   echo "----------------------------------------------"
-#   echo " + Limipeza"
-#   echo "----------------------------------------------"
+copy_dotfiles(){
 
-#   # Limipeza de chroot
-#   rm -r /mnt/install /mnt/config /mnt/utils &> /dev/zero && mensaje_exito "Se ha eliminado el script chroot" || mensaje_fallo "Fallo durante la eliminacion del script de chroot"
-  
-#   # Copia de ficheros de configuracion
-#   copia_ficheros_config
+    title_msg "Copying dotfiles"
+    mkdir -p /mnt/$INSTALL_FOLDER/dotfiles && log "Created dotfiles directory"
+    cp -r $DIR_RESOURCES /mnt/Arch &> /dev/zero && log "Copied dotfiles"
 
 #   echo "----------------------------------------------"
 #   echo " + Fin de la instalacion"
@@ -130,4 +127,6 @@ system_configuration(){
 # 4
 # installing_firmware
 # 5
-system_configuration
+# system_configuration
+# 6
+copy_dotfiles

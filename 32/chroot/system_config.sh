@@ -108,9 +108,10 @@ config_users(){
 
 ## Execute every step
 update_pacman_keys
-# config_system
-# config_image
-# config_grub
-# generate_fstab
-# config_network
+config_system
+config_image
+config_grub
+generate_fstab
+config_network
 config_users
+config_usb

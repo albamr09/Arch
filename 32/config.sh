@@ -10,8 +10,9 @@
 # Installation metadata
 
 WORKDIR="$PWD"
-INSTALL_FOLDER=$(basename $WORKDIR)
+INSTALL_FOLDER="$(basename $WORKDIR)"
 MACHINE_ARCH=$(uname -m)
+DIR_RESOURCES="$(dirname $WORKDIR)/dotfiles"
 
 # Installation modifiable information
 
@@ -42,3 +43,4 @@ HOOKS_MKINITCPIO="(base udev block filesystems keyboard fsck)"
 # Packages
 
 FIRMWARE="base base-devel linux linux-firmware networkmanager efibootmgr"
+MINIMUM_PACKAGES="alsa-utils"
