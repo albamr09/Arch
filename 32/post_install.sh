@@ -28,6 +28,10 @@ configure_services(){
 cleanup() {
 
     title_msg "Removing installation files"
-        
-    cd / && rm -r Arch  &> /dev/zero && log "Removing installation files"
+
+    cd / && rm -r $INSTALL_FOLDER  &> /dev/zero && log "Removing installation files"
 }
+
+connect_network
+configure_services
+cleanup
