@@ -33,7 +33,7 @@ title_msg() {
 
 execute() {
 
-    local command = "$@"
+    local command="$@"
     echo "$command"
     info_msg $command
 
