@@ -72,7 +72,7 @@ configure_nvim() {
 copy_dotfiles() {
 
     title_msg "Copying dotfiles for root"
-    sudo cp -r $DIR_DOTFILES/.??* /root/ &> /dev/zero && log "Copying dotfiles for root"
+    execute sudo cp -r $DIR_DOTFILES/.??* /root/ &> /dev/zero "Copying dotfiles for root"
 
     title_msg "Copying fonts"
     sudo cp -r $DIR_FONTS/* "/usr/share/fonts/"
