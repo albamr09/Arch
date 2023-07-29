@@ -25,6 +25,8 @@ install_packages() {
 
     title_msg "Installing utilities packages"
     sudo pacman -S $UTILITIES_PACKAGES --noconfirm
+    # Else pip does not work :/
+    python3 -m ensurepip
 
     title_msg "Installing programs packages"
     sudo pacman -S $PROGRAM_PACKAGES --noconfirm
@@ -57,7 +59,7 @@ configure_packages() {
 }
 
 configure_nvim() {
-    // Virtualenvs for python
+    # Virtualenvs for python
     mkdir -p /home/$USER/.virtualenvs && cd /home/$USER/.virtualenvs
     python -m venv debugpy
     /home/$USER/.virtualenvs/debugpy/bin/pip3 install debugpy && cd $PWD
@@ -70,5 +72,5 @@ configure_nvim() {
 }
 
 # connect_network
-# install_packages
+install_packages
 configure_packages
