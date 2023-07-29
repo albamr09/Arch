@@ -6,21 +6,21 @@
 config_system() {
 
     title_msg "Configuring language"
-    execute echo "$LANG $CODEC" >> /etc/locale.gen
-    execute locale-gen &> /dev/zero
-    execute echo "LANG=$LANG" > /etc/locale.conf
+    execute "echo "$LANG $CODEC" >> /etc/locale.gen"
+    execute locale-gen
+    execute "echo "LANG=$LANG" > /etc/locale.conf"
 
     title_msg "Configuring keyboard"
-    execute echo "KEYMAP=$KEYMAP" > /etc/vconsole.conf
+    execute "echo "KEYMAP=$KEYMAP" > /etc/vconsole.conf"
 
     title_msg "Configuring user"
     if [ -z "$USER" ]; then
         error_msg "Invalid \$USER"
     else
-        execute echo $USER > /etc/hostname
-        execute echo "127.0.0.1	localhost" >> /etc/hosts
-        execute echo "::1	localhost" >> /etc/hosts
-        execute echo "127.0.1.1	$USER.localdomain    $USER" >> /etc/hosts
+        execute "echo $USER > /etc/hostname"
+        execute "echo "127.0.0.1	localhost" >> /etc/hosts"
+        execute "echo "::1	localhost" >> /etc/hosts"
+        execute "echo "127.0.1.1	$USER.localdomain    $USER" >> /etc/hosts"
     fi
 
     title_msg "Configuring time"
