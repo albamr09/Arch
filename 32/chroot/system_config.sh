@@ -39,7 +39,34 @@ config_image(){
     mkinitcpio -p linux && log "Rebuilt linux image"
 }
 
+config_grub () {
+    
+    title_msg "Configuring GRUB"
+
+    pacman -S grub parted --noconfirm && log "Installing GRUB"
+    partprobe -d -s $GRUB_PARTITION &> /dev/zero && log "Checking GRUB partition"
+
+    title_msg "Configuring BIOS Legacy"
+
+    grub-install --target=$TARGET_GRUB_LEGACY --boot-directory="$BOOT_DIRECTORY" \ 
+        $GRUB_PARTITION &> /dev/zero && log "Installing BIOS Legacy"
+
+    title_msg "Configuring EFI"
+
+    if [ $USB -eq 1 ]; then
+        grub-install --target=$TARGET_GRUB_EFI --efi-directory="$BOOT_DIRECTORY" --boot-directory="$BOOT_DIRECTORY" \ 
+            --removable $GRUB_PARTITION &> /dev/zero && log "Installing EFI with USB"
+    else
+        grub-install --target=$TARGET_GRUB_EFI --efi-directory="$BOOT_DIRECTORY" --boot-directory="$BOOT_DIRECTORY" \ 
+            $GRUB_PARTITION &> /dev/zero && log "Installing EFI"
+    fi
+
+    title_msg "Generating GRUB configuration file"
+    grub-mkconfig -o "$GRUB_CONF_DIR" &> /dev/zero && log "Generating GRUB config file"
+}
+
 
 ## Execute every step
 # config_system
-config_image
+# config_image
+config_grub
