@@ -31,12 +31,8 @@ title_msg() {
     echo_with_color "----------------------------------------------" $CYAN bold
 }
 
-execute() {
-    if sudo $1; then
-        success_msg "Success on $2"
-    else
-        error_msg "Failure on $2"
-    fi
+log() {
+    success_msg "Success on $1" || error_msg "Failure on $1"
 }
 
 error_msg(){
