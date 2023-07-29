@@ -46,6 +46,7 @@ success_msg(){
 update_pacman_keys() {
     pacman -S archlinux-keyring
     pacman-key --init
-    pacman-key --populate archlinux
+    # TODO: differentiate between archs
+    pacman-key --populate archlinux archlinux32
     pacman -Sy
 }
