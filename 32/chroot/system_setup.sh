@@ -11,4 +11,11 @@ connect_network(){
     nmcli --ask device wifi connect
 }
 
-connect_network
+install_display_server() {
+    
+    title_msg "Installing display server"
+    pacman -S xorg-server xorg-apps xorg-xinit --noconfirm
+}
+
+# connect_network
+install_display_server
