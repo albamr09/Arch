@@ -99,6 +99,7 @@ system_configuration(){
     title_msg "System configuration and setup"
 
     execute cp -rf $WORKDIR /mnt
+    # TODO: this should be wrapped with execute command
     arch-chroot /mnt /bin/bash -c "cd $HOST_INSTALL_FOLDER/chroot/ && ./system_config.sh"
     # It is important to execute this as regular user
     arch-chroot /mnt /bin/bash -c "cd $HOST_INSTALL_FOLDER/chroot/ && sudo -u $USER ./system_setup.sh"
@@ -109,7 +110,7 @@ copy_dotfiles(){
     title_msg "Copying dotfiles"
 
     execute mkdir -p /mnt/$INSTALL_FOLDER/dotfiles
-    execute cp -rf $DIR_RESOURCES /mnt/$INSTALL_FOLDER
+    execute cp -rf $DIR_DOTFILES /mnt/$INSTALL_FOLDER
 }
 
 cleanup() {

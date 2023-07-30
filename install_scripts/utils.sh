@@ -73,8 +73,8 @@ config_usb(){
     title_msg "Configuring USB"
 
     if [ $USB -eq 1 ]; then
-        execute sed -i "s/^#Storage=.*/Storage=volatile/g" /etc/systemd/journald.conf
-        execute sed -i "s/^#RuntimeMaxUse=.*/RuntimeMaxUse=30/g" /etc/systemd/journald.conf
+        sed -i "s/^#Storage=.*/Storage=volatile/g" /etc/systemd/journald.conf
+        sed -i "s/^#RuntimeMaxUse=.*/RuntimeMaxUse=30/g" /etc/systemd/journald.conf
     fi
 }
 

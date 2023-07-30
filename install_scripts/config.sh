@@ -7,19 +7,25 @@
 ## CONFIG
 ############################################################################
 
+remove_slash() {
+   echo "$@" | tr -s /
+}
+
 # Installation metadata
 
 # Directory where all the scripts are
-WORKDIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+WORKDIR=$(remove_slash $(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd))
 # Directory where are the resources/dotfiles are
-DIR_RESOURCES="$(dirname $WORKDIR)/dotfiles"
+DIR_DOTFILES=$(remove_slash "$(dirname $WORKDIR)/dotfiles")
 # Directory on the host where we copy the scripts and resources for later usage
-INSTALL_FOLDER=$(basename $WORKDIR)
+INSTALL_FOLDER=$(remove_slash $(basename $WORKDIR))
 # Install folder directory while on host machine
-HOST_INSTALL_FOLDER="/$INSTALL_FOLDER"
-DIR_DOTFILES="$HOST_INSTALL_FOLDER/dotfiles/home"
-DIR_FONTS="$HOST_INSTALL_FOLDER/dotfiles/fonts"
-DIR_SERVICES="$HOST_INSTALL_FOLDER/dotfiles/services"
+HOST_INSTALL_FOLDER=$(remove_slash "/$INSTALL_FOLDER")
+HOST_DIR_DOTFILES=$(remove_slash "$HOST_INSTALL_FOLDER/dotfiles")
+HOST_DIR_HOME=$(remove_slash "$HOST_DIR_DOTFILES/home")
+HOST_DIR_FONTS=$(remove_slash "$HOST_DIR_DOTFILES/fonts")
+HOST_DIR_ETC=$(remove_slash "$HOST_DIR_DOTFILES/etc")
+HOST_DIR_SERVICES=$(remove_slash "$HOST_DIR_DOTFILES/services")
 MACHINE_ARCH=$(uname -m)
 
 # Installation modifiable information
