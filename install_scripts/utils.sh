@@ -67,6 +67,14 @@ update_pacman_keys() {
     fi
 }
 
+system_supports_efi() {
+    if [ -d "/sys/firmware/efi" ]; then
+        return 0;
+    else
+        return 1;
+    fi
+}
+
 ## Extra configuration for when installing on USB
 config_usb(){
 
