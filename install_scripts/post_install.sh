@@ -18,15 +18,15 @@ configure_services(){
 
     execute sudo systemctl enable suspend@$USER
     # Battery notifcation service
-    execute su -c "systemctl --user enable check-battery-user.timer" $USER
-    execute su -c "systemctl --user start check-battery-user.service" $USER
+    execute systemctl --user enable check-battery-user.timer
+    execute systemctl --user start check-battery-user.service
     execute sudo systemctl daemon-reload
 }
 
 cleanup() {
 
     title_msg "Removing installation files"
-    execute cd / && rm -r $INSTALL_FOLDER
+    execute cd / && sudo rm -r $INSTALL_FOLDER
 }
 
 connect_network
