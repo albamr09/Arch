@@ -24,6 +24,7 @@ install_packages() {
 
     install_yay
     title_msg "Installing AUR packages"
+    # TODO: add option to always remove confligcting packages (pipewire and jack)
     execute yay -S $PACKAGES_AUR --answerdiff None --answerclean None
 
     if is_machine_32; then
