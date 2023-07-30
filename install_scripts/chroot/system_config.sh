@@ -54,10 +54,16 @@ config_grub () {
 
     title_msg "Configuring EFI"
 
+    local efi_target=$TARGET_GRUB_EFI
+
+    if is_machine_32; then
+        efi_target=$TARGET_GRUB_EFI_32
+    fi
+
     if [ $USB -eq 1 ]; then
-        execute grub-install --target=$TARGET_GRUB_EFI --efi-directory="$BOOT_DIRECTORY" --boot-directory="$BOOT_DIRECTORY" --removable $GRUB_PARTITION
+        execute grub-install --target=$efi_target --efi-directory="$BOOT_DIRECTORY" --boot-directory="$BOOT_DIRECTORY" --removable $GRUB_PARTITION
     else
-        execute grub-install --target=$TARGET_GRUB_EFI --efi-directory="$BOOT_DIRECTORY" --boot-directory="$BOOT_DIRECTORY" $GRUB_PARTITION
+        execute grub-install --target=$efi_target --efi-directory="$BOOT_DIRECTORY" --boot-directory="$BOOT_DIRECTORY" $GRUB_PARTITION
     fi
 
     title_msg "Generating GRUB configuration file"
