@@ -6,6 +6,7 @@
 config_system() {
 
     title_msg "Configuring language"
+    # TODO: fix echo so they can be wrapped with execute
     echo "$LANG $CODEC" >> /etc/locale.gen
     execute locale-gen
     echo "LANG=$LANG" > /etc/locale.conf
@@ -32,6 +33,7 @@ config_image(){
 
     title_msg "Configuring linux image"
 
+    # TODO: fix sed so they can be wrapped with execute
     sed -i "s/HOOKS=\(.*\)/HOOKS=$HOOKS_MKINITCPIO/g" /etc/mkinitcpio.conf
     
     title_msg "Rebuilding linux image"
