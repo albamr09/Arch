@@ -57,14 +57,26 @@ HOOKS_MKINITCPIO="(base udev block filesystems keyboard fsck)"
 
 # Packages
 
+TERMINAL="alacritty"
+
+## Pacman
 FIRMWARE="base base-devel linux linux-firmware networkmanager efibootmgr"
 TWM="i3-gaps i3status"
-# TODO ALBA: separate packages into -> necessary for TWM, terminal utilities, programs
-TERMINAL="alacritty"
-DISPLAY_PACKAGES="xorg-server xorg-apps xorg-xinit"
-DISPLAY_DRIVER_PACKAGES="xf86-video-amdgpu xf86-video-ati xf86-video-intel xf86-video-nouveau"
-DESKTOP_ENV_PACKAGES="lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings $TWM feh rofi imagemagick nitrogen zsh xdg-utils ranger w3m cmus gpicview scrot acpi dunst cmus"
-UTILITIES_PACKAGES="alsa-utils $TERMINAL git wget python-pip python-psutil python-neovim python-cpplint python-pynvim"
-PROGRAM_PACKAGES="qutebrowser zathura zathura-pdf-poppler nodejs npm yarn vim neovim nano"
-PACKAGES_AUR="picom-ftlabs-git pamixer pacman-contrib foxitreader xss-lock i3lock-color caffeine-ng libappindicator-gtk3 neofetch llvm clang cmake ripgrep lldb tmux pipewire pipewire-pulse pipewire-jack pipewire-alsa pipewire-audio bluez bluez-utils texlive-most"
-PACKAGES_AUR_32="llvm14"
+XORG_PACKAGES="xorg-server xorg-apps xorg-xinit"
+GPU_PACKAGES="xf86-video-amdgpu xf86-video-ati xf86-video-intel xf86-video-nouveau"
+LIGHTDM_PACKAGES="lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings"
+BASIC_PACKAGES="$LIGHTDM_PACKAGES $GPU_PACKAGES $TWM $TERMINAL rofi imagemagick nitrogen zsh ranger gpicview scrot dunst git wget vim neovim nano"
+UTILITIES_PACKAGES="xdg-utils acpi alsa-utils python-psutil"
+PROGRAM_PACKAGES="qutebrowser zathura zathura-pdf-poppler"
+DEVELOPMENT_SOFTWARE_PACKAGES="python-pip nodejs npm yarn"
+NEOVIM_PACKAGES="python-neovim python-cpplint python-pynvim"
+
+## Yay
+
+AUR_BASIC_PACKAGES="picom-ftlabs-git pamixer pacman-contrib pipewire pipewire-pulse pipewire-jack pipewire-alsa pipewire-audio xss-lock i3lock-color caffeine-ng libappindicator-gtk3"
+AUR_UTILITIES_PACKAGES="bluez bluez-utils"
+AUR_PROGRAM_PACKAGES="foxitreader"
+AUR_TERMINAL_CLI_PACKAGES="neofetch"
+AUR_DEVELOPMENT_SOFTWARE_PACKAGES="llvm clang cmake texlive-most"
+AUR_NEOVIM_PACKAGES="ripgrep tmux"
+AUR_DEVELOPMENT_SOFTWARE_PACKAGES_32="llvm14"

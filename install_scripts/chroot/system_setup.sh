@@ -5,30 +5,37 @@
 
 install_packages() {
     
-    title_msg "Installing display server"
-    execute sudo pacman -S $DISPLAY_PACKAGES --noconfirm
+    title_msg "Installing XORG"
+    execute sudo pacman -S $XORG_PACKAGES --noconfirm
 
-    title_msg "Installing display drivers"
-    execute sudo pacman -S $DISPLAY_DRIVER_PACKAGES --noconfirm
+    title_msg "Installing basic packages"
+    execute sudo pacman -S $BASIC_PACKAGES --noconfirm
+    install_yay
+    execute yay -S $AUR_BASIC_PACKAGES --answerdiff None --answerclean None --noconfirm
 
-    title_msg "Installing desktop environment packages"
-    execute sudo pacman -S $DESKTOP_ENV_PACKAGES --noconfirm
-
-    title_msg "Installing utilities packages"
+    title_msg "Installing utilities"
     execute sudo pacman -S $UTILITIES_PACKAGES --noconfirm
+    execute yay -S $AUR_UTILITIES_PACKAGES --answerdiff None --answerclean None --noconfirm
     # Else pip does not work :/
     python3 -m ensurepip
 
-    title_msg "Installing programs packages"
+    title_msg "Installing programs"
     execute sudo pacman -S $PROGRAM_PACKAGES --noconfirm
+    execute yay -S $AUR_PROGRAM_PACKAGES --answerdiff None --answerclean None --noconfirm
+    execute yay -S $AUR_TERMINAL_CLI_PACKAGES --answerdiff None --answerclean None --noconfirm
 
-    install_yay
-    title_msg "Installing AUR packages"
-    execute yay -S $PACKAGES_AUR --answerdiff None --answerclean None --noconfirm
+    title_msg "Installing programs for development"
+    execute sudo pacman -S $DEVELOPMENT_SOFTWARE_PACKAGES --noconfirm
+    execute yay -S $AUR_DEVELOPMENT_SOFTWARE_PACKAGES --answerdiff None --answerclean None --noconfirm
+
+    title_msg "Installing programs for neovim"
+    execute sudo pacman -S $NEOVIM_PACKAGES --noconfirm
+    execute yay -S $AUR_NEOVIM_PACKAGES --answerdiff None --answerclean None --noconfirm
+
 
     if is_machine_32; then
         title_msg "Installing AUR packages for 32 bit version"
-        execute yay -S $PACKAGES_AUR_32 --answerdiff None --answerclean None
+        execute yay -S $AUR_DEVELOPMENT_SOFTWARE_PACKAGES_32 --answerdiff None --answerclean None
     fi
 
     title_msg "Installing oh-my-zsh"
