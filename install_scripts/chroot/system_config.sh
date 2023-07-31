@@ -9,7 +9,9 @@ config_system() {
     # TODO ALBA: fix echo so they can be wrapped with execute
     execute 'echo "$LANG $CODEC" >> /etc/locale.gen'
     execute locale-gen
+    echo "" > /etc/locale.conf
     execute 'echo "LANG=$LANG" > /etc/locale.conf'
+    cat /etc/locale.conf
 
     title_msg "Configuring keyboard"
     execute 'echo "KEYMAP=$KEYMAP" > /etc/vconsole.conf'
