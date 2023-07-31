@@ -59,7 +59,7 @@ HOOKS_MKINITCPIO="(base udev block filesystems keyboard fsck)"
 
 FIRMWARE="base base-devel linux linux-firmware networkmanager efibootmgr"
 TWM="i3-gaps i3status"
-# TODO: separate packages into -> necessary for TWM, terminal utilities, programs
+# TODO ALBA: separate packages into -> necessary for TWM, terminal utilities, programs
 TERMINAL="alacritty"
 DISPLAY_PACKAGES="xorg-server xorg-apps xorg-xinit"
 DISPLAY_DRIVER_PACKAGES="xf86-video-amdgpu xf86-video-ati xf86-video-intel xf86-video-nouveau"
