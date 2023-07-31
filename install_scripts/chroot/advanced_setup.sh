@@ -12,6 +12,7 @@ install_packages() {
     execute sudo pacman -S $BASIC_PACKAGES --noconfirm
     install_yay
     execute yay -S $AUR_BASIC_PACKAGES --answerdiff None --answerclean None --noconfirm
+    install_picom
 
     title_msg "Installing utilities"
     execute sudo pacman -S $UTILITIES_PACKAGES --noconfirm
@@ -93,8 +94,9 @@ copy_dotfiles() {
 install_neovim_plugins() {
 
     title_msg "Installing neovim plugins"
-    # TODO: add command so errors are not shown
-    nvim -c 'PlugInstall'
+    # TODO ALBA: add command so errors are not shown and automate plugin insallation process
+    # TODO ALBA: fix nvim-treesitter lua error
+    nvim -c 'PlugInstall|R|q|q|q'
     # Copy dotfiles for telescope that we removed earlier
     execute cp -rf -r $HOST_DIR_HOME/.vim /home/$USER
 }
