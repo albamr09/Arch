@@ -63,7 +63,7 @@ format_partitions(){
     if [ $USB -eq 1 ]; then
         execute mkfs.ext4 -O "^has_journal" "$INSTALLATION_DISK"4
     else
-        execute mkfs.ext4 "$INSTALLATION_DISK"4
+        execute mkfs.ext4 -F "$INSTALLATION_DISK"4
     fi
 
     execute mkswap "$INSTALLATION_DISK"3
