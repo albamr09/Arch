@@ -33,7 +33,7 @@ config_image(){
 
     title_msg "Configuring linux image"
 
-    execute "sed -i \"s/HOOKS=\(.*\)/HOOKS=$HOOKS_MKINITCPIO/g\" /etc/mkinitcpio.conf"
+    execute 'sed -i "s/HOOKS=\(.*\)/HOOKS=$HOOKS_MKINITCPIO/g" /etc/mkinitcpio.conf'
     
     title_msg "Rebuilding linux image"
 
