@@ -73,7 +73,10 @@ NEOVIM_PACKAGES="python-neovim python-cpplint python-pynvim"
 
 ## Yay
 
-AUR_BASIC_PACKAGES="picom-ftlabs-git pamixer pacman-contrib pipewire pipewire-pulse pipewire-jack pipewire-alsa pipewire-audio xss-lock i3lock-color caffeine-ng libappindicator-gtk3"
+AUR_PIPEWIRE="pipewire pipewire-pulse pipewire-jack pipewire-alsa pipewire-audio"
+AUR_LOCKSCREEN="xss-lock i3lock-color"
+AUR_SUSPEND_MGR="caffeine-ng libappindicator-gtk3"
+AUR_BASIC_PACKAGES="picom-ftlabs-git pamixer pacman-contrib $AUR_PIPEWIRE $AUR_LOCKSCREEN $AUR_SUSPEND_MGR"
 AUR_UTILITIES_PACKAGES="bluez bluez-utils"
 AUR_PROGRAM_PACKAGES="foxitreader"
 AUR_TERMINAL_CLI_PACKAGES="neofetch"
