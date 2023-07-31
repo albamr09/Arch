@@ -33,8 +33,7 @@ config_image(){
 
     title_msg "Configuring linux image"
 
-    # TODO: fix sed so they can be wrapped with execute
-    sed -i "s/HOOKS=\(.*\)/HOOKS=$HOOKS_MKINITCPIO/g" /etc/mkinitcpio.conf
+    execute 'sed -i "s/HOOKS=\(.*\)/HOOKS=$HOOKS_MKINITCPIO/g" /etc/mkinitcpio.conf'
     
     title_msg "Rebuilding linux image"
 
@@ -103,7 +102,7 @@ config_users(){
     title_msg "Adding root to sudo"
 
     execute pacman -S sudo --noconfirm
-    sed -i '82 s/^##*//' /etc/sudoers
+    execute 'sed -i '82 s/^##*//' /etc/sudoers'
 
     title_msg "Adding user"
 
@@ -113,7 +112,7 @@ config_users(){
         passwd $USER
     done
     execute chmod -R 770 /home/$USER
-    sudo sed -i "s/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/g" /etc/sudoers
+    execute 'sudo sed -i "s/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/g" /etc/sudoers'
 }
 
 
