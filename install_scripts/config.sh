@@ -77,7 +77,7 @@ AUR_PIPEWIRE="pipewire pipewire-pulse pipewire-jack pipewire-alsa pipewire-audio
 AUR_LOCKSCREEN="xss-lock i3lock-color"
 # TODO ALBA: if on 32 bits do not install caffeine-ng libappindicator-gtk3 xss-lock i3lock-color foxitreader
 AUR_SUSPEND_MGR="caffeine-ng libappindicator-gtk3"
-AUR_BASIC_PACKAGES="pamixer pacman-contrib $AUR_PIPEWIRE $AUR_LOCKSCREEN $AUR_SUSPEND_MGR"
+AUR_BASIC_PACKAGES="picom-ftlabs-git pamixer pacman-contrib $AUR_PIPEWIRE $AUR_LOCKSCREEN $AUR_SUSPEND_MGR"
 AUR_UTILITIES_PACKAGES="bluez bluez-utils"
 AUR_PROGRAM_PACKAGES="foxitreader"
 AUR_TERMINAL_CLI_PACKAGES="neofetch"

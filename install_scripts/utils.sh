@@ -93,14 +93,3 @@ install_yay(){
 
     execute cd /tmp && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
 }
-
-install_picom(){
-
-    title_msg "Installing picom"
-    
-    execute git clone https://github.com/fdev31/picom.git
-    execute cd picom && git submodule update --init --recursive
-    execute meson setup --buildtype=release . build
-    execute ninja -C build
-    execute sudo ninja -C build install
-}

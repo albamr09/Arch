@@ -12,7 +12,6 @@ install_packages() {
     execute sudo pacman -S $BASIC_PACKAGES --noconfirm
     install_yay
     execute yay -S $AUR_BASIC_PACKAGES --answerdiff None --answerclean None --noconfirm
-    install_picom
 
     title_msg "Installing utilities"
     execute sudo pacman -S $UTILITIES_PACKAGES --noconfirm
