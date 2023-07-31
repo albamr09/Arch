@@ -101,7 +101,7 @@ config_users(){
     title_msg "Adding root to sudo"
 
     execute pacman -S sudo --noconfirm
-    execute 'sed -i '82 s/^##*//' /etc/sudoers'
+    execute 'sed -i "82 s/^##*//" /etc/sudoers'
 
     title_msg "Adding user"
 
