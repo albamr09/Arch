@@ -101,7 +101,7 @@ system_configuration(){
     execute cp -rf $WORKDIR /mnt
     execute 'arch-chroot /mnt /bin/bash -c "cd $HOST_INSTALL_FOLDER/chroot/ && ./system_config.sh"'
     # It is important to execute this as regular user
-    execute arch-chroot /mnt /bin/bash -c "cd $HOST_INSTALL_FOLDER/chroot/ && sudo -u $USER ./system_setup.sh"
+    execute 'arch-chroot /mnt /bin/bash -c "cd $HOST_INSTALL_FOLDER/chroot/ && sudo -u $USER ./system_setup.sh"'
 }
 
 copy_dotfiles(){
