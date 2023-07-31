@@ -100,7 +100,7 @@ system_configuration(){
 
     execute cp -rf $WORKDIR /mnt
     # TODO ALBA: this should be wrapped with execute command
-    arch-chroot /mnt /bin/bash -c "cd $HOST_INSTALL_FOLDER/chroot/ && ./system_config.sh"
+    execute 'arch-chroot /mnt /bin/bash -c "cd $HOST_INSTALL_FOLDER/chroot/ && ./system_config.sh"'
     # It is important to execute this as regular user
     arch-chroot /mnt /bin/bash -c "cd $HOST_INSTALL_FOLDER/chroot/ && sudo -u $USER ./system_setup.sh"
 }
