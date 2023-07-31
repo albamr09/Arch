@@ -36,7 +36,7 @@ execute() {
     local command="$@"
     info_msg "$command"
 
-    $command && success_msg || error_msg
+    "$command" && success_msg || error_msg
 }
 
 info_msg(){
