@@ -33,10 +33,10 @@ title_msg() {
 
 execute() {
 
-    local command="$@"
+    local command='$@'
     info_msg "$command"
 
-    eval '$command' && success_msg || error_msg
+    eval $command && success_msg || error_msg
 }
 
 info_msg(){
