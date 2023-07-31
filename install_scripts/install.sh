@@ -99,9 +99,9 @@ system_configuration(){
     title_msg "System configuration and setup"
 
     execute cp -rf $WORKDIR /mnt
-    execute 'arch-chroot /mnt /bin/bash -c "cd $HOST_INSTALL_FOLDER/chroot/ && ./system_config.sh"'
+    execute 'arch-chroot /mnt /bin/bash -c "cd $HOST_INSTALL_FOLDER/chroot/ && ./basic_setup.sh"'
     # It is important to execute this as regular user
-    execute 'arch-chroot /mnt /bin/bash -c "cd $HOST_INSTALL_FOLDER/chroot/ && sudo -u $USER ./system_setup.sh"'
+    execute 'arch-chroot /mnt /bin/bash -c "cd $HOST_INSTALL_FOLDER/chroot/ && sudo -u $USER ./advanced_setup.sh"'
 }
 
 copy_dotfiles(){
