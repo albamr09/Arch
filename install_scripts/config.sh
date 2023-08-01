@@ -75,7 +75,6 @@ NEOVIM_PACKAGES="python-neovim python-cpplint python-pynvim"
 
 AUR_PIPEWIRE="pipewire pipewire-pulse pipewire-jack pipewire-alsa pipewire-audio"
 AUR_LOCKSCREEN="xss-lock i3lock-color"
-# TODO ALBA: if on 32 bits do not install caffeine-ng libappindicator-gtk3 xss-lock i3lock-color foxitreader
 AUR_SUSPEND_MGR="caffeine-ng libappindicator-gtk3"
 AUR_BASIC_PACKAGES="picom-ftlabs-git pamixer pacman-contrib $AUR_PIPEWIRE $AUR_LOCKSCREEN $AUR_SUSPEND_MGR"
 AUR_UTILITIES_PACKAGES="bluez bluez-utils"
@@ -83,4 +82,9 @@ AUR_PROGRAM_PACKAGES="foxitreader"
 AUR_TERMINAL_CLI_PACKAGES="neofetch"
 AUR_DEVELOPMENT_SOFTWARE_PACKAGES="llvm clang cmake texlive-most"
 AUR_NEOVIM_PACKAGES="ripgrep tmux"
-AUR_DEVELOPMENT_SOFTWARE_PACKAGES_32="llvm14"
+
+## 32 bit
+## TODO ALBA: maybe these ones have to be removed? $AUR_LOCKSCREEN $AUR_SUSPEND_MGR
+AUR_BASIC_PACKAGES_32="picom-ftlabs-git pamixer pacman-contrib $AUR_PIPEWIRE $AUR_LOCKSCREEN $AUR_SUSPEND_MGR"
+AUR_DEVELOPMENT_SOFTWARE_PACKAGES_32="llvm14 clang cmake texlive-most"
+AUR_PROGRAM_PACKAGES_32=""
