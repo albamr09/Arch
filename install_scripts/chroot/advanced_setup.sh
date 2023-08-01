@@ -93,9 +93,7 @@ copy_dotfiles() {
 install_neovim_plugins() {
 
     title_msg "Installing neovim plugins"
-    # TODO ALBA: add command so errors are not shown and automate plugin insallation process
-    # TODO ALBA: fix nvim-treesitter lua error
-    nvim -c 'PlugInstall|R|q|q|q'
+    nvim --headless +PlugInstall +qall 2> /dev/null
     # Copy dotfiles for telescope that we removed earlier
     execute cp -rf -r $HOST_DIR_HOME/.vim /home/$USER
 }
