@@ -116,6 +116,7 @@ config_users(){
 
 
 ## Execute every step
+remove_requests_timeout
 update_pacman_keys
 config_system
 config_image
@@ -124,3 +125,4 @@ generate_fstab
 config_network
 config_users
 config_usb
+reset_requests_timeout

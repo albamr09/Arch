@@ -126,6 +126,7 @@ cleanup() {
 }
 
 ### Execute steps
+remove_requests_timeout
 partitioning
 format_partitions
 mounting_filesystems
@@ -133,3 +134,4 @@ installing_firmware
 copy_dotfiles
 system_configuration
 cleanup
+reset_requests_timeout

@@ -4,39 +4,53 @@
 . ../config.sh
 
 install_packages() {
-    
+
+    #----
     title_msg "Installing XORG"
     execute sudo pacman -S $XORG_PACKAGES --noconfirm
-
+    
+    #----
     title_msg "Installing basic packages"
     execute sudo pacman -S $BASIC_PACKAGES --noconfirm
     install_yay
-    execute yay -S $AUR_BASIC_PACKAGES --answerdiff None --answerclean None --noconfirm
 
+    if is_machine_32; then
+        execute yay -S $AUR_BASIC_PACKAGES_32 --answerdiff None --answerclean None --noconfirm
+    else
+        execute yay -S $AUR_BASIC_PACKAGES --answerdiff None --answerclean None --noconfirm
+    fi
+    
+    #----
     title_msg "Installing utilities"
     execute sudo pacman -S $UTILITIES_PACKAGES --noconfirm
     execute yay -S $AUR_UTILITIES_PACKAGES --answerdiff None --answerclean None --noconfirm
     # Else pip does not work :/
     python3 -m ensurepip
 
+    #----
     title_msg "Installing programs"
     execute sudo pacman -S $PROGRAM_PACKAGES --noconfirm
-    execute yay -S $AUR_PROGRAM_PACKAGES --answerdiff None --answerclean None --noconfirm
+    if is_machine_32; then
+        execute yay -S $AUR_PROGRAM_PACKAGES_32 --answerdiff None --answerclean None --noconfirm
+    else
+        execute yay -S $AUR_PROGRAM_PACKAGES --answerdiff None --answerclean None --noconfirm
+    fi
     execute yay -S $AUR_TERMINAL_CLI_PACKAGES --answerdiff None --answerclean None --noconfirm
 
+    #----
     title_msg "Installing programs for development"
     execute sudo pacman -S $DEVELOPMENT_SOFTWARE_PACKAGES --noconfirm
-    execute yay -S $AUR_DEVELOPMENT_SOFTWARE_PACKAGES --answerdiff None --answerclean None --noconfirm
 
+    if is_machine_32; then
+        execute yay -S $AUR_DEVELOPMENT_SOFTWARE_PACKAGES_32 --answerdiff None --answerclean None --noconfirm
+    else
+        execute yay -S $AUR_DEVELOPMENT_SOFTWARE_PACKAGES --answerdiff None --answerclean None --noconfirm
+    fi
+
+    #----
     title_msg "Installing programs for neovim"
     execute sudo pacman -S $NEOVIM_PACKAGES --noconfirm
     execute yay -S $AUR_NEOVIM_PACKAGES --answerdiff None --answerclean None --noconfirm
-
-
-    if is_machine_32; then
-        title_msg "Installing AUR packages for 32 bit version"
-        execute yay -S $AUR_DEVELOPMENT_SOFTWARE_PACKAGES_32 --answerdiff None --answerclean None
-    fi
 
     title_msg "Installing oh-my-zsh"
     sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -93,9 +107,7 @@ copy_dotfiles() {
 install_neovim_plugins() {
 
     title_msg "Installing neovim plugins"
-    # TODO ALBA: add command so errors are not shown and automate plugin insallation process
-    # TODO ALBA: fix nvim-treesitter lua error
-    nvim -c 'PlugInstall|R|q|q|q'
+    nvim --headless +PlugInstall +qall 2> /dev/null
     # Copy dotfiles for telescope that we removed earlier
     execute cp -rf -r $HOST_DIR_HOME/.vim /home/$USER
 }
@@ -109,8 +121,10 @@ define_defaults(){
 }
 
 ## Execute steps
+remove_requests_timeout
 install_packages
 configure_packages
 copy_dotfiles
 install_neovim_plugins
 define_defaults
+reset_requests_timeout
