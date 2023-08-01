@@ -93,3 +93,13 @@ install_yay(){
 
     execute cd /tmp && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
 }
+
+remove_requests_timeout() {
+    alias curl='curl --max-time 99999'
+    alias wget='wget --timeout=99999'
+}
+
+reset_requests_timeout() {
+    unalias curl
+    unalias wget
+}

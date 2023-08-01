@@ -107,8 +107,10 @@ define_defaults(){
 }
 
 ## Execute steps
+remove_requests_timeout
 install_packages
 configure_packages
 copy_dotfiles
 install_neovim_plugins
 define_defaults
+reset_requests_timeout
