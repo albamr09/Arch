@@ -2,33 +2,7 @@
   <head>
     <!-- Normal styling from vimwiki -->
     <link rel="Stylesheet" type="text/css" href="%root_path%style.css" />
-    <!-- Styling for search -->
-    <link
-      rel="Stylesheet"
-      type="text/css"
-      href="https://albamr09.github.io/search.css"
-    />
     <title>%title%</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <!-- For LaTeX -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script
-      id="MathJax-script"
-      async
-      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
-    ></script>
-    <!-- Code Highlight -->
-    <link
-      rel="Stylesheet"
-      type="text/css"
-      href="https://albamr09.github.io/atom-one-light.min.css"
-    />
-    <!-- Page icon -->
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="https://albamr09.github.io/icon.svg"
-    />
   </head>
   <body>
     <a
@@ -52,7 +26,13 @@
       <div id="search-result" class="search-result-hide"></div>
       <div id="search-form-modal" class="search-form-modal">
         <form id="search-form-in-modal">
-          <input required type="search" id="search-input-in-modal" class="search-input-in-modal" placeholder="Search whatever..."/>
+          <input
+            required
+            type="search"
+            id="search-input-in-modal"
+            class="search-input-in-modal"
+            placeholder="Search whatever..."
+          />
           <button type="submit" class="searchButton">Search</button>
         </form>
       </div>
@@ -60,26 +40,4 @@
     <hr />
     <div class="content">%content%</div>
   </body>
-  <script
-    type="text/javascript"
-    src="https://albamr09.github.io/highlight.min.js"
-  ></script>
-  <script
-    type="text/javascript"
-    src="https://albamr09.github.io/zepto.min.js"
-  ></script>
-  <script
-    type="text/javascript"
-    src="https://albamr09.github.io/flexsearch.bundle.js"
-  ></script>
-  <script
-    type="text/javascript"
-    src="https://albamr09.github.io/search.js"
-  ></script>
-  <script type="text/javascript">
-    $("pre").each(function (index, item) {
-      $(item).html("<code>" + $(item).html() + "</code>");
-    });
-    hljs.initHighlightingOnLoad();
-  </script>
 </html>
