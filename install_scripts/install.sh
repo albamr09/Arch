@@ -118,6 +118,9 @@ copy_dotfiles(){
 cleanup() {
 
     title_msg "Finishing installation"
+
+    title_msg "Copying post install script"
+    execute cp $INSTALL_FOLDER/post_install.sh /mnt/$INSTALL_FOLDER
     
     execute swapoff "$INSTALLATION_DISK"3
     execute umount "$INSTALLATION_DISK"2 "$INSTALLATION_DISK"4
