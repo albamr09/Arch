@@ -50,13 +50,4 @@ HOOKS_MKINITCPIO="(base udev block filesystems keyboard fsck)"
 
 # Packages
 
-TERMINAL="alacritty"
-
-## Pacman
 FIRMWARE="base base-devel linux linux-firmware networkmanager efibootmgr"
-
-## 32 bit
-## TODO ALBA: maybe these ones have to be removed? $AUR_LOCKSCREEN $AUR_SUSPEND_MGR
-AUR_BASIC_PACKAGES_32="picom-ftlabs-git pamixer pacman-contrib $AUR_PIPEWIRE $AUR_LOCKSCREEN $AUR_SUSPEND_MGR"
-AUR_DEVELOPMENT_SOFTWARE_PACKAGES_32="llvm14 clang cmake texlive-most"
-AUR_PROGRAM_PACKAGES_32=""
