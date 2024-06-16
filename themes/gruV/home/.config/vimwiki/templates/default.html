@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <!-- Normal styling from vimwiki -->
+    <link rel="Stylesheet" type="text/css" href="%root_path%src/style/index.css" />
+    <!-- Custom styling from vimwiki -->
+    <link rel="Stylesheet" type="text/css" href="%root_path%src/style/custom.css" />
+    <title>%title%</title>
+  </head>
+  <body>
+    <a
+      href="https://albamr09.github.io/"
+      style="
+        color: white;
+        font-weight: bold;
+        text-decoration: none;
+        padding: 3px 6px;
+        border-radius: 3px;
+        background-color: #1e90ff;
+        text-transform: uppercase;
+      "
+      >Index</a
+    >
+    <form id="search_form" class="search-form">
+      <input required type="search" id="search_term" class="searchTerm" />
+      <button type="submit" class="searchButton">Search</button>
+    </form>
+    <div id="search-background" class="search-background">
+      <div id="search-result" class="search-result-hide"></div>
+      <div id="search-form-modal" class="search-form-modal">
+        <form id="search-form-in-modal">
+          <input
+            required
+            type="search"
+            id="search-input-in-modal"
+            class="search-input-in-modal"
+            placeholder="Search whatever..."
+          />
+          <button type="submit" class="searchButton">Search</button>
+        </form>
+      </div>
+    </div>
+    <hr />
+    <div class="content">%content%</div>
+  </body>
+</html>

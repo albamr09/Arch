@@ -1,0 +1,5 @@
+- Polybar
+- dunst
+- rofi
+- lock screen
+- terminal ps1 theme
