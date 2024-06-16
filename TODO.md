@@ -5,3 +5,4 @@
 - Move all themes into same repository
     - Create common dotfiles declaration
     - Create script that merges common dotfiles with specific dotfiles
+    - When installing new theme, only copy configuration files that are present for that theme
