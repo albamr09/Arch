@@ -2,3 +2,6 @@
     - Setup size of iso image
     - How to setup wifi
 - Move resources to another github repository, so it can be downloaded separately
+- Move all themes into same repository
+    - Create common dotfiles declaration
+    - Create script that merges common dotfiles with specific dotfiles
