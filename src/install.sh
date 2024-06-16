@@ -110,6 +110,7 @@ cleanup() {
     title_msg "Finishing installation"
 
     title_msg "Copying post install script"
+    # TODO: copy themes fold, or tell the user to select one theme to install
     execute cp $INSTALL_FOLDER/post_install.sh /mnt/$INSTALL_FOLDER
     
     execute swapoff "$INSTALLATION_DISK"3
