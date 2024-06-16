@@ -1,0 +1,71 @@
+# Global Property
+title-text: ""
+desktop-color: "#d8d8c7"
+terminal-left: "0"
+terminal-top: "0"
+terminal-width: "100%"
+terminal-height: "100%"
+terminal-border: "0"
+terminal-font: "Unifont Regular 18"
+
+#progress bar
++ progress_bar {
+	id = "__timeout__"
+	left = 0
+	top = 0
+	height = 20
+	width = 100%
+	show_text = false
+
+    bar_style = "progress_bar/progress_bar_*.png"
+    highlight_style = "progress_bar/progress_bar_hl_*.png"
+}
+
+# arch logo
++ image {
+	top = 15%
+	left = 50%-90
+    file = "arch_logo.png"
+}
+
+# Boot menu
++ boot_menu {
+  left = 15%
+  top = 40%
+  width = 70%
+  item_color = "#292d3e"
+  item_font = "Unifont Regular 18"
+  item_padding = 20
+  icon_width = 28
+  icon_height = 28
+  item_icon_space = 10
+  item_height = 36
+  item_spacing = 15
+  selected_item_color= "#292d3e"
+  selected_item_pixmap_style="select/select_*.png"
+  menu_pixmap_style="boot_menu/boot_menu_*.png"
+}
+
+
+# Show a countdown message using the label component
++ label {
+  top = 85%
+  left = 35%
+  width = 30%
+  align = "center"
+  id = "__timeout__"
+  text = "Booting in %d seconds"
+  color = "#292d3e"
+  font = "Unifont Regular 18"
+}
+
+# Help text
++ label {
+        left = 25%
+        top = 95%
+        width = 50%
+        color = "#292d3e"
+        align = "center"
+        text = "@KEYMAP_SHORT@"
+  	font = "Unifont Regular 18"
+}
