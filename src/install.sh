@@ -111,7 +111,7 @@ cleanup() {
 
     title_msg "Copying post install script"
     # TODO: copy themes fold, or tell the user to select one theme to install
-    execute cp $INSTALL_FOLDER/post_install.sh /mnt/$INSTALL_FOLDER
+    execute cp -f $WORKDIR/post_install.sh /mnt/$INSTALL_FOLDER
     
     execute swapoff "$INSTALLATION_DISK"3
     execute umount "$INSTALLATION_DISK"2 "$INSTALLATION_DISK"4
