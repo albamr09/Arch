@@ -181,19 +181,21 @@ frame_color = "#8EC07C"
 ## Context menu.
 #context = ctrl+shift+period
 
-[urgency_low]
+[low]
+    msg_urgency = low
     background = "#d8d8c7"
     foreground = "#47474f"
     frame_color = "#201723"
     timeout= 4
 
-[urgency_normal]
+[normal]
+    msg_urgency = normal
     background = "#d8d8c7"
     foreground = "#47474f"
     frame_color = "#201723"
     timeout= 6
 
-[urgency_critical]
+[critical]
     msg_urgency = critical
     background = "#d8d8c7"
     foreground = "#ba1a0a"
@@ -239,6 +241,11 @@ frame_color = "#8EC07C"
 [battery]
   summary = "battery"
   format = "<b>%b</b>"
+
+# Change screenshot format
+[screenshot]
+  summary = "screenshot"
+  format = "<b>Screenshot</b>\n<span>%b</span>"
 
 # Ignore caffeine notif
 [caffeine-ng]
