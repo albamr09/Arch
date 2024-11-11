@@ -58,8 +58,8 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 
 # Screenshots
-bindsym Print exec "scrot -e 'mv $f ~/Pictures/Screenshots'; sleep 1; notify-send 'screenshot has been saved to ~/Pictures/Screenshots'"
-bindsym Shift+Print --release exec "scrot -s -e 'mv $f ~/Pictures/Screenshots'; sleep 1; notify-send 'screenshot has been saved to ~/Pictures/Screenshots'"
+bindsym Print exec "scrot -e 'mv $f ~/Pictures/Screenshots'; sleep 1; notify-send -u low 'screenshot' 'Screenshot has been saved to ~/Pictures/Screenshots'"
+bindsym Shift+Print --release exec "scrot -s -e 'mv $f ~/Pictures/Screenshots'; sleep 1; notify-send -u low 'screenshot' 'Screenshot has been saved to ~/Pictures/Screenshots'"
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position

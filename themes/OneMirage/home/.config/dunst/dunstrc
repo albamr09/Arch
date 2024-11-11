@@ -240,6 +240,11 @@ frame_color = "#8EC07C"
   summary = "battery"
   format = "<b>%b</b>"
 
+# Change screenshot format
+[screenshot]
+  summary = "screenshot"
+  format = "<b>Screenshot</b>\n<span>%b</span>"
+
 # Ignore caffeine notif
 [caffeine-ng]
   appname = "caffeine-ng"
