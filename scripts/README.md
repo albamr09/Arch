@@ -13,7 +13,7 @@ Scripts to create common and diff files for dotfiles:
   - [x] dunst
   - [ ] i3
   - [ ] i3status?
-  - [ ] neofetch
+  - [x] neofetch
   - [x] nitrogen
   - [x] nvim
   - [x] picom

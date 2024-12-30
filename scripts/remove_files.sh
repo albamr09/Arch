@@ -6,7 +6,7 @@ if [ -z "$1" ]; then
 fi
 
 # Find files matching the pattern but exclude those inside the 'common' directory
-files=$(find . -iname "$1" -not -path '*common/*')
+files=$(find . -wholename "*$1*" -not -path '*common/*')
 
 if [ -z "$files" ]; then
     echo "No files found matching pattern: $1"
