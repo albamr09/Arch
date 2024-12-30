@@ -1,0 +1,7 @@
+{
+    "nvim": {
+        "theme": "kinoute/vim-hivacruz-theme",
+        "colorscheme": "hivacruz",
+        "lunaline_theme": "solarized_dark"
+    }
+}

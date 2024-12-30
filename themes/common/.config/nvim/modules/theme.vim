@@ -10,10 +10,12 @@
 "
 " ------------------------------------------------------------
 "
+" --------------- ] Tema [  --------------- 
 
 if (has("termguicolors"))
  set termguicolors
 endif
 syntax enable
-set background=dark
-colorscheme nightfox
+colorscheme ${nvim_colorscheme}
+" TODO: this should be appended by each theme
+${nvim_colorscheme_options}

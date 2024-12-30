@@ -1,0 +1,7 @@
+{
+    "nvim": {
+        "theme": "gruvbox-community/gruvbox",
+        "colorscheme": "gruvbox",
+        "lualine_theme": "gruvbox"
+    }
+}

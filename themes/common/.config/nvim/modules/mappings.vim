@@ -58,10 +58,14 @@ nnoremap <Up> :resize -5 <CR>
 " -------------- ] Documentacion en hover [ ----------------
 
 nnoremap <silent> K :call CocAction('doHover')<CR>
-" Fixes when on pressing enter to autocomplete makes a new line
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" Fix enter keybinding conflict on vimwiki
+au filetype vimwiki silent! iunmap <buffer> <CR>
 
 " -------------- ] File search [ ----------------
+
+"" Map leader to ,
+let mapleader=','
 
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fs <cmd>Telescope live_grep<cr>
@@ -74,22 +78,6 @@ nnoremap <leader>fdc <cmd>Telescope dap commands<cr>
 nnoremap <leader>fdb <cmd>Telescope dap list_breakpoints<cr>
 nnoremap <leader>fdv <cmd>Telescope dap variables<cr>
 nnoremap <leader>fdf <cmd>Telescope dap frames<cr>
-
-" --------------- ] Tab Navigation [  --------------- 
-
-" Goto buffer in position...
-"nnoremap <silent>    <A-1> :BufferGoto 1<CR>
-"nnoremap <silent>    <A-2> :BufferGoto 2<CR>
-"												nnoremap <silent>    <A-3> :BufferGoto 3<CR>
-"nnoremap <silent>    <A-4> :BufferGoto 4<CR>
-"nnoremap <silent>    <A-5> :BufferGoto 5<CR>
-"nnoremap <silent>    <A-6> :BufferGoto 6<CR>
-"nnoremap <silent>    <A-7> :BufferGoto 7<CR>
-"nnoremap <silent>    <A-8> :BufferGoto 8<CR>
-"nnoremap <silent>    <A-9> :BufferLast<CR>
-"
-"" Close buffer
-"nnoremap <silent>    <A-c> :BufferClose<CR>
 
 " -------------- ] Markdown Preview [ ----------------
 

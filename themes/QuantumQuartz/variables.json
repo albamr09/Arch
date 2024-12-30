@@ -1,0 +1,7 @@
+{
+    "nvim": {
+        "theme": "'hardhackerlabs/theme-vim', { 'as': 'hardhacker' }",
+        "colorscheme": "hardhacker",
+        "lualine_theme": "dracula"
+    }
+}

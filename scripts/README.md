@@ -2,6 +2,31 @@
 
 Scripts to create common and diff files for dotfiles:
 
-- `create_common`: extracts lines that are common between files. If lines are different these are replaced by `\n`.
-- `create_different`: extracts lines that are different between files. If lines are common these are replaced by `\n`.
 - `diff_files`: shows the resulting diff of a dotfile for all the themes.
+- `remove_files`: removes all the files with the same name as the given one. Ignores the common directory.
+- `substitute`: uses `envsubst` and `jq` to substitute the values of a template for the values given on a json file.
+
+## TODO
+
+- [ ] config
+  - [ ] alacritty
+  - [ ] dunst
+  - [ ] i3
+  - [ ] i3status?
+  - [ ] neofetch
+  - [ ] nitrogen
+  - [x] nvim
+  - [ ] picom
+  - [ ] qutebrowser
+  - [ ] scripts
+  - [ ] systemd
+  - [ ] tmux
+  - [ ] wallpapers
+- [ ] oh-my-zsh
+- [ ] vim
+- [ ] .xprofile
+- [ ] .xsession
+- [ ] .zshrc
+- [ ] servces
+- [ ] fonts
+- [ ] etc
