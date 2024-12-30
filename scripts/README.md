@@ -19,16 +19,14 @@ Scripts to create common and diff files for dotfiles:
   - [x] picom
   - [ ] qutebrowser
   - [ ] scripts
-  - [ ] systemd
+  - [x] systemd
   - [ ] tmux
-  - [ ] wallpapers
   - [ ] rofi
   - [ ] zathura
 - [ ] oh-my-zsh
-- [ ] vim
+- [x] vim
 - [x] .xprofile
 - [x] .xsession
 - [ ] .zshrc
-- [ ] services
-- [ ] fonts
+- [x] services
 - [ ] etc

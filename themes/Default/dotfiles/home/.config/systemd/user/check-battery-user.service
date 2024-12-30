@@ -1,5 +1,0 @@
-[Unit]
-Description=check-battery
-
-[Service]
-ExecStart=/home/alba/.config/scripts/battery/check-battery.sh
