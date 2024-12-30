@@ -126,55 +126,6 @@ EOF
 " Echo the url when the command is executed
 let g:mkdp_echo_preview_url = 1
 
-" -------------- ] Vimwiki [ ----------------
-
-" Vimwiki working directory
-let g:vimwiki_list = [{
-    \ 'path': '~/Documents/repos/NoteWorld/VimWiki',
-    \ 'template_path': '$HOME/.config/vimwiki/templates',
-    \ 'template_default': 'default',
-    \ 'template_ext': '.html'}]
-
-" Code highlight
-let wiki_settings={
-\ 'nested_syntaxes': {
-\ 'js':'javascript',
-\ 'py': 'python',
-\ 'm': 'octave',
-\ 'sh': 'bash',
-\ 'java': 'java',
-\ }}
-
-" Relative path on links
-let g:vimwiki_auto_chdir = 1
-
-" Allow for autocompletion in vimwiki
-
-" disable table mappings
-let g:vimwiki_key_mappings = {
-            \ 'all_maps': 1,
-            \ 'global': 1,
-            \ 'headers': 1,
-            \ 'text_objs': 1,
-            \ 'table_format': 1,
-            \ 'table_mappings': 0,
-            \ 'lists': 1,
-            \ 'links': 1,
-            \ 'html': 1,
-            \ 'mouse': 0,
-            \ }
-augroup VimwikiRemaps
-    autocmd!
-    " unmap tab in insert mode
-    autocmd Filetype vimwiki silent! iunmap <buffer> <Tab>
-    " remap table tab mappings to M-n M-p
-    autocmd Filetype vimwiki inoremap <silent><expr><buffer> <M-n> vimwiki#tbl#kbd_tab()
-    autocmd Filetype vimwiki inoremap <silent><expr><buffer> <M-p> vimwiki#tbl#kbd_shift_tab()
-augroup end
-
-" Filetype vimwiki only in wiki directory
-let g:vimwiki_global_ext = 0
-
 " -------------- ] Latex Preview [ ----------------
  
 let g:vimtex_view_general_viewer = 'zathura'
