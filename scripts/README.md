@@ -24,9 +24,9 @@ Scripts to create common and diff files for dotfiles:
   - [ ] wallpapers
 - [ ] oh-my-zsh
 - [ ] vim
-- [ ] .xprofile
-- [ ] .xsession
+- [x] .xprofile
+- [x] .xsession
 - [ ] .zshrc
-- [ ] servces
+- [ ] services
 - [ ] fonts
 - [ ] etc
