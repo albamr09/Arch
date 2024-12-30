@@ -3,5 +3,24 @@
         "theme": "gruvbox-community/gruvbox",
         "colorscheme": "gruvbox",
         "lualine_theme": "gruvbox"
+    },
+    "dunst": {
+        "font": "Blex Mono Nerd Font 10",
+        "corner_radius": 2,
+        "transparency": 0,
+        "padding": 6,
+        "horizontal_padding": 6,
+        "separator_color": "frame",
+        "frame_width": 2,
+        "frame_color": "#b4bc68",
+        "low_frame_color": "#448488",
+        "low_foreground": "#448488",
+        "low_background": "#282929",
+        "normal_frame_color": "#b4bc68",
+        "normal_foreground": "#b4bc68",
+        "normal_background": "#282929",
+        "critical_frame_color": "#c24434",
+        "critical_foreground": "#c24434",
+        "critical_background": "#282929"
     }
 }

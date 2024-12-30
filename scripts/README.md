@@ -10,7 +10,7 @@ Scripts to create common and diff files for dotfiles:
 
 - [ ] config
   - [ ] alacritty
-  - [ ] dunst
+  - [x] dunst
   - [ ] i3
   - [ ] i3status?
   - [ ] neofetch

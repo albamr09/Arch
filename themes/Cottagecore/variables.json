@@ -4,5 +4,24 @@
         "colorscheme": "nightfox",
         "colorscheme_options": "set background=dark",
         "lunaline_theme": "palenight"
+    },
+    "dunst": {
+        "font": "Iosevka Nerd Font 10",
+        "corner_radius": 2,
+        "transparency": 5,
+        "padding": 10,
+        "horizontal_padding": 10,
+        "separator_color": "#000",
+        "frame_width": 1,
+        "frame_color": "#8EC07C",
+        "low_frame_color": "#201723",
+        "low_foreground": "#47474f",
+        "low_background": "#d8d8c7",
+        "normal_frame_color": "#201723",
+        "normal_foreground": "#47474f",
+        "normal_background": "#d8d8c7",
+        "critical_frame_color": "#201723",
+        "critical_foreground": "#ba1a0a",
+        "critical_background": "#d8d8c7"
     }
 }

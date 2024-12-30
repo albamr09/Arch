@@ -3,5 +3,24 @@
         "theme": "'hardhackerlabs/theme-vim', { 'as': 'hardhacker' }",
         "colorscheme": "hardhacker",
         "lualine_theme": "dracula"
+    },
+    "dunst": {
+        "font": "Blex Mono Nerd Font 9",
+        "corner_radius": 1,
+        "transparency": 0,
+        "padding": 6,
+        "horizontal_padding": 6,
+        "separator_color": "frame",
+        "frame_width": 1,
+        "frame_color": "#8EC07C",
+        "low_frame_color": "#285577",
+        "low_foreground": "#b8bec6",
+        "low_background": "#011627",
+        "normal_frame_color": "#285577",
+        "normal_foreground": "#b8bec6",
+        "normal_background": "#011627",
+        "critical_frame_color": "#B7472A",
+        "critical_foreground": "#b8bec6",
+        "critical_background": "#011627"
     }
 }
