@@ -22,5 +22,8 @@
         "critical_frame_color": "#B7472A",
         "critical_foreground": "#b8bec6",
         "critical_background": "#011627"
+    },
+    "picom": {
+        "frame_opacity": 0.7
     }
 }

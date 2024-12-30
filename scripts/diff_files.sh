@@ -1,6 +1,6 @@
 #!/bin/bash
 
-files=$(find . -iname $1)
+files=$(find . -wholename "*$1*")
 file_count=$(echo "$files" | wc -l)
 
 if [ "$file_count" -ge 2 ]; then

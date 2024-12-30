@@ -23,5 +23,8 @@
         "critical_frame_color": "#201723",
         "critical_foreground": "#ba1a0a",
         "critical_background": "#d8d8c7"
+    },
+    "picom": {
+        "frame_opacity": 1.0
     }
 }

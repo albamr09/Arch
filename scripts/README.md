@@ -14,9 +14,9 @@ Scripts to create common and diff files for dotfiles:
   - [ ] i3
   - [ ] i3status?
   - [ ] neofetch
-  - [ ] nitrogen
+  - [x] nitrogen
   - [x] nvim
-  - [ ] picom
+  - [x] picom
   - [ ] qutebrowser
   - [ ] scripts
   - [ ] systemd
