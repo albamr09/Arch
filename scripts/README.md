@@ -22,6 +22,8 @@ Scripts to create common and diff files for dotfiles:
   - [ ] systemd
   - [ ] tmux
   - [ ] wallpapers
+  - [ ] rofi
+  - [ ] zathura
 - [ ] oh-my-zsh
 - [ ] vim
 - [x] .xprofile
