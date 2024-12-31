@@ -2,18 +2,6 @@
 
 ## Index
 
----
-
-1. [Screens](#screens)
-2. [Dependencies](#dependencies)
-3. [Installing](#installing)
-
----
-
-## Screens
-
----
-
 ## Dependencies
 
 ### Bare bones

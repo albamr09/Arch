@@ -2,24 +2,14 @@
 
 One Mirage Theme
 
-## Índice
+## docs
 
----
-
-1. [Screens](#screens)
-2. [Dependencies](#dependencies)
-3. [Installing](#installing)
-
----
-
-## Screens
-
-|                                                            |                                                   |
-| ---------------------------------------------------------- | ------------------------------------------------- |
-| ![Example](screens/home.png?raw=true "Homepage")           | ![Example](screens/terminal.png?raw=true "Terminal and Qutebrowser")  |
-| ![Example](screens/rofi.png?raw=true "Rofi")               | ![Example](screens/zathura.png?raw=true "Ranger") |
-| ![Example](screens/ranger.png?raw=true "Ranger")           | ![Example](screens/spotify.png?raw=true "Spotify")      |
-| ![Example](screens/lock_1.png?raw=true "Lockscreen")           | ![Example](screens/lock.png?raw=true "Lockscreen")      |
+|                                                   |                                                                   |
+| ------------------------------------------------- | ----------------------------------------------------------------- |
+| ![Example](docs/home.png?raw=true "Homepage")     | ![Example](docs/terminal.png?raw=true "Terminal and Qutebrowser") |
+| ![Example](docs/rofi.png?raw=true "Rofi")         | ![Example](docs/zathura.png?raw=true "Ranger")                    |
+| ![Example](docs/ranger.png?raw=true "Ranger")     | ![Example](docs/spotify.png?raw=true "Spotify")                   |
+| ![Example](docs/lock_1.png?raw=true "Lockscreen") | ![Example](docs/lock.png?raw=true "Lockscreen")                   |
 
 ## Dependencies
 
@@ -34,27 +24,27 @@ One Mirage Theme
 
 ### Software
 
-| Nombre          | Descripción                                                            |
-| --------------- | ---------------------------------------------------------------------- |
-| **polybar**     | Gestor de barra de tareas                                              |
-| **nitrogen**    | Gestor de fondos de pantalla                                           |
-| **alacritty**   | Terminal emulator                                                      |
-| **rofi**        | Window switcher, run dialog, ssh-launcher                              |
-| **neovim**      | Editor de texto                                                        |
-| **pamixer**     | Pulseaudio command line mixer                                          |
-| **ranger**      | Gestor de ficheros                                                     |
-| **scrot**       | Herramienta de screenshots                                             |
-| **zsh**         | Terminal                                                               |
-| **nodejs**      | Entorno back-end de JavaScript                                         |
-| **npm**         | Administrador de paquetes para nodejs                                  |
-| **qutebrowser** | Buscador web                                                           |
-| **playerctl**   | Mpris media player                                                     |
-| **python3**     |                                                                        |
-| **python-pip**  | Python module manager                                                  |
-| **zathura**     | Lector de PDF en terminal                                              |
-| **yarn**        | Administrador de paquetes para nodejs                                  |
-| **acpi**        | Client for battery, power, and thermal readings                        |
-| **dunst**       | Notification daemon                                                    |
+| Nombre          | Descripción                                     |
+| --------------- | ----------------------------------------------- |
+| **polybar**     | Gestor de barra de tareas                       |
+| **nitrogen**    | Gestor de fondos de pantalla                    |
+| **alacritty**   | Terminal emulator                               |
+| **rofi**        | Window switcher, run dialog, ssh-launcher       |
+| **neovim**      | Editor de texto                                 |
+| **pamixer**     | Pulseaudio command line mixer                   |
+| **ranger**      | Gestor de ficheros                              |
+| **scrot**       | Herramienta de docshots                         |
+| **zsh**         | Terminal                                        |
+| **nodejs**      | Entorno back-end de JavaScript                  |
+| **npm**         | Administrador de paquetes para nodejs           |
+| **qutebrowser** | Buscador web                                    |
+| **playerctl**   | Mpris media player                              |
+| **python3**     |                                                 |
+| **python-pip**  | Python module manager                           |
+| **zathura**     | Lector de PDF en terminal                       |
+| **yarn**        | Administrador de paquetes para nodejs           |
+| **acpi**        | Client for battery, power, and thermal readings |
+| **dunst**       | Notification daemon                             |
 
 ### Fonts
 
@@ -125,7 +115,6 @@ Beware of the danger this entails, if you intend to follow through, you will pro
 
 ### Notes
 
-
 #### **Zsh**
 
 In the config file for `zsh` you must change your oh-my-zsh instalation:
@@ -169,7 +158,7 @@ Also, the battery service file: `home/.config/systemd/user/check-battery-user.se
 ExecStart=/home/alba/.config/scripts/battery/check-battery.sh
 ```
 
-So you have to change it to: 
+So you have to change it to:
 
 ```config
 [Service]
@@ -190,10 +179,32 @@ You may change it to your user.
 
 #### **Qutebroser**
 
-In order to set the dracula theme on `duckduckgo`, you have to save it by pasting this script in your browser console while browsing https://duckduckgo.com: 
+In order to set the dracula theme on `duckduckgo`, you have to save it by pasting this script in your browser console while browsing https://duckduckgo.com:
 
 ```js
-var dracula=["7=282a36","8=f8f8f2","9=50fa7b","ae=t","t=p","s=m","w=n","m=l","o=s","j=282a36","a=p","aa=bd93f9","u=-1","x=f1fa8c","y=44475a","af=1","ai=1","f=1"];for(var i=0;i<dracula.length;i++)document.cookie=dracula[i];alert('Appearance settings have successfully been updated!');location.reload();
+var dracula = [
+  "7=282a36",
+  "8=f8f8f2",
+  "9=50fa7b",
+  "ae=t",
+  "t=p",
+  "s=m",
+  "w=n",
+  "m=l",
+  "o=s",
+  "j=282a36",
+  "a=p",
+  "aa=bd93f9",
+  "u=-1",
+  "x=f1fa8c",
+  "y=44475a",
+  "af=1",
+  "ai=1",
+  "f=1",
+];
+for (var i = 0; i < dracula.length; i++) document.cookie = dracula[i];
+alert("Appearance settings have successfully been updated!");
+location.reload();
 ```
 
 And also on the search page, after searching something.

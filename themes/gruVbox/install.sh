@@ -34,7 +34,7 @@ copiar_dotfiles(){
 	echo "----------------- Copiar dotfiles -----------------"
 	echo "---------------------------------------------------"
 
-	cp -r home/.??* /home/$USER
+	cp -r dotfiles/.??* /home/$USER
 	# Lightdm dotfiles
 	sudo cp -r etc/* /etc
 }

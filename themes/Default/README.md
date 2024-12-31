@@ -1,23 +1,21 @@
 # Default Arch
 
-## Screens
-
-|                                                            |                                                    |
-| ---------------------------------------------------------- | -------------------------------------------------- |
-| ![Example](screens/home.png?raw=true "Homepage")    | ![Example](screens/rofi.png?raw=true "Rofi")       |
-| ![Example](screens/terminal_qt.png?raw=true "Qutebrowser") | ![Example](screens/zathura.png?raw=true "Ranger") |
-| ![Example](screens/ranger.png?raw=true "Ranger")         | ![Example](screens/nvim.png?raw=true "Nvim") |
+|                                                         |                                                |
+| ------------------------------------------------------- | ---------------------------------------------- |
+| ![Example](docs/home.png?raw=true "Homepage")           | ![Example](docs/rofi.png?raw=true "Rofi")      |
+| ![Example](docs/terminal_qt.png?raw=true "Qutebrowser") | ![Example](docs/zathura.png?raw=true "Ranger") |
+| ![Example](docs/ranger.png?raw=true "Ranger")           | ![Example](docs/nvim.png?raw=true "Nvim")      |
 
 ---
 
 ## Bare bones
 
-| Name              | Description            |
-| ----------------- | ---------------------- |
-| **i3**            | Tiling windows manager |
-| **alacritty**     | Terminal emulator      |
-| **zsh**           | Shell                  |
-| **picom**         | Windows compositor     |
+| Name          | Description            |
+| ------------- | ---------------------- |
+| **i3**        | Tiling windows manager |
+| **alacritty** | Terminal emulator      |
+| **zsh**       | Shell                  |
+| **picom**     | Windows compositor     |
 
 ---
 

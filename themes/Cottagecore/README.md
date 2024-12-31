@@ -2,21 +2,11 @@
 
 ## Index
 
----
-
-1. [Screens](#screens)
-2. [Dependencies](#dependencies)
-3. [Installing](#installing)
-
----
-
-## Screens
-
-|                                                            |                                                    |
-| ---------------------------------------------------------- | -------------------------------------------------- |
-| ![Example](screens/home_screen.png?raw=true "Homepage")    | ![Example](screens/rofi.png?raw=true "Rofi")       |
-| ![Example](screens/qutebrowser.png?raw=true "Qutebrowser") | ![Example](screens/ranger_1.png?raw=true "Ranger") |
-| ![Example](screens/ranger_2.png?raw=true "Ranger")         | ![Example](screens/spotify.png?raw=true "Spotify") |
+|                                                         |                                                 |
+| ------------------------------------------------------- | ----------------------------------------------- |
+| ![Example](docs/home_screen.png?raw=true "Homepage")    | ![Example](docs/rofi.png?raw=true "Rofi")       |
+| ![Example](docs/qutebrowser.png?raw=true "Qutebrowser") | ![Example](docs/ranger_1.png?raw=true "Ranger") |
+| ![Example](docs/ranger_2.png?raw=true "Ranger")         | ![Example](docs/spotify.png?raw=true "Spotify") |
 
 ---
 

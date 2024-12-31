@@ -8,6 +8,8 @@ Scripts to create common and diff files for dotfiles:
 
 ## TODO
 
+### Templating
+
 - [ ] config
   - [x] alacritty
   - [x] dunst
@@ -28,3 +30,10 @@ Scripts to create common and diff files for dotfiles:
 - [ ] .zshrc
 - [x] services
 - [ ] etc
+
+### Centralized Installing
+
+Try to modularize installation:
+
+- [ ] Generic dependencies
+- [ ] Applications
