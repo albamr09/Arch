@@ -68,5 +68,8 @@
     },
     "i3lock": {
         "theme": "$HOME/.config/i3lock/light/lock.sh"
+    },
+    "zsh": {
+        "theme": "typewritten"
     }
 }

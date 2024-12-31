@@ -10,7 +10,7 @@ Scripts to create common and diff files for dotfiles:
 
 ### Templating
 
-- [ ] config
+- [x] config
   - [x] alacritty
   - [x] dunst
   - [x] i3
@@ -27,9 +27,11 @@ Scripts to create common and diff files for dotfiles:
 - [x] vim
 - [x] .xprofile
 - [x] .xsession
-- [ ] .zshrc
+- [x] .zshrc
 - [x] services
 - [ ] etc
+
+Asegurarse que los plugins de zsh están ok
 
 ### Centralized Installing
 
@@ -43,3 +45,7 @@ Try to modularize installation:
 Make sure all folder follow the same structure as the common folder.
 
 - [ ] Default
+
+### Templates for common modules
+
+There are some modules like zathura, polybar, etc. that are not present on every theme but are quite common. There should be a way to define common configurations that could optionally be added to themes based on some configuration file (like the `variables.json` file).

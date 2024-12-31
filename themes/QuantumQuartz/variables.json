@@ -64,5 +64,8 @@
     },
     "i3lock": {
         "theme": "$HOME/.config/i3lock/default/lock.sh"
+    },
+    "zsh": {
+        "theme": "pi"
     }
 }
