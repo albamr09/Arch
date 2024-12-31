@@ -21,7 +21,7 @@ Scripts to create common and diff files for dotfiles:
   - [ ] scripts
   - [x] systemd
   - [x] tmux
-  - [ ] rofi
+  - [x] rofi
   - [ ] zathura
 - [ ] oh-my-zsh
 - [x] vim

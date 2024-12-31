@@ -54,5 +54,8 @@
     },
     "tmux": {
         "theme": "source-file ~/.config/tmux/nightfox.tmux"
+    },
+    "rofi": {
+        "theme": "themes/light"
     }
 }

@@ -50,5 +50,8 @@
         "font_italic": "Blex Mono Nerd Font",
         "font_normal": "Blex Mono Nerd Font",
         "window_padding": 20
+    },
+    "rofi": {
+        "theme": "themes/default"
     }
 }

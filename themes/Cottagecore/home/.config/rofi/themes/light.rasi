@@ -1,6 +1,6 @@
 configuration{
 	display-run:    " ";
-  display-drun:   " ";
+    display-drun:   " ";
 	font: "Iosevka Nerd Font 10";
 	width: 30;
 	line-margin: 20;
