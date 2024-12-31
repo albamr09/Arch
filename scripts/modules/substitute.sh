@@ -56,4 +56,4 @@ export_json_vars "$JSON_FILE"
 envsubst < "$TEMPLATE_FILE"
 
 # Example of usage
-# ./scripts/substitute.sh variables.json plugins.vim
+# ./scripts/modules/substitute.sh variables.json plugins.vim

@@ -31,3 +31,6 @@ case "$response" in
         echo "No files were removed."
         ;;
 esac
+
+# Example of usage
+# ./utils/remove_files.sh dunstrc

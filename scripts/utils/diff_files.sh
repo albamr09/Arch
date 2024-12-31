@@ -10,4 +10,4 @@ else
 fi
 
 # Example of usage
-# ./diff_files.sh dunstrc
+# ./utils/diff_files.sh dunstrc
