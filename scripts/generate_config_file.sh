@@ -1,45 +1,53 @@
 #!/bin/bash
 
+# Directory of the currently running script
+WORKDIR="$pwd"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd $SCRIPT_DIR
+
+# TODO: this should be obtained from SCRIPT dir
+THEMES_DIR="/home/alba/Documentos/GitRepos/Arch/Arch/themes"
+COMMON_FOLDER="$THEMES_DIR/common"
+INPUT_FILE="$1"
+VARIABLES_FILE="$2"
+INPUT_FILE_NAME=$(basename "$INPUT_FILE")
+
 # Function to merge files
 merge_files() {
-  input_file="$1"
+    common_file="$1"
 
-  # Get the directory and file name of the input file
-  input_dir=$(dirname "$input_file")
-  input_file_name=$(basename "$input_file")
+    # Define the output file path
+    output_file="${INPUT_FILE%/*}/merged_$INPUT_FILE_NAME"
 
-  # Define the common folder path
-  common_folder="$input_dir/common"
+    input_file_filled=$(./substitute.sh $VARIABLES_FILE "$common_file")
 
-  # Check if the common folder exists
-  if [ ! -d "$common_folder" ]; then
-    echo "The 'common' folder does not exist in: $input_dir"
-    exit 1
-  fi
+    # Concatenate the input_file content to the end of input_file_filled
+    echo -e "$input_file_filled \n" > "$output_file"
+    cat "$INPUT_FILE" >> "$output_file"           
 
-  # Construct the path to the common file
-  common_file="$common_folder/$input_file_name"
+    echo "Merged file created successfully: $output_file"
+}
 
-  # Check if the common file exists
-  if [ ! -f "$common_file" ]; then
-    echo "No common file found with the name: $input_file_name"
-    exit 1
-  fi
+# Main function to search for the input file and call merge_files
+search_and_merge() {
+    common_file=$(find "$COMMON_FOLDER" -type f -name "$INPUT_FILE_NAME")
 
-  # Define the output file path
-  output_file="$input_dir/merged_$input_file_name"
+    if [ -z "$common_file" ]; then
+        echo "No input file found with the name: $INPUT_FILE_NAME"
+        exit 1
+    fi
 
-  # Merge the common file and input file content into the output file
-  cat "$common_file" "$input_file" > "$output_file"
-
-  echo "Merged file created successfully: $output_file"
+    # Call the merge_files function with the found input file
+    merge_files "$common_file"
 }
 
 # Check if an argument is provided
 if [ $# -lt 1 ]; then
-  echo "Usage: $0 <input_file_path>"
+  echo "Usage: $0 <input_file_name>"
   exit 1
 fi
 
-# Call the function with the input file path
-merge_files "$1"
+# Call the search_and_merge function with the input file name
+search_and_merge "$1"
+
+cd $WORKDIR
