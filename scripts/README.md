@@ -10,26 +10,7 @@ Scripts to create common and diff files for dotfiles:
 
 ### Templating
 
-- [x] config
-  - [x] alacritty
-  - [x] dunst
-  - [x] i3
-  - [x] neofetch
-  - [x] nitrogen
-  - [x] nvim
-  - [x] picom
-  - [x] qutebrowser
-  - [x] scripts
-  - [x] systemd
-  - [x] tmux
-  - [x] rofi
-- [ ] oh-my-zsh
-- [x] vim
-- [x] .xprofile
-- [x] .xsession
-- [x] .zshrc
-- [x] services
-- [x] etc
+- [ ] oh-my-zsh?: This is a cloned git repository, we should only have stored custom themes/plugins
 
 Asegurarse que los plugins de zsh están ok
 
@@ -49,3 +30,7 @@ Make sure all folder follow the same structure as the common folder.
 ### Templates for common modules
 
 There are some modules like zathura, polybar, etc. that are not present on every theme but are quite common. There should be a way to define common configurations that could optionally be added to themes based on some configuration file (like the `variables.json` file).
+
+- [ ] Polybar
+- [ ] Zathura
+- [ ] Spotify
