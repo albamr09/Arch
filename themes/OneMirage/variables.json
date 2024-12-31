@@ -59,5 +59,8 @@
         "font": "Input Nerd Font 9",
         "gaps_inner": 3,
         "gaps_outer": 3
+    },
+    "qutebrowser": {
+        "theme": "config.source('themes/dracula.py')"
     }
 }

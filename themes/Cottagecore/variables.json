@@ -62,5 +62,8 @@
         "font": "JetBrains Mono Nerd Font 10",
         "gaps_inner": 5,
         "gaps_outer": 5
+    },
+    "qutebrowser": {
+        "theme": "config.source('themes/nord-qutebrowser.py')"
     }
 }

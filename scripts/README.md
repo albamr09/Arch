@@ -18,7 +18,7 @@ Scripts to create common and diff files for dotfiles:
   - [x] nitrogen
   - [x] nvim
   - [x] picom
-  - [ ] qutebrowser
+  - [x] qutebrowser
   - [ ] scripts
   - [x] systemd
   - [x] tmux
