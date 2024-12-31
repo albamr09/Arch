@@ -68,5 +68,8 @@
     },
     "zsh": {
         "theme": "spaceship"
+    },
+    "lightdm": {
+        "font": "Iosevka Nerd Font 10"
     }
 }

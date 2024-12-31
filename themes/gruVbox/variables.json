@@ -67,5 +67,8 @@
     },
     "zsh": {
         "theme": "robbyrussell"
+    },
+    "lightdm": {
+        "font": "BlexMono Nerd Font 10"
     }
 }

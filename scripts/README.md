@@ -29,7 +29,7 @@ Scripts to create common and diff files for dotfiles:
 - [x] .xsession
 - [x] .zshrc
 - [x] services
-- [ ] etc
+- [x] etc
 
 Asegurarse que los plugins de zsh están ok
 

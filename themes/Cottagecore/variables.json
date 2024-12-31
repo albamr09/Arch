@@ -71,5 +71,8 @@
     },
     "zsh": {
         "theme": "typewritten"
+    },
+    "lightdm": {
+        "font": "BlexMono Nerd Font 10"
     }
 }
