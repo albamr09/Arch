@@ -92,8 +92,10 @@ copy_remaining_theme_files() {
     theme_folder="$1"
     output_dir="$2"
 
-    # Loop through all theme files in the theme folder and copy them to the output directory
-    find "$theme_folder" -mindepth 2 -type f -name ".*" -o -type f | while read -r theme_file; do
+    echo "Copying remaining configuration files for $THEME_NAME ..."
+
+    # Loop through all theme files in the theme folder and copy them to the output directory (ignore the docs directory)
+    find "$theme_folder" -mindepth 2 -type f -name ".*" -o -type f | grep -v "^$theme_folder/docs" | while read -r theme_file; do
         if [ -f "$theme_file" ]; then
             file_name=$(basename "$theme_file")
             folder_name=$(basename $(dirname "$theme_file"))
