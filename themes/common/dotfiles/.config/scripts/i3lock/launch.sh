@@ -3,7 +3,7 @@
 # suspend message display
 pkill -u "$USER" -USR1 dunst
 
-$HOME/.config/scripts/i3lock/blur/lock.sh
+${i3lock_theme}
 
 # resume message display
 pkill -u "$USER" -USR2 dunst

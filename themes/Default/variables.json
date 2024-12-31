@@ -55,5 +55,8 @@
         "font": "JetBrainsMono 8",
         "gaps_inner": 4,
         "gaps_outer": 1
+    },
+    "i3lock": {
+        "theme": "$HOME/.config/i3lock/default/lock.sh"
     }
 }

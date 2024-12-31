@@ -62,5 +62,8 @@
     },
     "qutebrowser": {
         "theme": "config.source('themes/dracula.py')"
+    },
+    "i3lock": {
+        "theme": "$HOME/.config/i3lock/blur/lock.sh"
     }
 }

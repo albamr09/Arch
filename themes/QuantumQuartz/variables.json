@@ -61,5 +61,8 @@
     },
     "qutebrowser": {
         "theme": "config.source('themes/hardharcker.py')"
+    },
+    "i3lock": {
+        "theme": "$HOME/.config/i3lock/default/lock.sh"
     }
 }

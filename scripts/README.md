@@ -19,10 +19,7 @@ Scripts to create common and diff files for dotfiles:
   - [x] nvim
   - [x] picom
   - [x] qutebrowser
-  - [ ] scripts
-    - [x] Mute
-    - [x] Battery
-    - [ ] Lock
+  - [x] scripts
   - [x] systemd
   - [x] tmux
   - [x] rofi
