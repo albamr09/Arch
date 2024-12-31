@@ -67,5 +67,8 @@
     },
     "zsh": {
         "theme": "pi"
+    },
+    "lightdm": {
+        "font": "JetBrainsMonoMedium NF Medium 10"
     }
 }

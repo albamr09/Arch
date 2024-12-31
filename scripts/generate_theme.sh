@@ -27,7 +27,7 @@
 # 9. It starts the processing by calling `search_and_merge` with the theme name and output directory as arguments.
 #
 # Example of usage:
-# ./scripts/generate_theme.sh QuantumQuartz "/home/alba/Documentos/GitRepos/Arch/Arch/theme_test"
+# ./scripts/generate_theme.sh quantumquartz "/home/alba/Documentos/GitRepos/Arch/Arch/theme_test"
 #
 # Arguments:
 # - The theme name (e.g., "QuantumQuartz").
