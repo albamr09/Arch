@@ -20,6 +20,9 @@ Scripts to create common and diff files for dotfiles:
   - [x] picom
   - [x] qutebrowser
   - [ ] scripts
+    - [x] Mute
+    - [x] Battery
+    - [ ] Lock
   - [x] systemd
   - [x] tmux
   - [x] rofi
@@ -37,3 +40,9 @@ Try to modularize installation:
 
 - [ ] Generic dependencies
 - [ ] Applications
+
+### Uniform Folder Structure
+
+Make sure all folder follow the same structure as the common folder.
+
+- [ ] Default
