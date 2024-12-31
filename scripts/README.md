@@ -9,7 +9,7 @@ Scripts to create common and diff files for dotfiles:
 ## TODO
 
 - [ ] config
-  - [ ] alacritty
+  - [x] alacritty
   - [x] dunst
   - [ ] i3
   - [ ] i3status?

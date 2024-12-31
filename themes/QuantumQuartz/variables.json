@@ -25,5 +25,30 @@
     },
     "picom": {
         "frame_opacity": 1.0
+    },
+    "alacritty": {
+        "bright_black": "0x3f3951",
+        "bright_blue": "0xb1baf4",
+        "bright_cyan": "0xb3f4f3",
+        "bright_green": "0xb1f2a7",
+        "bright_magenta": "0xe192ef",
+        "bright_red": "0xe965a5",
+        "bright_white": "0xeee9fc",
+        "bright_yellow": "0xebde76",
+        "normal_black": "0x282433",
+        "normal_blue": "0xb1baf4",
+        "normal_cyan": "0xb3f4f3",
+        "normal_green": "0xb1f2a7",
+        "normal_magenta": "0xe192ef",
+        "normal_red": "0xe965a5",
+        "normal_white": "0xeee9fc",
+        "normal_yellow": "0xebde76",
+        "primary_background": "0x282433",
+        "primary_foreground": "0xeee9fc",
+        "font_size": 10.0,
+        "font_bold": "JetBrainsMono Nerd Font",
+        "font_italic": "JetBrainsMono Nerd Font",
+        "font_normal": "JetBrainsMono Nerd Font",
+        "window_padding": 13
     }
 }
