@@ -50,5 +50,10 @@
         "font_italic": "JetBrainsMono Nerd Font Mono",
         "font_normal": "JetBrainsMono Nerd Font Mono",
         "window_padding": 10
+    },
+    "i3": {
+        "font": "JetBrainsMono 8",
+        "gaps_inner": 4,
+        "gaps_outer": 1
     }
 }

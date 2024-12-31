@@ -57,5 +57,10 @@
     },
     "rofi": {
         "theme": "themes/light"
+    },
+    "i3": {
+        "font": "JetBrains Mono Nerd Font 10",
+        "gaps_inner": 5,
+        "gaps_outer": 5
     }
 }

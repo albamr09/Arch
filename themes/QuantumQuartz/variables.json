@@ -53,5 +53,10 @@
     },
     "tmux": {
         "theme": "source-file ~/.config/tmux/dracula.tmux"
+    },
+    "i3": {
+        "font": "JetBrainsMono 9",
+        "gaps_inner": 4,
+        "gaps_outer": 1
     }
 }

@@ -53,5 +53,10 @@
     },
     "rofi": {
         "theme": "themes/default"
+    },
+    "i3": {
+        "font": "Blex Mono Nerd Font 9.5",
+        "gaps_inner": 3,
+        "gaps_outer": 3
     }
 }

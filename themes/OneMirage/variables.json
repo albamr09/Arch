@@ -54,5 +54,10 @@
     },
     "rofi": {
         "theme": "themes/default"
+    },
+    "i3": {
+        "font": "Input Nerd Font 9",
+        "gaps_inner": 3,
+        "gaps_outer": 3
     }
 }
