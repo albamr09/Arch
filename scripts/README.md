@@ -12,7 +12,6 @@ Scripts to create common and diff files for dotfiles:
   - [x] alacritty
   - [x] dunst
   - [x] i3
-  - [ ] i3status?
   - [x] neofetch
   - [x] nitrogen
   - [x] nvim
@@ -22,7 +21,6 @@ Scripts to create common and diff files for dotfiles:
   - [x] systemd
   - [x] tmux
   - [x] rofi
-  - [ ] zathura
 - [ ] oh-my-zsh
 - [x] vim
 - [x] .xprofile
