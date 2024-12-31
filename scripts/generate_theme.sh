@@ -75,7 +75,8 @@ search_and_merge() {
         exit 1
     fi
 
-    cp -r "$COMMON_FOLDER" "$OUTPUT_DIR"
+    rm -r "$OUTPUT_DIR"/*
+    cp -r "$COMMON_FOLDER"/* "$OUTPUT_DIR"
 
     find "$OUTPUT_DIR" -type f -name ".*" -o -type f | while read -r template_file; do
         if [ -f "$template_file" ]; then
@@ -85,12 +86,17 @@ search_and_merge() {
         fi
     done
 
-    find "$theme_folder" -type f -name ".*" -o -type f | while read -r theme_file; do
-        if [ -f "$template_file" ]; then
-            # echo
-            # file_name=$(basename "$template_file")
-            # theme_file=$(find "$theme_folder" -name "$file_name")
-            # merge_files "$template_file" "$theme_variables_file" "$theme_file"
+    find "$theme_folder" -mindepth 2 -type f -name ".*" -o -type f | while read -r theme_file; do
+        if [ -f "$theme_file" ]; then
+            file_name=$(basename "$theme_file")
+            folder_name=$(basename $(dirname "$theme_file"))
+            found_file=$(find $OUTPUT_DIR -type f -iwholename "*$folder_name/$file_name")
+            if [ -z "$found_file" ]; then
+                extracted_path=$(echo "$theme_file" | sed "s|"$theme_folder"||")
+                output_path="$OUTPUT_DIR$extracted_path"
+                mkdir -p $(dirname "$output_path")
+                cp "$theme_file" "$output_path"
+            fi
         fi
     done
 }
