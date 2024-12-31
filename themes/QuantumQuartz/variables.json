@@ -50,5 +50,8 @@
         "font_italic": "JetBrainsMono Nerd Font",
         "font_normal": "JetBrainsMono Nerd Font",
         "window_padding": 13
+    },
+    "tmux": {
+        "theme": "source-file ~/.config/tmux/dracula.tmux"
     }
 }

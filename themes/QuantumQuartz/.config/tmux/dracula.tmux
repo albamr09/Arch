@@ -1,0 +1,6 @@
+set -g @plugin 'dracula/tmux'                                                                                                                                                                                   
+                                                                                                                                                                                                                
+# Config Dracula Theme                                                                                                                                                                                          
+set -g @dracula-plugins "git cpu-usage ram-usage time"                                                                                                                                                          
+set -g @dracula-show-powerline true                                                                                                                                                                             
+set -g @dracula-day-month true 

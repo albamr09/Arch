@@ -20,7 +20,7 @@ Scripts to create common and diff files for dotfiles:
   - [ ] qutebrowser
   - [ ] scripts
   - [x] systemd
-  - [ ] tmux
+  - [x] tmux
   - [ ] rofi
   - [ ] zathura
 - [ ] oh-my-zsh
