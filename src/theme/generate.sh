@@ -27,7 +27,7 @@
 # 9. It starts the processing by calling `search_and_merge` with the theme name and output directory as arguments.
 #
 # Example of usage:
-# ./scripts/generate_theme.sh quantumquartz "/home/alba/Documentos/GitRepos/Arch/Arch/theme_test"
+# ./src/theme/generate.sh quantumquartz "/home/alba/Documentos/GitRepos/Arch/Arch/theme_test"
 #
 # Arguments:
 # - The theme name (e.g., "QuantumQuartz").
@@ -38,7 +38,7 @@ WORKDIR="$PWD"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd $SCRIPT_DIR
 
-THEMES_DIR="$(dirname "$SCRIPT_DIR")/themes"
+THEMES_DIR="$(dirname $(dirname "$SCRIPT_DIR"))/themes"
 COMMON_FOLDER="$THEMES_DIR/common"
 
 # Check if at least two arguments are provided (theme name and output directory)
