@@ -60,3 +60,4 @@ REPO_DIR=$(cd -- "$(dirname -- "$SRC_DIR" )" &> /dev/null && pwd)
 THEMES_DIR="$REPO_DIR"/themes
 TEMPLATE_THEME_DIR="$THEMES_DIR/common"
 TMP_OUTPUT_DIR=$REPO_DIR/tmp_theme
+THEME_INSTALL_FOLDER=$INSTALL_FOLDER/theme

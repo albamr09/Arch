@@ -1,7 +1,7 @@
 #!/bin/bash
 
-. utils.sh
-. config.sh
+. utilities.sh
+. constants.sh
 
 clean () {
 

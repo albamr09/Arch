@@ -27,7 +27,7 @@
 # 9. It starts the processing by calling `search_and_merge` with the theme name and output directory as arguments.
 #
 # Example of usage:
-# ./src/theme/generate.sh quantumquartz "/home/alba/Documentos/GitRepos/Arch/Arch/theme_test"
+# ./src/theme/generate.sh /home/alba/Documentos/GitRepos/Arch/themes/quantumquartz "/home/alba/Documentos/GitRepos/Arch/Arch/theme_test"
 #
 # Arguments:
 # - The theme name (e.g., "QuantumQuartz").
@@ -41,9 +41,9 @@ cd $SCRIPT_DIR
 . ../common/utils.sh
 . ../common/config.sh
 
-THEME_NAME="$1"
+THEME_DIR="$1"
 OUTPUT_DIR="$2"
-THEME_FOLDER="$THEMES_DIR/$THEME_NAME/theme"
+THEME_NAME="$(basename $THEME_DIR)"
 
 check_input_arguments(){
     if [ $# -lt 2 ]; then
@@ -79,7 +79,7 @@ generate_config_from_template() {
     find "$OUTPUT_DIR" -type f -name ".*" -o -type f | while read -r template_file; do
         if [ -f "$template_file" ]; then
             file_name=$(basename "$template_file")
-            theme_file=$(find "$THEME_FOLDER" -name "$file_name")
+            theme_file=$(find "$THEME_DIR" -name "$file_name")
             info_msg "Merging $template_file"
             merge_files "$template_file" "$theme_variables_file" "$theme_file"
         fi
@@ -90,16 +90,16 @@ copy_remaining_theme_files() {
     title_msg "Copying remaining configuration files for $THEME_NAME ..."
 
     # Copy without replacing existing files
-    execute cp -rn $THEME_FOLDER/* "$OUTPUT_DIR"
+    execute cp -rn $THEME_DIR/* "$OUTPUT_DIR"
 }
 
 search_and_merge() {
 
-    if [ ! -d "$THEME_FOLDER" ]; then
-        error_msg "Theme folder does not exist: $THEME_FOLDER"
+    if [ ! -d "$THEME_DIR" ]; then
+        error_msg "Theme folder does not exist: $THEME_DIR"
     fi
 
-    theme_variables_file=$(find "$THEME_FOLDER" -maxdepth 1 -type f -name "variables.json")
+    theme_variables_file=$(find "$THEME_DIR" -maxdepth 1 -type f -name "variables.json")
 
     if [ -z "$theme_variables_file" ]; then
         error_msg "No theme-specific variables file found for theme: $THEME_NAME"

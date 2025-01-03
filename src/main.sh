@@ -7,12 +7,14 @@ CURR_DIR="$PWD"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd $SCRIPT_DIR
 
-info_msg "Will proceed with Arch Installation"
+. ./common/utils.sh
+
+title_msg "Will proceed with Arch Installation"
 
 ## Main installation
-./core/install.sh
+# ./core/install.sh
 
-info_msg "Will proceed with Theme Installation"
+title_msg "Will proceed with Theme Installation"
 
 ## Theme installation
 ./theme/install.sh

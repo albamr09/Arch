@@ -23,6 +23,8 @@ select_theme(){
     done
 
     read -p "Please select a theme: " SELECTED_THEME
+    THEME_FOLDER="$THEMES_DIR/$SELECTED_THEME"
+    THEME_CONFIG_FOLDER="$THEMES_DIR/$SELECTED_THEME/theme"
 }
 
 generate_theme() {
@@ -31,7 +33,7 @@ generate_theme() {
     execute rm -rf "$TMP_OUTPUT_DIR"
     if [[ " ${THEMES[@]} " =~ " ${SELECTED_THEME} " ]]; then
         execute mkdir -p "$TMP_OUTPUT_DIR"
-        ./generate.sh "$SELECTED_THEME" "$TMP_OUTPUT_DIR"
+        ./generate.sh "$THEME_CONFIG_FOLDER" "$TMP_OUTPUT_DIR"
     else
         error_msg "'$SELECTED_THEME' is not a valid theme or it has been ignored."
     fi
@@ -39,13 +41,16 @@ generate_theme() {
 
 copy_theme() {
     mount_fs
-    execute cp -rf "$TMP_OUTPUT_DIR" "$INSTALL_FOLDER"
-    # execute cp "$COMMON_SCRIPTS_DIR" "$INSTALL_FOLDER"
-    # umount_fs
+    execute mkdir -p "$THEME_INSTALL_FOLDER" 
+    execute cp -rf "$TMP_OUTPUT_DIR/*" "$THEME_INSTALL_FOLDER"
+    execute cp -r "$THEME_FOLDER/src" "$INSTALL_FOLDER"
+    execute cp -r "$COMMON_SCRIPTS_DIR" "$INSTALL_FOLDER/src"
+    umount_fs
 }
 
 install_dependencies
 select_theme
-generate_theme
+# generate_theme
+copy_theme
 
 cd $CURR_DIR

@@ -1,5 +1,12 @@
 #!/bin/bash
 
+SRC_DIR=$(remove_slash $(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd))
+DIR_THEME=$(remove_slash "$(dirname $SRC_DIR)/theme")
+DIR_DOTFILES=$(remove_slash "$DIR_THEME/dotfiles")
+DIR_FONTS=$(remove_slash "$DIR_THEME/fonts")
+DIR_ETC=$(remove_slash "$DIR_THEME/etc")
+DIR_SERVICES=$(remove_slash "$DIR_THEME/services")
+
 instalar_dependencias(){
 	
 	echo "---------------------------------------------------"
@@ -34,9 +41,9 @@ copiar_dotfiles(){
 	echo "----------------- Copiar dotfiles -----------------"
 	echo "---------------------------------------------------"
 
-	cp -r dotfiles/.??* /home/$USER
+	cp -r "$DIR_DOTFILES"/.??* /home/$USER
 	# Lightdm dotfiles
-	sudo cp -r etc/* /etc
+	sudo cp -r "$DIR_ETC"/* /etc
 }
 
 copiar_fuentes(){
@@ -45,7 +52,7 @@ copiar_fuentes(){
 	echo "----------------- Copiar fuentes -----------------"
 	echo "---------------------------------------------------"
 
-	sudo cp -r fonts/* /usr/share/fonts
+	sudo cp -r "$DIR_FONTS"/* /usr/share/fonts
 }
 
 copiar_servicios(){
@@ -54,7 +61,7 @@ copiar_servicios(){
 	echo "-------- Copiar y configurar servicios ------------"
 	echo "---------------------------------------------------"
 
-	sudo cp services/* /etc/systemd/system
+	sudo cp "$DIR_SERVICES"/* /etc/systemd/system
 	# Servicio de notificación de batería
   	systemctl --user enable check-battery-user.timer
   	# Servicio de notificación de batería
