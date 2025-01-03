@@ -106,7 +106,7 @@ search_and_merge() {
     fi
 
     rm -rf "$OUTPUT_DIR"/*
-    cp -r "$COMMON_FOLDER"/* "$OUTPUT_DIR"
+    cp -r "$TEMPLATE_THEME_DIR"/* "$OUTPUT_DIR"
 
     generate_config_from_template "$theme_variables_file"
     copy_remaining_theme_files

@@ -57,5 +57,5 @@ FIRMWARE="base base-devel linux linux-firmware networkmanager efibootmgr"
 ### THEMES
 REPO_DIR=$(cd -- "$(dirname -- "$WORKDIR" )" &> /dev/null && pwd)
 THEMES_DIR="$REPO_DIR"/themes
-COMMON_FOLDER="$THEMES_DIR/common"
-TMP_OUTPUT_DIR=./outputs/tmp_theme
+TEMPLATE_THEME_DIR="$THEMES_DIR/common"
+TMP_OUTPUT_DIR=$REPO_DIR/tmp_theme

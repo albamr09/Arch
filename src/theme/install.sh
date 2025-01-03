@@ -7,7 +7,7 @@ cd $SCRIPT_DIR
 . ../common/utils.sh
 . ../common/config.sh
 
-THEMES=("classic" "cottagecore" "gruVbox" "onemirage" "quantumquartz")
+THEMES=($(ls -d "$THEMES_DIR"/*/ | grep -v "/common/" | xargs -n 1 basename))
 
 install_dependencies() {
     title_msg "Installing dependencies"
