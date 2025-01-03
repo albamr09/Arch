@@ -21,6 +21,7 @@ SRC_DIR=$(dirname $(remove_slash $(cd -- "$(dirname -- "${BASH_SOURCE[0]}" )" &>
 CHROOT_INSTALL_FOLDER=/root/archinstall
 # Install folder directory while on host machine
 INSTALL_FOLDER=/mnt/$CHROOT_INSTALL_FOLDER
+SRC_INSTALL_FOLDER=$INSTALL_FOLDER/$(basename $SRC_DIR)
 MACHINE_ARCH=$(uname -m)
 COMMON_SCRIPTS_DIR="$SRC_DIR/common"
 

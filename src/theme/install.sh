@@ -41,10 +41,9 @@ generate_theme() {
 
 copy_theme() {
     mount_fs
-    execute mkdir -p "$THEME_INSTALL_FOLDER" 
+    execute 'mkdir -p "$THEME_INSTALL_FOLDER" &&  mkdir -p "$SRC_INSTALL_FOLDER"'
     execute cp -rf "$TMP_OUTPUT_DIR/*" "$THEME_INSTALL_FOLDER"
-    execute cp -r "$THEME_FOLDER/src" "$INSTALL_FOLDER"
-    execute cp -r "$COMMON_SCRIPTS_DIR" "$INSTALL_FOLDER/src"
+    execute cp -rf "$THEME_FOLDER/src/*" "$COMMON_SCRIPTS_DIR" "$SRC_INSTALL_FOLDER"
     umount_fs
 }
 
