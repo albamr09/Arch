@@ -1,7 +1,12 @@
 #!/bin/bash
 
-. config.sh
-. utils.sh
+# Directory of the currently running script
+CURR_DIR="$PWD"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd $SCRIPT_DIR
+
+. ../common/config.sh
+. ../common/utils.sh
 
 # Exit immediately if any command fails
 set -e
@@ -101,17 +106,16 @@ system_configuration(){
 
     title_msg "System configuration and setup"
 
-    execute mkdir $INSTALL_FOLDER && cp -rf $WORKDIR $INSTALL_FOLDER
-    execute 'arch-chroot /mnt /bin/bash -c "cd $CHROOT_INSTALL_FOLDER/ && ./setup.sh"'
-    execute rm -rf $INSTALL_FOLDER/$WORKDIR
+    execute mkdir -p $INSTALL_FOLDER && cp -rf $WORKDIR/* $INSTALL_FOLDER
+    execute 'arch-chroot /mnt /bin/bash -c "cd $CHROOT_INSTALL_FOLDER/ && ./core/setup.sh"'
+    execute rm -rf $INSTALL_FOLDER/$WORKDIR/*
 }
 
 finish(){
     title_msg "Finishing installation"
 
     title_msg "Copying post install script"
-    execute cp -f $WORKDIR/post_install.sh $INSTALL_FOLDER
-    # Themes
+    execute cp -f $WORKDIR/core/post_install.sh $WORKDIR/common $INSTALL_FOLDER
     
     execute swapoff "$INSTALLATION_DISK"3
     execute umount "$INSTALLATION_DISK"2 "$INSTALLATION_DISK"4 
@@ -126,3 +130,5 @@ mounting_filesystems
 installing_firmware
 system_configuration
 finish
+
+cd $CURR_DIR

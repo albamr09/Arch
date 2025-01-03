@@ -1,7 +1,11 @@
 #!/bin/bash
 
-. utils.sh
-. config.sh
+CURR_DIR="$PWD"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd $SCRIPT_DIR
+
+. ./common/utils.sh
+. ./common/config.sh
 
 connect_network(){
     
@@ -26,3 +30,5 @@ cleanup() {
 connect_network
 configure_services
 cleanup
+
+cd $CURR_DIR

@@ -13,8 +13,8 @@ remove_slash() {
 
 # Installation metadata
 
-# Directory where all the scripts are
-WORKDIR=$(remove_slash $(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd))
+# Directory where all the scripts are (this should be src)
+WORKDIR=$(dirname $(remove_slash $(cd -- "$(dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)))
 # Install folder directory while on chroot
 CHROOT_INSTALL_FOLDER=/root/archinstall
 # Install folder directory while on host machine
