@@ -3,6 +3,11 @@
 - [ ] Themes should be downloaded, and they should not be on the repo
 - [ ] Fix error on /etc/sudoers
 - [ ] Add cleanup for theme installation
+  - config
+  - etc
+  - grub
+  - fonts
+  - icons
 
 ### Templating
 
@@ -17,12 +22,6 @@ Try to modularize installation:
 
 - [ ] Basic installing: with basic services
 - [ ] Advanced installing: other themes install additional modules
-
-### Uniform Folder Structure
-
-Make sure all folder follow the same structure as the common folder.
-
-- [ ] Default
 
 ### Templates for common modules
 
