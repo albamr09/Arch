@@ -11,6 +11,8 @@ remove_slash() {
    echo "$@" | tr -s /
 }
 
+### INSTALLATION
+
 # Installation metadata
 
 # Directory where all the scripts are (this should be src)
@@ -51,3 +53,9 @@ HOOKS_MKINITCPIO="(base udev block filesystems keyboard fsck)"
 # Packages
 
 FIRMWARE="base base-devel linux linux-firmware networkmanager efibootmgr"
+
+### THEMES
+REPO_DIR=$(cd -- "$(dirname -- "$WORKDIR" )" &> /dev/null && pwd)
+THEMES_DIR="$REPO_DIR"/themes
+COMMON_FOLDER="$THEMES_DIR/common"
+TMP_OUTPUT_DIR=./outputs/tmp_theme

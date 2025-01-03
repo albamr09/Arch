@@ -44,7 +44,7 @@ info_msg(){
 }
 
 error_msg(){
-    echo_with_color " - Failure" $RED; exit
+    echo_with_color " - Failure $1" $RED; exit
 }
 
 success_msg(){

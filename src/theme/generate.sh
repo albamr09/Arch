@@ -34,29 +34,27 @@
 # - The output directory where the merged files will be stored.
 
 # Directory of the currently running script
-WORKDIR="$PWD"
+CURR_DIR="$PWD"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd $SCRIPT_DIR
 
-THEMES_DIR="$(dirname $(dirname "$SCRIPT_DIR"))/themes"
-COMMON_FOLDER="$THEMES_DIR/common"
-
-# Check if at least two arguments are provided (theme name and output directory)
-if [ $# -lt 2 ]; then
-  echo "Usage: $0 <theme_name> <output_directory>"
-  exit 1
-fi
+. ../common/utils.sh
+. ../common/config.sh
 
 THEME_NAME="$1"
 OUTPUT_DIR="$2"
+THEME_FOLDER="$THEMES_DIR/$THEME_NAME/theme"
 
-# Validate the output directory exists
-if [ ! -d "$OUTPUT_DIR" ]; then
-  echo "Output directory does not exist: $OUTPUT_DIR"
-  exit 1
-fi
+check_input_arguments(){
+    if [ $# -lt 2 ]; then
+    error_msg "Usage: $0 <theme_name> <output_directory>"
+    fi
 
-# Function to merge files
+    if [ ! -d "$OUTPUT_DIR" ]; then
+    error_msg "Output directory does not exist: $OUTPUT_DIR"
+    fi
+}
+
 merge_files() {
     template_file="$1"
     theme_variables_file="$2"
@@ -69,72 +67,52 @@ merge_files() {
     if [ -f "$theme_file" ]; then
         cat "$theme_file" >> "$template_file"
     fi
-
-    echo "Merged file created successfully: $template_file"
 }
 
 generate_config_from_template() {
-    theme_folder="$1"
-    theme_variables_file="$2"
-    output_dir="$3"
+
+    title_msg "Generating configuration files from templates for $THEME_NAME..."
+
+    theme_variables_file="$1"
 
     # Loop through all files in the output directory to apply substitution and merge
-    find "$output_dir" -type f -name ".*" -o -type f | while read -r template_file; do
+    find "$OUTPUT_DIR" -type f -name ".*" -o -type f | while read -r template_file; do
         if [ -f "$template_file" ]; then
             file_name=$(basename "$template_file")
-            theme_file=$(find "$theme_folder" -name "$file_name")
+            theme_file=$(find "$THEME_FOLDER" -name "$file_name")
+            info_msg "Merging $template_file"
             merge_files "$template_file" "$theme_variables_file" "$theme_file"
         fi
     done
 }
 
 copy_remaining_theme_files() {
-    theme_folder="$1"
-    output_dir="$2"
+    title_msg "Copying remaining configuration files for $THEME_NAME ..."
 
-    echo "Copying remaining configuration files for $THEME_NAME ..."
-
-    # Loop through all theme files in the theme folder and copy them to the output directory (ignore the docs directory)
-    find "$theme_folder" -mindepth 2 -type f -name ".*" -o -type f | grep -v "^$theme_folder/docs" | while read -r theme_file; do
-        if [ -f "$theme_file" ]; then
-            file_name=$(basename "$theme_file")
-            folder_name=$(basename $(dirname "$theme_file"))
-            found_file=$(find "$output_dir" -type f -iwholename "*$folder_name/$file_name")
-            
-            if [ -z "$found_file" ]; then
-                # Create necessary directories and copy the theme file
-                extracted_path=$(echo "$theme_file" | sed "s|$theme_folder||")
-                output_path="$output_dir$extracted_path"
-                mkdir -p $(dirname "$output_path")
-                cp "$theme_file" "$output_path"
-            fi
-        fi
-    done
+    # Copy without replacing existing files
+    execute cp -rn $THEME_FOLDER/* "$OUTPUT_DIR"
 }
 
 search_and_merge() {
-    theme_folder="$THEMES_DIR/$THEME_NAME"
 
-    if [ ! -d "$theme_folder" ]; then
-        echo "Theme folder does not exist: $theme_folder"
-        exit 1
+    if [ ! -d "$THEME_FOLDER" ]; then
+        error_msg "Theme folder does not exist: $THEME_FOLDER"
     fi
 
-    theme_variables_file=$(find "$theme_folder" -maxdepth 1 -type f -name "variables.json")
+    theme_variables_file=$(find "$THEME_FOLDER" -maxdepth 1 -type f -name "variables.json")
 
     if [ -z "$theme_variables_file" ]; then
-        echo "No theme-specific variables file found for theme: $THEME_NAME"
-        exit 1
+        error_msg "No theme-specific variables file found for theme: $THEME_NAME"
     fi
 
     rm -rf "$OUTPUT_DIR"/*
     cp -r "$COMMON_FOLDER"/* "$OUTPUT_DIR"
 
-    generate_config_from_template "$theme_folder" "$theme_variables_file" "$OUTPUT_DIR"
-    copy_remaining_theme_files "$theme_folder" "$OUTPUT_DIR"
+    generate_config_from_template "$theme_variables_file"
+    copy_remaining_theme_files
 }
 
 # Start processing
 search_and_merge "$INPUT_FILE"
 
-cd $WORKDIR
+cd $CURR_DIR
