@@ -50,7 +50,7 @@ copy_theme() {
 
 install_dependencies
 select_theme
-# generate_theme
+generate_theme
 copy_theme
 
 cd $CURR_DIR
