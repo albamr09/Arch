@@ -15,10 +15,10 @@ remove_slash() {
 
 # Directory where all the scripts are
 WORKDIR=$(remove_slash $(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd))
-# Directory on the host where we copy the scripts and resources for later usage
-INSTALL_FOLDER=$(remove_slash $(basename $WORKDIR))
+# Install folder directory while on chroot
+CHROOT_INSTALL_FOLDER=/root/archinstall
 # Install folder directory while on host machine
-HOST_INSTALL_FOLDER=$(remove_slash "/$INSTALL_FOLDER")
+INSTALL_FOLDER=/mnt/$CHROOT_INSTALL_FOLDER
 MACHINE_ARCH=$(uname -m)
 
 # Installation modifiable information

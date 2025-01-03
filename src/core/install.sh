@@ -101,20 +101,20 @@ system_configuration(){
 
     title_msg "System configuration and setup"
 
-    execute cp -rf $WORKDIR /mnt
-    execute 'arch-chroot /mnt /bin/bash -c "cd $HOST_INSTALL_FOLDER/ && ./setup.sh"'
+    execute mkdir $INSTALL_FOLDER && cp -rf $WORKDIR $INSTALL_FOLDER
+    execute 'arch-chroot /mnt /bin/bash -c "cd $CHROOT_INSTALL_FOLDER/ && ./setup.sh"'
+    execute rm -rf $INSTALL_FOLDER/$WORKDIR
 }
 
-cleanup() {
-
+finish(){
     title_msg "Finishing installation"
 
     title_msg "Copying post install script"
-    # TODO: copy themes fold, or tell the user to select one theme to install
-    execute cp -f $WORKDIR/post_install.sh /mnt/$INSTALL_FOLDER
+    execute cp -f $WORKDIR/post_install.sh $INSTALL_FOLDER
+    # Themes
     
     execute swapoff "$INSTALLATION_DISK"3
-    execute umount "$INSTALLATION_DISK"2 "$INSTALLATION_DISK"4
+    execute umount "$INSTALLATION_DISK"2 "$INSTALLATION_DISK"4 
 
     title_msg "Installation finished! Remember to execute the post_install script after reboot!"
 }
@@ -125,4 +125,4 @@ format_partitions
 mounting_filesystems
 installing_firmware
 system_configuration
-cleanup
+finish

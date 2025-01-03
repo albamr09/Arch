@@ -19,9 +19,8 @@ configure_services(){
 }
 
 cleanup() {
-
     title_msg "Removing installation files"
-    execute cd / && sudo rm -r $INSTALL_FOLDER
+    execute cd / && sudo rm -r $INSTALL_FOLDER/post_install.sh
 }
 
 connect_network
