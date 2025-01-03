@@ -64,10 +64,6 @@ system_configuration(){
 
 finish(){
     title_msg "Finishing installation"
-
-    title_msg "Copying post install script"
-    execute cp -rf $SRC_DIR/core/post_install.sh $COMMON_SCRIPTS_DIR $SRC_INSTALL_FOLDER
-
     umount_fs
 }
 

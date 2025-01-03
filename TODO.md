@@ -2,6 +2,7 @@
 
 - [ ] Themes should be downloaded, and they should not be on the repo
 - [ ] Fix error on /etc/sudoers
+- [ ] Add cleanup for theme installation
 
 ### Templating
 
@@ -36,6 +37,3 @@ There are some modules like zathura, polybar, etc. that are not present on every
 - Add an initial text showing things you might need to do before installing
   - Setup size of iso image
   - How to setup wifi
-- Move resources to another github repository, so it can be downloaded separately
-- Move all themes into same repository
-  - When installing new theme, only copy configuration files that are present for that theme
