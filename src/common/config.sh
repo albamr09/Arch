@@ -16,12 +16,13 @@ remove_slash() {
 # Installation metadata
 
 # Directory where all the scripts are (this should be src)
-WORKDIR=$(dirname $(remove_slash $(cd -- "$(dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)))
+SRC_DIR=$(dirname $(remove_slash $(cd -- "$(dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)))
 # Install folder directory while on chroot
 CHROOT_INSTALL_FOLDER=/root/archinstall
 # Install folder directory while on host machine
 INSTALL_FOLDER=/mnt/$CHROOT_INSTALL_FOLDER
 MACHINE_ARCH=$(uname -m)
+COMMON_SCRIPTS_DIR="$SRC_DIR/common"
 
 # Installation modifiable information
 
@@ -55,7 +56,7 @@ HOOKS_MKINITCPIO="(base udev block filesystems keyboard fsck)"
 FIRMWARE="base base-devel linux linux-firmware networkmanager efibootmgr"
 
 ### THEMES
-REPO_DIR=$(cd -- "$(dirname -- "$WORKDIR" )" &> /dev/null && pwd)
+REPO_DIR=$(cd -- "$(dirname -- "$SRC_DIR" )" &> /dev/null && pwd)
 THEMES_DIR="$REPO_DIR"/themes
 TEMPLATE_THEME_DIR="$THEMES_DIR/common"
 TMP_OUTPUT_DIR=$REPO_DIR/tmp_theme

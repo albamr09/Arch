@@ -5,13 +5,13 @@ remove_slash() {
 # Installation metadata
 
 # Directory where all the scripts are
-WORKDIR=$(remove_slash $(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd))
+SRC_DIR=$(remove_slash $(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd))
 # Directory where are the resources/dotfiles are
-DIR_DOTFILES=$(remove_slash "$(dirname $WORKDIR)/dotfiles")
-DIR_HOME=$(remove_slash "$DIR_DOTFILES/home")
-DIR_FONTS=$(remove_slash "$DIR_DOTFILES/fonts")
-DIR_ETC=$(remove_slash "$DIR_DOTFILES/etc")
-DIR_SERVICES=$(remove_slash "$DIR_DOTFILES/services")
+DIR_THEME=$(remove_slash "$(dirname $SRC_DIR)/theme")
+DIR_DOTFILES=$(remove_slash "$DIR_THEME/dotfiles")
+DIR_FONTS=$(remove_slash "$DIR_THEME/fonts")
+DIR_ETC=$(remove_slash "$DIR_THEME/etc")
+DIR_SERVICES=$(remove_slash "$DIR_THEME/services")
 MACHINE_ARCH=$(uname -m)
 
 

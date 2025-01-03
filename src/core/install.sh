@@ -57,16 +57,16 @@ system_configuration(){
 
     title_msg "System configuration and setup"
 
-    execute mkdir -p $INSTALL_FOLDER && cp -rf $WORKDIR/* $INSTALL_FOLDER
+    execute mkdir -p $INSTALL_FOLDER && cp -rf $SRC_DIR/* $INSTALL_FOLDER
     execute 'arch-chroot /mnt /bin/bash -c "cd $CHROOT_INSTALL_FOLDER/ && ./core/setup.sh"'
-    execute rm -rf $INSTALL_FOLDER/$WORKDIR/*
+    execute rm -rf $INSTALL_FOLDER/$SRC_DIR/*
 }
 
 finish(){
     title_msg "Finishing installation"
 
     title_msg "Copying post install script"
-    execute cp -rf $WORKDIR/core/post_install.sh $WORKDIR/common $INSTALL_FOLDER
+    execute cp -rf $SRC_DIR/core/post_install.sh $COMMON_SCRIPTS_DIR $INSTALL_FOLDER
     
     umount_fs
 

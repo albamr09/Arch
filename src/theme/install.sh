@@ -6,6 +6,7 @@ cd $SCRIPT_DIR
 
 . ../common/utils.sh
 . ../common/config.sh
+. ../common/fs.sh
 
 THEMES=($(ls -d "$THEMES_DIR"/*/ | grep -v "/common/" | xargs -n 1 basename))
 
@@ -34,6 +35,13 @@ generate_theme() {
     else
         error_msg "'$SELECTED_THEME' is not a valid theme or it has been ignored."
     fi
+}
+
+copy_theme() {
+    mount_fs
+    execute cp -rf "$TMP_OUTPUT_DIR" "$INSTALL_FOLDER"
+    # execute cp "$COMMON_SCRIPTS_DIR" "$INSTALL_FOLDER"
+    # umount_fs
 }
 
 install_dependencies

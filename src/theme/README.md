@@ -8,6 +8,8 @@ Scripts to generate dotfiles:
 
 ## TODO
 
+- [ ] Themes should be downloaded, and they should not be on the repo
+
 ### Templating
 
 - [ ] config.sh: Some things should be configurable on config.sh file

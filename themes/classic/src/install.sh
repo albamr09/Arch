@@ -58,7 +58,7 @@ configure_nvim() {
 copy_dotfiles() {
 
     title_msg "Copying dotfiles for root"
-    execute sudo cp -r $DIR_HOME/.??* "/root"
+    execute sudo cp -r $DIR_DOTFILES/.??* "/root"
 
     title_msg "Copying fonts"
     execute sudo cp -r $DIR_FONTS/* "/usr/share/fonts/"
@@ -71,7 +71,7 @@ copy_dotfiles() {
 
     title_msg "Copying dotfiles for $USER"
 
-    execute sudo cp -r $DIR_HOME/.??* /home/$USER
+    execute sudo cp -r $DIR_DOTFILES/.??* /home/$USER
     execute sudo chown -R $USER /home/$USER/.??* && sudo chmod -R 775 /home/$USER/.??*
     execute chmod 775 /home/$USER/.xsession
     # Needed so telescope installs successfully, will be copied again after plugins are installed
@@ -95,7 +95,7 @@ install_neovim_plugins() {
     title_msg "Installing neovim plugins"
     nvim --headless +PlugInstall +qall 2> /dev/null
     # Copy dotfiles for telescope that we removed earlier
-    execute cp -rf -r $DIR_HOME/.vim /home/$USER
+    execute cp -rf -r $DIR_DOTFILES/.vim /home/$USER
 }
 
 define_defaults(){
