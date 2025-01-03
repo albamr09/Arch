@@ -12,7 +12,7 @@ cd $SCRIPT_DIR
 title_msg "Will proceed with Arch Installation"
 
 ## Main installation
-# ./core/install.sh
+./core/install.sh
 
 title_msg "Will proceed with Theme Installation"
 
