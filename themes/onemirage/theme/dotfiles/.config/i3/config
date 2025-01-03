@@ -1,0 +1,11 @@
+# Theme colors
+# class                     border  backgr. text    indic.  child_border
+client.focused              #44475a #44475a #ffcc66 #96969  
+client.focused_inactive     #1f2430 #1f2430 #b7ccc4 #45494   
+client.unfocused            #1f2430 #1f2430 #b7ccc4 #45494  
+client.urgent               #d86d58 #d86d58 #b7ccc4 #268BD  
+client.placeholder          #141A1B #0c0c0c #ffffff #141A1B 
+client.background           #141A1B
+
+# Polybar
+exec_always --no-startup-id ~/.config/polybar/launch.sh & 

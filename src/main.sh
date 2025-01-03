@@ -11,5 +11,6 @@ cd $SCRIPT_DIR
 ./core/install.sh
 
 ## Theme installation
+./theme/install.sh
 
 cd $CURR_DIR

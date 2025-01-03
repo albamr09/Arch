@@ -1,0 +1,10 @@
+# class                 border  backgr. text    indicator child_border
+client.focused          #292d3e #d8d8c7 #292d3e #dddddd   #d8d8c7
+client.focused_inactive #292d3e #292d3e #ffffff #292d2e   #201723
+client.unfocused        #292d3e #292d3e #ffffff #292d2e   #201723
+client.urgent           #d64e4e #d64e4e #ffffff #d64e4e   #d64e4e
+client.placeholder      #212121 #0c0c0c #ffffff #212121   #262626
+client.background       #212121
+
+# Ejecución polybar
+exec_always --no-startup-id ~/.config/polybar/launch.sh &
