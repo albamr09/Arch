@@ -69,8 +69,6 @@ finish(){
     execute cp -rf $SRC_DIR/core/post_install.sh $COMMON_SCRIPTS_DIR $SRC_INSTALL_FOLDER
 
     umount_fs
-
-    title_msg "Installation finished! Remember to execute the post_install script after reboot!"
 }
 
 

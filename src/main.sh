@@ -19,4 +19,6 @@ title_msg "Will proceed with Theme Installation"
 ## Theme installation
 ./theme/install.sh
 
+title_msg "Installation finished! Remember to execute the post install scripts (on $CHROOT_INSTALL_FOLDER) after reboot!"
+
 cd $CURR_DIR

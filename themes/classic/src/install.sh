@@ -1,12 +1,15 @@
 #!/bin/bash
 
+CURR_DIR="$PWD"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd $SCRIPT_DIR
+
 . utilities.sh
+. ./common/utils.sh
 . constants.sh
 
 clean () {
-
     title_msg "Removing wallpapers ..."
-
     execute rm -rf $HOME/.config/wallpapers
 }
 
@@ -114,3 +117,5 @@ copy_dotfiles
 configure_services
 install_neovim_plugins
 define_defaults
+
+cd $CURR_DIR

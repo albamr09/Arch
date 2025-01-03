@@ -8,7 +8,6 @@ cd $SCRIPT_DIR
 . ./common/config.sh
 
 connect_network(){
-    
     title_msg "Setting up network connection"
 
     nmcli device wifi
@@ -16,15 +15,13 @@ connect_network(){
 }
 
 configure_services(){
-    
     title_msg "Configuring services"
-    systemctl enable lightdm.service
-    
+    sudo systemctl enable lightdm.service
 }
 
 cleanup() {
     title_msg "Removing installation files"
-    execute cd / && sudo rm -r $INSTALL_FOLDER/post_install.sh
+    execute cd / && sudo rm -r $CHROOT_INSTALL_FOLDER/post_install.sh
 }
 
 connect_network
