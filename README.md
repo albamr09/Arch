@@ -1,3 +1,3 @@
-# ArchInstaller
+# Arch Installer
 
-Default arch linux installation.
+Arch Linux installation.

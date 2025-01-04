@@ -30,7 +30,8 @@ install_packages() {
     python3 -m ensurepip
 
     title_msg "Installing oh-my-zsh"
-    sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    # Avoid entering zsh console
+    export RUNZSH="no" && sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 }
 
 configure_packages() {
@@ -61,19 +62,17 @@ copy_dotfiles() {
     execute sudo cp -r $DIR_DOTFILES/.??* "/root"
 
     title_msg "Copying fonts"
-    execute sudo cp -r $DIR_FONTS/* "/usr/share/fonts/"
+    execute sudo cp -r $DIR_FONTS/* /usr/share/fonts/
 
     title_msg "Copying system configuration files"
     execute sudo cp -r $DIR_ETC/* /etc
 
     title_msg "Copying service configuration files"
-    execute sudo cp $DIR_SERVICES/* /etc/systemd/system
+    execute sudo cp -r $DIR_SERVICES/* /etc/systemd/system
 
     title_msg "Copying dotfiles for $USER"
 
-    execute sudo cp -r $DIR_DOTFILES/.??* /home/$USER
-    execute sudo chown -R $USER /home/$USER/.??* && sudo chmod -R 775 /home/$USER/.??*
-    execute chmod 775 /home/$USER/.xsession
+    execute sudo cp -r --preserve=ownership $DIR_DOTFILES/.??* /home/$USER
     # Needed so telescope installs successfully, will be copied again after plugins are installed
     execute rm -rf /home/$USER/.vim
 }
@@ -93,6 +92,8 @@ configure_services(){
 install_neovim_plugins() {
 
     title_msg "Installing neovim plugins"
+    # Avoid tree sitter executable errors (only for latex)
+    sudo npm install -g tree-sitter-cli
     nvim --headless +PlugInstall +qall 2> /dev/null
     # Copy dotfiles for telescope that we removed earlier
     execute cp -rf -r $DIR_DOTFILES/.vim /home/$USER
@@ -106,6 +107,12 @@ define_defaults(){
     execute chsh -s /bin/zsh
 }
 
+finish() {
+    success_msg "Installation finished!"
+    # Clean up
+    execute rm -rf "$CHROOT_INSTALL_FOLDER"
+}
+
 ## Execute steps
 clean
 install_packages
@@ -114,5 +121,6 @@ copy_dotfiles
 install_neovim_plugins
 configure_services
 define_defaults
+finish
 
 cd $CURR_DIR

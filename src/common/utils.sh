@@ -40,15 +40,15 @@ execute() {
 }
 
 info_msg(){
-    echo_with_color " -> $1" $YELLOW
+    echo_with_color " → $1" $YELLOW
 }
 
 error_msg(){
-    echo_with_color " - Failure $1" $RED; exit
+    echo_with_color " ✖ Failure $1" $RED; exit
 }
 
 success_msg(){
-    echo_with_color " + Success" $GREEN
+    echo_with_color " ✓ Success $1" $GREEN
 }
 
 is_machine_32() {

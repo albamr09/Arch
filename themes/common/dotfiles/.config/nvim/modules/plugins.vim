@@ -22,10 +22,11 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
-Plug 'williamboman/nvim-lsp-installer'
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
 
 " Temas
-Plug {{ (datasource "variables").nvim.theme }}
+Plug '{{ (datasource "variables").nvim.theme }}'
 
 " File explorer
 Plug 'scrooloose/nerdtree'
@@ -76,6 +77,7 @@ Plug 'rhysd/vim-clang-format'
 " Debugger
 Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
+Plug 'nvim-neotest/nvim-nio'
 Plug 'theHamsta/nvim-dap-virtual-text'
 
 " Tmux                                                                                                               │

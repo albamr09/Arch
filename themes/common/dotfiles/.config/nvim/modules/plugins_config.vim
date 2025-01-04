@@ -87,7 +87,7 @@ set splitbelow
  
 lua << EOF
 require'lualine'.setup{
-  options = { theme  = {{ (datasource "variables").nvim.lualine_theme }} },
+  options = { theme  = "{{ (datasource "variables").nvim.lualine_theme }}" },
 }
 EOF
 
@@ -134,7 +134,12 @@ let g:vimtex_view_general_viewer = 'zathura'
 " -------------- ] LSP [ ----------------
 
 lua << EOF
-local nvim_lsp = require('lspconfig')
+
+local servers = { 'eslint', 'pyright', 'clangd', 'cmake' }
+require('mason').setup()
+require('mason-lspconfig').setup {
+  ensure_installed = servers
+}
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -156,20 +161,18 @@ local on_attach = function(client, bufnr)
 
 end
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
-local servers = { 'tsserver', 'pyright', 'clangd', 'cmake' }
-require("nvim-lsp-installer").setup {
-  ensure_installed = servers
-}
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
-    on_attach = on_attach,
-    flags = {
-      debounce_text_changes = 150,
+local lspconfig = require('lspconfig')
+-- Automatically configure servers using mason-lspconfig
+require('mason-lspconfig').setup_handlers {
+  function(server_name)
+    lspconfig[server_name].setup {
+      on_attach = on_attach,
+      flags = {
+        debounce_text_changes = 150,
+      },
     }
-  }
-end
+  end,
+}
 EOF
 
 " -------------- ] Floating Term [ ----------------
@@ -267,43 +270,44 @@ EOF
 
 " --------------- ] Debugger UI [  --------------- 
 
-lua << EOF
-require("dapui").setup({
-  icons = { expanded = "▾", collapsed = "▸", current_frame = "▸" },
-  expand_lines = vim.fn.has("nvim-0.7"),
-  layouts = {
-    {
-      elements = {
-        "breakpoints",
-        "stacks",
-      },
-      size = 40, -- 40 columns
-      position = "left",
-    },
-    {
-      elements = {
-        "scopes",
-        "console",
-      },
-      size = 0.25, -- 25% of total lines
-      position = "bottom",
-    },
-  },
-  floating = {
-    max_height = nil, -- These can be integers or a float between 0 and 1.
-    max_width = nil, -- Floats will be treated as percentage of your screen.
-    border = "single", -- Border style. Can be "single", "double" or "rounded"
-    mappings = {
-      close = { "q", "<Esc>" },
-    },
-  },
-  windows = { indent = 1 },
-  render = {
-    max_type_length = nil, -- Can be integer or nil.
-    max_value_lines = 100, -- Can be integer or nil.
-  }
-})
-EOF
+" TODO: restore this, for some reasong importing dapui gives an error
+" lua << EOF
+" require("dapui").setup({
+"   icons = { expanded = "▾", collapsed = "▸", current_frame = "▸" },
+"   expand_lines = vim.fn.has("nvim-0.7"),
+"   layouts = {
+"     {
+"       elements = {
+"         "breakpoints",
+"         "stacks",
+"       },
+"       size = 40, -- 40 columns
+"       position = "left",
+"     },
+"     {
+"       elements = {
+"         "scopes",
+"         "console",
+"       },
+"       size = 0.25, -- 25% of total lines
+"       position = "bottom",
+"     },
+"   },
+"   floating = {
+"     max_height = nil, -- These can be integers or a float between 0 and 1.
+"     max_width = nil, -- Floats will be treated as percentage of your screen.
+"     border = "single", -- Border style. Can be "single", "double" or "rounded"
+"     mappings = {
+"       close = { "q", "<Esc>" },
+"     },
+"   },
+"   windows = { indent = 1 },
+"   render = {
+"     max_type_length = nil, -- Can be integer or nil.
+"     max_value_lines = 100, -- Can be integer or nil.
+"   }
+" })
+" EOF
 
 " --------------- ] Debugger Virtual Text [  --------------- 
 

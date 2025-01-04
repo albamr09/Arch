@@ -45,26 +45,15 @@ THEME_DIR="$1"
 OUTPUT_DIR="$2"
 THEME_NAME="$(basename $THEME_DIR)"
 
-check_input_arguments(){
-    if [ $# -lt 2 ]; then
-    error_msg "Usage: $0 <theme_name> <output_directory>"
-    fi
-
-    if [ ! -d "$OUTPUT_DIR" ]; then
-    error_msg "Output directory does not exist: $OUTPUT_DIR"
-    fi
-}
-
 merge_files() {
     template_file="$1"
     theme_variables_file="$2"
     theme_file="$3"
     
     # Apply substitution to the common file using the theme variables
-    template_filled=$(./modules/substitute.sh "$theme_variables_file" "$template_file")
-
-    echo -e "$template_filled \n" > "$template_file"
+    ./modules/substitute.sh "$theme_variables_file" "$template_file" "$template_file"
     if [ -f "$theme_file" ]; then
+        echo -e "\n" >> "$template_file"
         cat "$theme_file" >> "$template_file"
     fi
 }

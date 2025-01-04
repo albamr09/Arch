@@ -15,11 +15,12 @@ title_msg "Will proceed with Arch Installation"
 ## Main installation
 ./core/install.sh
 
-title_msg "Will proceed with Theme Installation"
+title_msg "Will proceed with Theme Generation"
 
 ## Theme installation
 ./theme/install.sh
 
-title_msg "Installation finished! Remember to execute the post install scripts (on $CHROOT_INSTALL_FOLDER) after reboot!"
+success_msg "Installation finished!"
+info_msg "Remember to execute the post-install scripts (on $CHROOT_INSTALL_FOLDER) after reboot!"
 
 cd $CURR_DIR
