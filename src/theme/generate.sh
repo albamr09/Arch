@@ -71,7 +71,7 @@ merge_files() {
 
 generate_config_from_template() {
 
-    title_msg "Generating configuration files from templates for $THEME_NAME..."
+    title_msg "Generating configuration files from templates..."
 
     theme_variables_file="$1"
 
@@ -87,7 +87,7 @@ generate_config_from_template() {
 }
 
 copy_remaining_theme_files() {
-    title_msg "Copying remaining configuration files for $THEME_NAME ..."
+    title_msg "Copying remaining configuration files..."
 
     # Copy without replacing existing files
     execute cp -rn $THEME_DIR/* "$OUTPUT_DIR"

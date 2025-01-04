@@ -105,7 +105,7 @@ config_users(){
     title_msg "Adding root to sudo"
 
     execute pacman -S sudo --noconfirm
-    execute 'sed -i "82 s/^##*//" /etc/sudoers'
+    execute 'sudo sed -i "s/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/g" /etc/sudoers'
 
     title_msg "Adding user"
 
@@ -115,7 +115,6 @@ config_users(){
         passwd $USER
     done
     execute chmod -R 770 /home/$USER
-    execute 'sudo sed -i "s/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/g" /etc/sudoers'
 }
 
 

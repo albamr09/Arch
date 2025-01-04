@@ -7,6 +7,7 @@ CURR_DIR="$PWD"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd $SCRIPT_DIR
 
+. ./common/config.sh
 . ./common/utils.sh
 
 title_msg "Will proceed with Arch Installation"

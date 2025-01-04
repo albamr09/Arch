@@ -33,7 +33,7 @@ PACMAN_PKGS="$XORG_PACKAGES $BASIC_PACKAGES $UTILITIES_PACKAGES $PROGRAM_PACKAGE
 
 ## Yay
 
-AUR_PIPEWIRE="pipewire pipewire-pulse pipewire-jack pipewire-alsa pipewire-audio"
+AUR_PIPEWIRE="pipewire pipewire-pulse pipewire-alsa pipewire-audio"
 AUR_LOCKSCREEN="xss-lock i3lock-color"
 AUR_SUSPEND_MGR="caffeine-ng libappindicator-gtk3"
 AUR_BASIC_PACKAGES="picom-ftlabs-git pamixer pacman-contrib $AUR_PIPEWIRE $AUR_LOCKSCREEN $AUR_SUSPEND_MGR"

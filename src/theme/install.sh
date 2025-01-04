@@ -46,6 +46,7 @@ copy_theme() {
     execute 'arch-chroot /mnt /bin/bash -c "chown -R $USER:$USER $CHROOT_INSTALL_FOLDER"'
     execute cp -rf "$TMP_OUTPUT_DIR/*" "$THEME_INSTALL_FOLDER"
     execute cp -rf "$THEME_FOLDER/src/*" "$COMMON_SCRIPTS_DIR" "$SRC_INSTALL_FOLDER"
+    execute chmod -R 770 $INSTALL_FOLDER
     umount_fs
 }
 

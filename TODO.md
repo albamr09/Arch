@@ -1,7 +1,10 @@
 # TODO
 
+- [ ] Fix install errors
+  - gstreamer
+  - caffeine-ng
+  - foxitreader
 - [ ] Themes should be downloaded, and they should not be on the repo
-- [ ] Fix error on /etc/sudoers
 - [ ] Add cleanup for theme installation
   - config
   - etc

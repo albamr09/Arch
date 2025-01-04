@@ -18,7 +18,7 @@ remove_slash() {
 # Directory where all the scripts are (this should be src)
 SRC_DIR=$(dirname $(remove_slash $(cd -- "$(dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)))
 # Install folder directory while on chroot
-CHROOT_INSTALL_FOLDER=/root/archinstall
+CHROOT_INSTALL_FOLDER=/opt/archinstall
 # Install folder directory while on host machine
 INSTALL_FOLDER=/mnt/$CHROOT_INSTALL_FOLDER
 SRC_INSTALL_FOLDER=$INSTALL_FOLDER/$(basename $SRC_DIR)
