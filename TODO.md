@@ -1,10 +1,9 @@
 # TODO
 
-- [ ] Fix install errors
-  - gstreamer
-  - caffeine-ng
-  - foxitreader
+- [ ] Restore support for 32bit on installation
+- [ ] Get out of zsh terminal automatically
 - [ ] Themes should be downloaded, and they should not be on the repo
+- [ ] Add nesting levels to title and info messages?
 - [ ] Add cleanup for theme installation
   - config
   - etc

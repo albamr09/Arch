@@ -2,4 +2,4 @@ config.load_autoconfig()
 c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}'}
 c.url.default_page = 'https://duckduckgo.com/'
 c.url.start_pages = ['https://duckduckgo.com/']
-${qutebrowser_theme}
+{{ (datasource "variables").qutebrowser.theme | default "" }}

@@ -1,5 +1,5 @@
 [global]
-font = ${dunst_font}
+font = {{ (datasource "variables").dunst.font }}
 
 # Allow a small subset of html markup:
 #   <b>bold</b>
@@ -73,7 +73,7 @@ hide_duplicate_count = yes
 offset = 15x39
 
 # Roundness of corners
-corner_radius = ${dunst_corner_radius}
+corner_radius = {{ (datasource "variables").dunst.corner_radius }}
 
 # Shrink window if it's smaller than the width.  Will be ignored if
 # width is 0.
@@ -82,7 +82,7 @@ shrink = no
 # The transparency of the window.  Range: [0; 100].
 # This option will only work if a compositing windowmanager is
 # present (e.g. xcompmgr, compiz, etc.).
-transparency = ${dunst_transparency}
+transparency = {{ (datasource "variables").dunst.transparency }}
 
 # Don't remove messages, if the user is idle (no mouse or keyboard input)
 # for longer than idle_threshold seconds.
@@ -126,10 +126,10 @@ line_height = 2
 separator_height = 2
 
 # Padding between text and separator.
-padding = ${dunst_padding}
+padding = {{ (datasource "variables").dunst.padding }}
 
 # Horizontal padding.
-horizontal_padding = ${dunst_horizontal_padding}
+horizontal_padding = {{ (datasource "variables").dunst.horizontal_padding }}
 
 # Define a color for the separator.
 # possible values are:
@@ -137,7 +137,7 @@ horizontal_padding = ${dunst_horizontal_padding}
 #  * foreground: use the same color as the foreground;
 #  * frame: use the same color as the frame;
 #  * anything else will be interpreted as a X color.
-separator_color = "${dunst_separation_color}"
+separator_color = "{{ (datasource "variables").dunst.separation_color }}
 
 # Print a notification on startup.
 # This is mainly for error detection, since dbus (re-)starts dunst
@@ -157,8 +157,8 @@ max_icon_size = 30
 # Paths to default icons.
 # icon_path = /usr/share/icons/Paper/16x16/mimetypes/:/usr/share/icons/Paper/48x48/status/:/usr/share/icons/Paper/16x16/devices/:/usr/share/icons/Paper/48x48/notifications/:/usr/share/icons/Paper/48x48/emblems/
 
-frame_width = ${dunst_frame_width}
-frame_color = "${dunst_frame_color}"
+frame_width = {{ (datasource "variables").dunst.frame_width }}
+frame_color = "{{ (datasource "variables").dunst.frame_color }}
 
 #[shortcuts]
 #
@@ -184,21 +184,21 @@ frame_color = "${dunst_frame_color}"
 [urgency_low]
   # IMPORTANT: colors have to be defined in quotation marks.
   # Otherwise the "#" and following would be interpreted as a comment.
-  frame_color = "${dunst_low_frame_color}"
-  foreground = "${dunst_low_foreground}"
-  background = "${dunst_low_background}"
+  frame_color = "{{ (datasource "variables").dunst.low_frame_color }}
+  foreground = "{{ (datasource "variables").dunst.low_foreground }}
+  background = "{{ (datasource "variables").dunst.low_background }}
   timeout = 4
 
 [urgency_normal]
-  frame_color = "${dunst_normal_frame_color}"
-  foreground = "${dunst_normal_foreground}"
-  background = "${dunst_normal_background}"
+  frame_color = "{{ (datasource "variables").dunst.normal_frame_color }}
+  foreground = "{{ (datasource "variables").dunst.normal_foreground }}
+  background = "{{ (datasource "variables").dunst.normal_background }}
   timeout = 6
 
 [urgency_critical]
-  frame_color = "${dunst_critical_frame_color}"
-  foreground = "${dunst_critical_foreground}"
-  background = "${dunst_critical_background}"
+  frame_color = "{{ (datasource "variables").dunst.critical_frame_color }}
+  foreground = "{{ (datasource "variables").dunst.critical_foreground }}
+  background = "{{ (datasource "variables").dunst.critical_background }}
   timeout = 8
 
 # Every section that isn't one of the above is interpreted as a rules to

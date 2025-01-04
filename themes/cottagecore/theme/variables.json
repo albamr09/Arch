@@ -2,8 +2,7 @@
     "nvim": {
         "theme": "'EdenEast/nightfox.nvim'",
         "colorscheme": "nightfox",
-        "colorscheme_options": "set background=dark",
-        "lunaline_theme": "palenight"
+        "lualine_theme": "palenight"
     },
     "dunst": {
         "font": "Iosevka Nerd Font 10",

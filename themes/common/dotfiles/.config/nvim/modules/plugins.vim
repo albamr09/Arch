@@ -25,7 +25,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
 
 " Temas
-Plug ${nvim_theme}
+Plug {{ (datasource "variables").nvim.theme }}
 
 " File explorer
 Plug 'scrooloose/nerdtree'

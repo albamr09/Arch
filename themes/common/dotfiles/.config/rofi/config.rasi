@@ -1,1 +1,1 @@
-@theme ${rofi_theme}
+@theme {{ (datasource "variables").rofi.theme | default "" }}

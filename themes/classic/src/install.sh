@@ -35,9 +35,6 @@ install_packages() {
 
 configure_packages() {
 
-    title_msg "Configuring ranger"
-    execute ranger --copy-config=all
-
     title_msg "Configuring tmux"
     execute git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
@@ -86,7 +83,7 @@ configure_services(){
     title_msg "Configuring services"
 
     execute sudo systemctl enable suspend@$USER
-    execute sudo systemctl enable ligthdm
+    execute sudo systemctl enable lightdm
     # Battery notifcation service
     execute systemctl --user enable check-battery-user.timer
     execute systemctl --user start check-battery-user.service
@@ -114,8 +111,8 @@ clean
 install_packages
 configure_packages
 copy_dotfiles
-configure_services
 install_neovim_plugins
+configure_services
 define_defaults
 
 cd $CURR_DIR

@@ -13,7 +13,9 @@ THEMES=($(ls -d "$THEMES_DIR"/*/ | grep -v "/common/" | xargs -n 1 basename))
 install_dependencies() {
     title_msg "Installing dependencies"
 
-    execute pacman -S jq
+    execute sudo curl -o /usr/local/bin/gomplate -sSL https://github.com/hairyhenderson/gomplate/releases/download/v4.3.0/gomplate_linux-386
+    execute sudo chmod 755 /usr/local/bin/gomplate
+    execute gomplate -v
 }
 
 select_theme(){
@@ -43,10 +45,11 @@ copy_theme() {
     mount_fs
     execute mkdir -p "$THEME_INSTALL_FOLDER" &&  mkdir -p "$SRC_INSTALL_FOLDER"
     # Make sure user has permissions to execute the after install scripts
-    execute 'arch-chroot /mnt /bin/bash -c "chown -R $USER:$USER $CHROOT_INSTALL_FOLDER"'
     execute cp -rf "$TMP_OUTPUT_DIR/*" "$THEME_INSTALL_FOLDER"
     execute cp -rf "$THEME_FOLDER/src/*" "$COMMON_SCRIPTS_DIR" "$SRC_INSTALL_FOLDER"
     execute chmod -R 770 $INSTALL_FOLDER
+    # Make sure user has permissions to intall the theme (this has to be always after any modification on the install folder)
+    execute 'arch-chroot /mnt /bin/bash -c "chown -R $USER:$USER $CHROOT_INSTALL_FOLDER"'
     umount_fs
 }
 

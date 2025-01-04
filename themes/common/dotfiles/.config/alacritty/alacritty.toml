@@ -2,45 +2,45 @@
 draw_bold_text_with_bright_colors = false
 
 [colors.bright]
-black = "${alacritty_bright_black}"
-blue = "${alacritty_bright_blue}"
-cyan = "${alacritty_bright_cyan}"
-green = "${alacritty_bright_green}"
-magenta = "${alacritty_bright_magenta}"
-red = "${alacritty_bright_red}"
-white = "${alacritty_bright_white}"
-yellow = "${alacritty_bright_yellow}"
+black = "{{ (datasource "variables").alacritty.bright_black }}"
+blue = "{{ (datasource "variables").alacritty.bright_blue }}"
+cyan = "{{ (datasource "variables").alacritty.bright_cyan }}"
+green = "{{ (datasource "variables").alacritty.bright_green }}"
+magenta = "{{ (datasource "variables").alacritty.bright_magenta }}"
+red = "{{ (datasource "variables").alacritty.bright_red }}"
+white = "{{ (datasource "variables").alacritty.bright_white }}"
+yellow = "{{ (datasource "variables").alacritty.bright_yellow }}"
 
 [colors.normal]
-black = "${alacritty_normal_black}"
-blue = "${alacritty_normal_blue}"
-cyan = "${alacritty_normal_cyan}"
-green = "${alacritty_normal_green}"
-magenta = "${alacritty_normal_magenta}"
-red = "${alacritty_normal_red}"
-white = "${alacritty_normal_white}"
-yellow = "${alacritty_normal_yellow}"
+black = "{{ (datasource "variables").alacritty.normal_black }}"
+blue = "{{ (datasource "variables").alacritty.normal_blue }}"
+cyan = "{{ (datasource "variables").alacritty.normal_cyan }}"
+green = "{{ (datasource "variables").alacritty.normal_green }}"
+magenta = "{{ (datasource "variables").alacritty.normal_magenta }}"
+red = "{{ (datasource "variables").alacritty.normal_red }}"
+white = "{{ (datasource "variables").alacritty.normal_white }}"
+yellow = "{{ (datasource "variables").alacritty.normal_yellow }}"
 
 [colors.primary]
-background = "${alacritty_primary_background}"
-foreground = "${alacritty_primary_foreground}"
+background = "{{ (datasource "variables").alacritty.primary_background }}"
+foreground = "{{ (datasource "variables").alacritty.primary_foreground }}"
 
 [env]
 TERM = "xterm-256color"
 
 [font]
-size = ${alacritty_font_size}
+size = {{ (datasource "variables").alacritty.font_size }}
 
 [font.bold]
-family = "${alacritty_font_bold}"
+family = "{{ (datasource "variables").alacritty.font_bold }}"
 style = "Bold"
 
 [font.italic]
-family = "${alacritty_font_italic}"
+family = "{{ (datasource "variables").alacritty.font_italic }}"
 style = "Italic"
 
 [font.normal]
-family = "${alacritty_font_normal}"
+family = "{{ (datasource "variables").alacritty.font_normal }}"
 style = "Regular"
 
 [font.offset]
@@ -57,5 +57,5 @@ startup_mode = "Windowed"
 title = "Alacritty"
 
 [window.padding]
-x = ${alacritty_window_padding}
-y = ${alacritty_window_padding}
+x = {{ (datasource "variables").alacritty.window_padding }}
+y = {{ (datasource "variables").alacritty.window_padding }}

@@ -16,6 +16,4 @@ if (has("termguicolors"))
  set termguicolors
 endif
 syntax enable
-colorscheme ${nvim_colorscheme}
-" TODO: this should be appended by each theme
-${nvim_colorscheme_options}
+colorscheme {{ (datasource "variables").nvim.colorscheme }}

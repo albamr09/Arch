@@ -87,7 +87,7 @@ set splitbelow
  
 lua << EOF
 require'lualine'.setup{
-  options = { theme  = ${nvim_lualine_theme} },
+  options = { theme  = {{ (datasource "variables").nvim.lualine_theme }} },
 }
 EOF
 

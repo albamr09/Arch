@@ -3,7 +3,7 @@
 # suspend message display
 pkill -u "$USER" -USR1 dunst
 
-${i3lock_theme}
+{{ (datasource "variables").i3lock.theme }}
 
 # resume message display
 pkill -u "$USER" -USR2 dunst

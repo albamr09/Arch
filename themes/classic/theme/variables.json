@@ -2,7 +2,7 @@
     "nvim": {
         "theme": "kinoute/vim-hivacruz-theme",
         "colorscheme": "hivacruz",
-        "lunaline_theme": "solarized_dark"
+        "lualine_theme": "solarized_dark"
     },
     "dunst": {
         "font": "Blex Mono Nerd Font 9",
