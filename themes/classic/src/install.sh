@@ -25,7 +25,7 @@ install_packages() {
     
     #----
     title_msg "Installing ..."
-    execute yay -S $YAY_PKGS --answerdiff None --answerclean None --noconfirm --ignore jack2
+    execute yay -S $YAY_PKGS --answerdiff None --answerclean None --noconfirm
     # Else pip does not work :/
     python3 -m ensurepip
 
