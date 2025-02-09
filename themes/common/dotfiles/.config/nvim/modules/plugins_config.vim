@@ -135,7 +135,7 @@ let g:vimtex_view_general_viewer = 'zathura'
 
 lua << EOF
 
-local servers = { 'eslint', 'pyright', 'clangd', 'cmake' }
+local servers = { 'eslint', 'ts_ls', 'html', 'cssls', 'pyright', 'clangd', 'cmake' }
 require('mason').setup()
 require('mason-lspconfig').setup {
   ensure_installed = servers
