@@ -1,7 +1,7 @@
 configuration{
 	display-run:    " ";
     display-drun:   " ";
-	font: "Iosevka Nerd Font 10";
+	font: "JetBrains Mono 9";
 	width: 30;
 	line-margin: 20;
 	lines: 6;

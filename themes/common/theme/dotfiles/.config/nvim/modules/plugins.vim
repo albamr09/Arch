@@ -26,7 +26,7 @@ Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
 
 " Temas
-Plug '{{ (datasource "variables").nvim.theme }}'
+Plug {{ (datasource "variables").nvim.theme }}
 
 " File explorer
 Plug 'scrooloose/nerdtree'

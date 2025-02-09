@@ -1,0 +1,18 @@
+{
+    "install": {
+        "packages": {
+            "bar": "polybar-git",
+            "utilities": "ttf-font-awesome awesome-terminal-fonts playerctl dbus-python lldb"
+        },
+        "inject": {
+            "modules": ". ./modules/spotify.sh",
+            "custom": ". ./modules/custom.sh"
+        }
+    },
+    "modules": {
+        "spotify": {
+            "theme": "Sleek",
+            "color_scheme": "BladeRunner"
+        }
+    }
+}

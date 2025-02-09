@@ -25,13 +25,6 @@
 #    - Calls `generate_config_from_template` to process the template files.
 #    - Calls `copy_remaining_theme_files` to copy the remaining theme files.
 # 9. It starts the processing by calling `search_and_merge` with the theme name and output directory as arguments.
-#
-# Example of usage:
-# ./src/theme/generate.sh /home/alba/Documentos/GitRepos/Arch/themes/quantumquartz "/home/alba/Documentos/GitRepos/Arch/Arch/theme_test"
-#
-# Arguments:
-# - The theme name (e.g., "QuantumQuartz").
-# - The output directory where the merged files will be stored.
 
 # Directory of the currently running script
 CURR_DIR="$PWD"
@@ -41,9 +34,10 @@ cd $SCRIPT_DIR
 . ../common/utils.sh
 . ../common/config.sh
 
-THEME_DIR="$1"
+INPUT_DIR="$1"
 OUTPUT_DIR="$2"
-THEME_NAME="$(basename $THEME_DIR)"
+TEMPLATE_DIR="$3"
+THEME_NAME="$(basename $INPUT_DIR)"
 
 merge_files() {
     template_file="$1"
@@ -68,7 +62,7 @@ generate_config_from_template() {
     find "$OUTPUT_DIR" -type f -name ".*" -o -type f | while read -r template_file; do
         if [ -f "$template_file" ]; then
             file_name=$(basename "$template_file")
-            theme_file=$(find "$THEME_DIR" -name "$file_name")
+            theme_file=$(find "$INPUT_DIR" -name "$file_name")
             info_msg "Merging $template_file"
             merge_files "$template_file" "$theme_variables_file" "$theme_file"
         fi
@@ -79,23 +73,23 @@ copy_remaining_theme_files() {
     title_msg "Copying remaining configuration files..."
 
     # Copy without replacing existing files
-    execute cp -rn $THEME_DIR/* "$OUTPUT_DIR"
+    execute cp -rn $INPUT_DIR/* "$OUTPUT_DIR"
 }
 
 search_and_merge() {
 
-    if [ ! -d "$THEME_DIR" ]; then
-        error_msg "Theme folder does not exist: $THEME_DIR"
+    if [ ! -d "$INPUT_DIR" ]; then
+        error_msg "Theme folder does not exist: $INPUT_DIR"
     fi
 
-    theme_variables_file=$(find "$THEME_DIR" -maxdepth 1 -type f -name "variables.json")
+    theme_variables_file=$(find "$INPUT_DIR" -maxdepth 1 -type f -name "variables.json")
 
     if [ -z "$theme_variables_file" ]; then
         error_msg "No theme-specific variables file found for theme: $THEME_NAME"
     fi
 
     rm -rf "$OUTPUT_DIR"/*
-    cp -r "$TEMPLATE_THEME_DIR"/* "$OUTPUT_DIR"
+    cp -r "$TEMPLATE_DIR"/* "$OUTPUT_DIR"
 
     generate_config_from_template "$theme_variables_file"
     copy_remaining_theme_files

@@ -16,18 +16,12 @@ clean () {
 install_packages() {
 
     #----
-    title_msg "Installing ..."
-    execute sudo pacman -S $PACMAN_PKGS --noconfirm
-    
-    #----
     title_msg "Installing yay ..."
     install_yay
     
     #----
     title_msg "Installing ..."
-    execute yay -S $YAY_PKGS --answerdiff None --answerclean None --noconfirm
-    # Else pip does not work :/
-    python3 -m ensurepip
+    execute yay -S $PKGS --answerdiff None --answerclean None --noconfirm
 
     title_msg "Installing oh-my-zsh"
     # Avoid entering zsh console
@@ -37,7 +31,7 @@ install_packages() {
 configure_packages() {
 
     title_msg "Configuring tmux"
-    execute git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    execute rm -rf ~/.tmux/plugins/tpm && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
     configure_nvim
 }
@@ -59,22 +53,22 @@ configure_nvim() {
 copy_dotfiles() {
 
     title_msg "Copying dotfiles for root"
-    execute sudo cp -r $DIR_DOTFILES/.??* "/root"
+    execute sudo cp -r "$DIR_DOTFILES/.??*" "/root"
 
     title_msg "Copying fonts"
-    execute sudo cp -r $DIR_FONTS/* /usr/share/fonts/
+    execute sudo cp -r "$DIR_FONTS/*" /usr/share/fonts/
 
     title_msg "Copying system configuration files"
-    execute sudo cp -r $DIR_ETC/* /etc
+    execute sudo cp -r "$DIR_ETC/*" /etc
 
     title_msg "Copying service configuration files"
-    execute sudo cp -r $DIR_SERVICES/* /etc/systemd/system
+    execute sudo cp -r "$DIR_SERVICES/*" /etc/systemd/system
 
     title_msg "Copying dotfiles for $USER"
 
-    execute sudo cp -r --preserve=ownership $DIR_DOTFILES/.??* /home/$USER
+    execute sudo cp -r --preserve=ownership "$DIR_DOTFILES/.??*" "/home/$USER"
     # Needed so telescope installs successfully, will be copied again after plugins are installed
-    execute rm -rf /home/$USER/.vim
+    execute rm -rf "/home/$USER/.vim"
 }
 
 configure_services(){
@@ -109,8 +103,7 @@ define_defaults(){
 
 finish() {
     success_msg "Installation finished!"
-    # Clean up
-    execute rm -rf "$CHROOT_INSTALL_FOLDER"
+    execute sudo rm -rf "$DIR_PROJECT"
 }
 
 ## Execute steps
@@ -121,6 +114,12 @@ copy_dotfiles
 install_neovim_plugins
 configure_services
 define_defaults
-finish
 
-cd $CURR_DIR
+cd $SCRIPT_DIR
+{{ (datasource "variables").install.inject.modules | default "" }}
+cd $SCRIPT_DIR
+{{ (datasource "variables").install.inject.custom | default "" }}
+
+## Clean up
+
+finish

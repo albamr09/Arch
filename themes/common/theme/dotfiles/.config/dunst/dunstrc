@@ -184,21 +184,21 @@ frame_color = "{{ (datasource "variables").dunst.frame_color }}
 [urgency_low]
   # IMPORTANT: colors have to be defined in quotation marks.
   # Otherwise the "#" and following would be interpreted as a comment.
-  frame_color = "{{ (datasource "variables").dunst.low_frame_color }}
-  foreground = "{{ (datasource "variables").dunst.low_foreground }}
-  background = "{{ (datasource "variables").dunst.low_background }}
+  frame_color = "{{ (datasource "variables").dunst.low_frame_color }}"
+  foreground = "{{ (datasource "variables").dunst.low_foreground }}"
+  background = "{{ (datasource "variables").dunst.low_background }}"
   timeout = 4
 
 [urgency_normal]
-  frame_color = "{{ (datasource "variables").dunst.normal_frame_color }}
-  foreground = "{{ (datasource "variables").dunst.normal_foreground }}
-  background = "{{ (datasource "variables").dunst.normal_background }}
+  frame_color = "{{ (datasource "variables").dunst.normal_frame_color }}"
+  foreground = "{{ (datasource "variables").dunst.normal_foreground }}"
+  background = "{{ (datasource "variables").dunst.normal_background }}"
   timeout = 6
 
 [urgency_critical]
-  frame_color = "{{ (datasource "variables").dunst.critical_frame_color }}
-  foreground = "{{ (datasource "variables").dunst.critical_foreground }}
-  background = "{{ (datasource "variables").dunst.critical_background }}
+  frame_color = "{{ (datasource "variables").dunst.critical_frame_color }}"
+  foreground = "{{ (datasource "variables").dunst.critical_foreground }}"
+  background = "{{ (datasource "variables").dunst.critical_background }}"
   timeout = 8
 
 # Every section that isn't one of the above is interpreted as a rules to

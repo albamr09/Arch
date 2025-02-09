@@ -4,10 +4,12 @@
 
 - [ ] Themes should be downloaded, and they should not be on the repo
 
-Try to modularize installation:
-
-- [ ] Basic installing: with basic services
-- [ ] Advanced installing: other themes install additional modules
+- [ ] Cottagecore
+  - [ ] Spotify (theme and polybar player)
+  - [ ] Picom (animations not working)
+- [ ] gruVbox
+- [ ] Onemirage
+- [ ] quantumquartz
 
 ### Templating
 

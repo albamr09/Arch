@@ -1,6 +1,6 @@
 {
     "nvim": {
-        "theme": "ayu-theme/ayu-vim",
+        "theme": "'ayu-theme/ayu-vim'",
         "colorscheme": "ayu",
         "lualine_theme": "dracula"
     },

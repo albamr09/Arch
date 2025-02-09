@@ -1,0 +1,7 @@
+{
+    "install": {
+        "packages": {
+            "bar": "i3status"
+        }
+    }
+}

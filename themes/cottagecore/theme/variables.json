@@ -5,7 +5,7 @@
         "lualine_theme": "palenight"
     },
     "dunst": {
-        "font": "Iosevka Nerd Font 10",
+        "font": "JetBrains Mono NL 10",
         "corner_radius": 2,
         "transparency": 5,
         "padding": 10,
@@ -46,9 +46,9 @@
         "primary_background": "0x192330",
         "primary_foreground": "#cfc4c3",
         "font_size": 11,
-        "font_bold": "JetBrains Mono Nerd Font",
-        "font_italic": "JetBrains Mono Nerd Font",
-        "font_normal": "JetBrains Mono Nerd Font",
+        "font_bold": "JetBrains Mono NL",
+        "font_italic": "JetBrains Mono NL",
+        "font_normal": "JetBrains Mono NL",
         "window_padding": 10
     },
     "tmux": {
@@ -58,7 +58,7 @@
         "theme": "themes/light"
     },
     "i3": {
-        "font": "JetBrains Mono Nerd Font 10",
+        "font": "JetBrains Mono NL 10",
         "gaps_inner": 5,
         "gaps_outer": 5
     },
@@ -72,6 +72,6 @@
         "theme": "typewritten"
     },
     "lightdm": {
-        "font": "BlexMono Nerd Font 10"
+        "font": "JetBrains Mono NL 10"
     }
 }
