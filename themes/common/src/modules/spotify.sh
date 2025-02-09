@@ -11,6 +11,9 @@ create_spotify_config(){
   execute mkdir -p ~/.config/spotify/Users/dummy-user-user
 }
 
+# TODO: this requires to open spotify first :(
+# 1. Open spotify -> login
+# 2. Execute spicetify backup apply && spicetify apply
 configure_spicetify(){
 	
   title_msg "Configuring spicetify"
