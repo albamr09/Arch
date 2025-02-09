@@ -234,8 +234,8 @@ bindsym $mod+r mode "resize"
 for_window [class="^.*"] border pixel 2
 
 #Tamano de gaps
-gaps inner 5
-gaps outer 5
+gaps inner 2
+gaps outer 1
 
 # Animacion de cambio de ventana
 exec_always --no-startup-id picom --experimental-backends &
