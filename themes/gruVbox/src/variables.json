@@ -10,9 +10,8 @@
     },
     "modules": {
         "spotify": {
-            "theme": "Dribbblish",
-            "color_scheme": "gruvbox",
-            "extensions": "dribbblish.js"
+            "theme": "Onepunch",
+            "color_scheme": "dark"
         }
     }
 }

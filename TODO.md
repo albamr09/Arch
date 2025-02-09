@@ -3,13 +3,13 @@
 ### Centralized Installing
 
 - [ ] Themes should be downloaded, and they should not be on the repo
-
-- [ ] Cottagecore
-  - [ ] Spotify (theme and polybar player)
-  - [ ] Picom (animations not working)
-- [ ] gruVbox
 - [ ] Onemirage
 - [ ] quantumquartz
+
+#### Fixes
+
+- [ ] Spotify (loading theme automatically without having to open spotify)
+- [ ] Picom (animations not working)
 
 ### Templating
 
