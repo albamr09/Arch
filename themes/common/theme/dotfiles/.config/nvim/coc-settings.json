@@ -1,0 +1,6 @@
+{
+  "snippets.ultisnips.pythonPrompt": false,
+  "eslint.autoFixOnSave": true,
+  "coc.preferences.formatOnSave": true
+}
+
