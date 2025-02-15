@@ -10,6 +10,10 @@
 "                                                                          \|_________|
 "---------------------------------------------------------------------------------------
 
+" Map leader to ,
+let mapleader=','
+
+
 " --------------- ] File Explorer [  --------------- 
 
 " Toggle
@@ -55,17 +59,11 @@ nnoremap <Right> :vertical resize -5 <CR>
 nnoremap <Down> :resize +5 <CR>
 nnoremap <Up> :resize -5 <CR>
 
-" -------------- ] Documentacion en hover [ ----------------
+" -------------- ] Autocomplete [ ----------------
 
-nnoremap <silent> K :call CocAction('doHover')<CR>
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-" Fix enter keybinding conflict on vimwiki
-au filetype vimwiki silent! iunmap <buffer> <CR>
 
 " -------------- ] File search [ ----------------
-
-"" Map leader to ,
-let mapleader=','
 
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fs <cmd>Telescope live_grep<cr>
@@ -115,3 +113,7 @@ nnoremap <silent> <Leader>dl <Cmd>lua require'dap'.run_last()<CR>
 " -------------- ] Debugger UI [ ----------------
 
 nnoremap <silent> <Leader>dut <Cmd>lua require'dapui'.toggle()<CR>
+
+" -------------- ] Lazygit [ ----------------
+
+nnoremap <silent> <leader>gg :LazyGit<CR>

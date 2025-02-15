@@ -25,6 +25,10 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
 
+" Formatter
+Plug 'jay-babu/mason-null-ls.nvim'
+Plug 'nvimtools/none-ls.nvim'
+
 " Temas
 Plug {{ (datasource "variables").nvim.theme }}
 
@@ -44,6 +48,7 @@ Plug 'Yggdroot/indentLine'
 
 " Github
 Plug 'airblade/vim-gitgutter'
+Plug 'kdheepak/lazygit.nvim'
 
 " Tab navigation
 " Plug 'romgrk/barbar.nvim'

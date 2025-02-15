@@ -3,8 +3,6 @@
 ### Centralized Installing
 
 - [ ] Themes should be downloaded, and they should not be on the repo
-- [ ] Onemirage
-- [ ] quantumquartz
 
 #### Fixes
 
@@ -14,11 +12,8 @@
 ### Templating
 
 - [ ] config.sh: Some things should be configurable on config.sh file
-- [ ] oh-my-zsh?: This is a cloned git repository, we should only have stored custom themes/plugins
 
-Asegurarse que los plugins de zsh están ok
-
-### Templates for common modules
+#### Templates for common modules
 
 There are some modules like zathura, polybar, etc. that are not present on every theme but are quite common. There should be a way to define common configurations that could optionally be added to themes based on some configuration file (like the `variables.json` file).
 

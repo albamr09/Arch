@@ -33,6 +33,9 @@ configure_packages() {
     title_msg "Configuring tmux"
     execute rm -rf ~/.tmux/plugins/tpm && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
+    title_msg "Configuring zsh"
+    execute git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
     configure_nvim
 }
 

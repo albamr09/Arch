@@ -16,4 +16,5 @@ if (has("termguicolors"))
  set termguicolors
 endif
 syntax enable
+{{ (datasource "variables").nvim.palette | default "" }}
 colorscheme {{ (datasource "variables").nvim.colorscheme }}

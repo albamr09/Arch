@@ -31,7 +31,7 @@ BASIC_PACKAGES="$LIGHTDM_PACKAGES $GPU_PACKAGES $TWM $BAR $TERMINAL $PIPEWIRE $L
    rofi imagemagick nitrogen zsh gpicview scrot dunst git wget vim neovim nano unzip picom-ftlabs-git pamixer pacman-contrib"
 UTILITIES_PACKAGES="xdg-utils acpi alsa-utils python-psutil bluez bluez-utils bluetooth-autoconnect neofetch {{ (datasource "variables").install.packages.utilities | default "" }}"
 PROGRAM_PACKAGES="qutebrowser zathura zathura-pdf-poppler okular"
-DEVELOPMENT_SOFTWARE_PACKAGES="python-pip nodejs npm yarn llvm clang cmake texlive-most"
-NEOVIM_PACKAGES="python-neovim python-cpplint python-pynvim ripgrep tmux"
+DEVELOPMENT_SOFTWARE_PACKAGES="python-pip nodejs npm yarn llvm clang cmake texlive"
+NEOVIM_PACKAGES="python-neovim python-cpplint python-pynvim ripgrep tmux lazygit"
 PKGS="$XORG_PACKAGES $BASIC_PACKAGES $UTILITIES_PACKAGES $PROGRAM_PACKAGES $DEVELOPMENT_SOFTWARE_PACKAGES \
    $NEOVIM_PACKAGES"

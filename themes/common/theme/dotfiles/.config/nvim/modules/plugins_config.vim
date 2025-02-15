@@ -16,7 +16,6 @@
 let g:coc_global_extensions = [
 \ 'coc-snippets',
 \ 'coc-pairs',
-\ 'coc-prettier',
 \ 'coc-python',
 \ 'coc-clangd',
 \ 'coc-java',
@@ -24,7 +23,6 @@ let g:coc_global_extensions = [
 \	'coc-css', 
 \ 'coc-html', 
 \ 'coc-tsserver',
-\ 'coc-emmet',
 \ 'coc-eslint'
 \]
 
@@ -119,7 +117,6 @@ require'telescope'.setup{
     file_ignore_patterns = { 'node_modules' }
   }
 }
-require('telescope').load_extension('dap')
 EOF
 
 " -------------- ] Markdown Preview [ ----------------
@@ -202,6 +199,7 @@ let g:syntastic_check_on_wq = 0
 " --------------- ] Debugger [  --------------- 
 
 lua << EOF
+require('telescope').load_extension('dap')
 -- CPP/C/Rust config
 local dap = require('dap')
 dap.adapters.lldb = {
@@ -329,4 +327,40 @@ require("nvim-dap-virtual-text").setup {
     virt_text_win_col = nil                -- position the virtual text at a fixed window column (starting from the first text column) ,
                                            -- e.g. 80 to position at column 80, see `:h nvim_buf_set_extmark()`
 }
+EOF
+
+" --------------- ] Formatter [  --------------- 
+
+lua << EOF
+require("mason-null-ls").setup({
+  ensure_installed = { "prettier" },
+  automatic_installation = true,
+})
+
+local null_ls = require("null-ls")
+
+null_ls.setup({
+  sources = {
+    null_ls.builtins.formatting.prettier, -- Enable Prettier
+  },
+  -- Format on save
+  on_attach = function(current_client, bufnr)
+    if current_client.supports_method("textDocument/formatting") then
+      vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        group = augroup,
+        buffer = bufnr,
+        callback = function()
+          vim.lsp.buf.format({
+            filter = function(client)
+              -- only use null-ls for formatting instead of lsp server
+              return client.name == "null-ls"
+            end,
+            bufnr = bufnr,
+          })
+        end,
+      })
+    end
+  end,
+})
 EOF
