@@ -69,7 +69,8 @@
         "theme": "$HOME/.config/i3lock/light/lock.sh"
     },
     "zsh": {
-        "theme": "typewritten"
+        "theme": "typewritten",
+        "theme_configuration": "TYPEWRITTEN_PROMPT_LAYOUT=\"pure\"\nTYPEWRITTEN_SYMBOL=\" ➜ \"\nTYPEWRITTEN_ARROW_SYMBOL=\" ➜ \"\nZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=\"fg=#465061\""
     },
     "lightdm": {
         "font": "JetBrains Mono NL 10"
