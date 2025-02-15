@@ -1,6 +1,6 @@
 {
     "nvim": {
-        "theme": "kinoute/vim-hivacruz-theme",
+        "theme": "'kinoute/vim-hivacruz-theme'",
         "colorscheme": "hivacruz",
         "lualine_theme": "solarized_dark"
     },
@@ -60,7 +60,7 @@
         "theme": "$HOME/.config/i3lock/default/lock.sh"
     },
     "zsh": {
-        "theme": "pi"
+        "theme": "robbyrussell"
     },
     "lightdm": {
         "font": "JetBrainsMonoMedium NF Medium 10"

@@ -62,6 +62,7 @@ copy_theme() {
     execute cp -rf --preserve=mode "$TMP_SCRIPTS_OUTPUT_DIR/*" "$COMMON_SCRIPTS_DIR" "$SRC_INSTALL_FOLDER"
     # Make sure user has permissions to intall the theme (this has to be always after any modification on the install folder)
     execute 'arch-chroot /mnt /bin/bash -c "chown -R $USER:$USER $CHROOT_INSTALL_FOLDER"'
+    execute rm -rf "$TMP_THEME_OUTPUT_DIR" "$TMP_SCRIPTS_OUTPUT_DIR"
     umount_fs
 }
 
