@@ -1,0 +1,11 @@
+{
+    "install": {
+        "packages": {
+            "bar": "polybar-git",
+            "utilities": "ttf-font-awesome awesome-terminal-fonts playerctl dbus-python lldb"
+        },
+        "inject": {
+            "custom": ". ./modules/custom.sh"
+        }
+    }
+}
