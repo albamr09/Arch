@@ -1,5 +1,14 @@
 #!/bin/bash
 
+configure_spaceship_prompt(){
+    
+    title_msg "Configuring Spaceship Prompt"
+
+    ZSH_CUSTOM="~/.oh-my-zsh/custom"
+    execute git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
+    execute ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+}
+
 copy_icons(){
 	
 	title_msg "Copying icons"
@@ -15,4 +24,5 @@ copy_icons(){
     execute sudo gtk-update-icon-cache -q /usr/share/icons/Papirus
 }
 
+configure_spaceship_prompt
 copy_icons
