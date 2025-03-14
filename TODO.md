@@ -8,11 +8,7 @@
 
 - [ ] Update polybar theme on gruVbox
 - [ ] Spotify (loading theme automatically without having to open spotify)
-  - `.xsession`
-  - `.xprofile`
 - [ ] There might be files that are merged because they have the same name (polybar and lock `launch.sh`)
-  - The `launch.sh` script has stuff from polybar's `launch.sh`
-  - Make theme scripts executable
 
 To test:
 
