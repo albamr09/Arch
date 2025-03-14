@@ -238,7 +238,7 @@ gaps inner 2
 gaps outer 1
 
 # Animacion de cambio de ventana
-exec_always --no-startup-id picom --experimental-backends &
+exec_always --no-startup-id picom &
 
 # Ejecución caffeine
 exec_always --no-startup-id caffeine &

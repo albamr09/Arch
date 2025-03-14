@@ -70,7 +70,9 @@ require'nvim-treesitter.configs'.setup {
     "tsx",
     "ruby",
     "kotlin",
-    "c_sharp"
+    "c_sharp",
+    "markdown",
+    "markdown_inline"
   },
 }
 EOF
@@ -131,45 +133,190 @@ let g:vimtex_view_general_viewer = 'zathura'
 " -------------- ] LSP [ ----------------
 
 lua << EOF
-
-local servers = { 'eslint', 'ts_ls', 'html', 'cssls', 'pyright', 'clangd', 'cmake' }
-require('mason').setup()
-require('mason-lspconfig').setup {
-  ensure_installed = servers
+local servers = {
+	pyright = {},
+	eslint = {
+		codeAction = {
+			disableRuleComment = {
+				enable = true,
+				location = "separateLine",
+			},
+			showDocumentation = {
+				enable = true,
+			},
+		},
+		codeActionOnSave = {
+			enable = false,
+			mode = "all",
+		},
+		format = false,
+		nodePath = "",
+		onIgnoredFiles = "off",
+		packageManager = "npm",
+		quiet = false,
+		rulesCustomizations = {},
+		run = "onType",
+		useESLintClass = false,
+		validate = "on",
+		workingDirectory = {
+			mode = "location",
+		},
+	},
+	bashls = {},
+	cssls = {},
+	html = {},
+	jsonls = {},
+  ts_ls = {},
+  clangd = {},
 }
 
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
-  -- Enable completion triggered by <c-x><c-o>
-  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+local on_attach = function(_, bufnr)
+	local nmap = function(keys, func, desc)
+		if desc then
+			desc = "LSP: " .. desc
+		end
 
-  -- Mappings.
-  local opts = { noremap=true, silent=true }
+		vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
+	end
 
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+	-- Theme, colors and gui
+	nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+	nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
 
+	nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
+	nmap("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+	nmap("gI", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
+	nmap("<leader>D", vim.lsp.buf.type_definition, "Type [D]efinition")
+	nmap("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
+	nmap("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
+
+	-- See `:help K` for why this keymap
+	nmap("K", vim.lsp.buf.hover, "Hover Documentation")
+	nmap("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
+
+	-- Lesser used LSP functionality
+	nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+	nmap("<leader>wa", vim.lsp.buf.add_workspace_folder, "[W]orkspace [A]dd Folder")
+	nmap("<leader>wr", vim.lsp.buf.remove_workspace_folder, "[W]orkspace [R]emove Folder")
+	nmap("<leader>wl", function()
+		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+	end, "[W]orkspace [L]ist Folders")
+
+	-- Create a command `:Format` local to the LSP buffer
+	vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
+		vim.lsp.buf.format()
+	end, { desc = "Format current buffer with LSP" })
 end
 
-local lspconfig = require('lspconfig')
--- Automatically configure servers using mason-lspconfig
-require('mason-lspconfig').setup_handlers {
-  function(server_name)
-    lspconfig[server_name].setup {
-      on_attach = on_attach,
-      flags = {
-        debounce_text_changes = 150,
-      },
-    }
-  end,
+-- Use a loop to conveniently install and call 'setup' on multiple servers and
+-- map buffer local keybindings when the language server attaches
+require('mason').setup()
+local mason_lspconfig = require('mason-lspconfig');
+mason_lspconfig.setup({
+	ensure_installed = vim.tbl_keys(servers),
+})
+
+mason_lspconfig.setup_handlers({
+	function(server_name)
+		require("lspconfig")[server_name].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			settings = servers[server_name],
+		})
+	end,
+})
+EOF
+
+" -------------- ] Autocompletion [ ----------------
+
+lua << EOF
+-- nvim-cmp setup
+local cmp = require 'cmp'
+cmp.setup {
+    snippet = {
+        expand = function(args)
+            luasnip.lsp_expand(args.body)
+        end,
+    },
+    mapping = cmp.mapping.preset.insert({
+        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-f>'] = cmp.mapping.scroll_docs(4),
+        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<CR>'] = cmp.mapping.confirm {
+            behavior = cmp.ConfirmBehavior.Replace,
+            select = true,
+        },
+        ['<S-Tab>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_prev_item()
+            elseif luasnip.jumpable(-1) then
+                luasnip.jump(-1)
+            else
+                fallback()
+            end
+        end, { 'i', 's' }),
+    }),
+    sources = {
+        { name = 'nvim_lsp' },
+        { name = 'luasnip' },
+    },
 }
+EOF
+
+lua << EOF
+require("nvim-autopairs").setup {}
+EOF
+
+" -------------- ] Linting [ ----------------
+
+lua << EOF
+local null_ls = require("null-ls");
+-- LSP formatting filter
+local lsp_formatting = function(bufnr)
+	vim.lsp.buf.format({
+		filter = function(client)
+			-- Ignore formatting from these LSPs
+			local lsp_formatting_denylist = {
+				eslint = true,
+			}
+			if lsp_formatting_denylist[client.name] then
+				return false
+			end
+			return true
+		end,
+		bufnr = bufnr,
+	})
+end
+
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+null_ls.setup({
+	-- you can reuse a shared lspconfig on_attach callback here
+	on_attach = function(client, bufnr)
+		if client.supports_method("textDocument/formatting") then
+			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				group = augroup,
+				buffer = bufnr,
+				callback = function()
+					lsp_formatting(bufnr)
+				end,
+			})
+		end
+	end,
+	sources = {
+		null_ls.builtins.formatting.prettier.with({
+			extra_filetypes = { "xml", "md" },
+		}),
+		null_ls.builtins.formatting.black,
+		null_ls.builtins.formatting.djlint,
+		null_ls.builtins.formatting.isort,
+		null_ls.builtins.diagnostics.djlint,
+		null_ls.builtins.diagnostics.pylint,
+	},
+})
 EOF
 
 " -------------- ] Floating Term [ ----------------

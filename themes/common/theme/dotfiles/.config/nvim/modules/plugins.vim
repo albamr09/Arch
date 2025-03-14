@@ -17,16 +17,17 @@ call plug#begin('~/.vim/plugged')
 " Devicons
 Plug 'kyazdani42/nvim-web-devicons'
 
-" Autocomplete
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 " LSP
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
 
-" Formatter
-Plug 'jay-babu/mason-null-ls.nvim'
+" Autocompletion
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'windwp/nvim-autopairs'
+
+" Linting
 Plug 'nvimtools/none-ls.nvim'
 
 " Temas

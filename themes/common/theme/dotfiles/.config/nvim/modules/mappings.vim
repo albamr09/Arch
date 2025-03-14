@@ -59,10 +59,6 @@ nnoremap <Right> :vertical resize -5 <CR>
 nnoremap <Down> :resize +5 <CR>
 nnoremap <Up> :resize -5 <CR>
 
-" -------------- ] Autocomplete [ ----------------
-
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
 " -------------- ] File search [ ----------------
 
 nnoremap <leader>ff <cmd>Telescope find_files<cr>

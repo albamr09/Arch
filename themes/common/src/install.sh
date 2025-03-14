@@ -51,6 +51,13 @@ configure_nvim() {
 
     title_msg "Installing plugin manager"
     execute curl -fLo /home/$USER/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+    title_msg "Installing LSP dependencies"
+    execute sudo npm install -g prettier
+
+    title_msg "Installing tree-sitter dependencies"
+    # Avoid tree sitter executable errors (only for latex)
+    execute sudo npm install -g tree-sitter-cli
 }
 
 copy_dotfiles() {
@@ -74,6 +81,17 @@ copy_dotfiles() {
     execute rm -rf "/home/$USER/.vim"
 }
 
+install_plugins() {
+
+    title_msg "Installing neovim plugins"
+    nvim --headless +PlugInstall +qall 2> /dev/null
+    # Copy dotfiles for telescope that we removed earlier
+    execute cp -rf -r $DIR_DOTFILES/.vim /home/$USER
+
+    title_msg "Installing tmux plugins"
+    execute ~/.tmux/plugins/tpm/bin/install_plugins
+}
+
 configure_services(){
     
     title_msg "Configuring services"
@@ -84,16 +102,6 @@ configure_services(){
     execute systemctl --user enable check-battery-user.timer
     execute systemctl --user start check-battery-user.service
     execute sudo systemctl daemon-reload
-}
-
-install_neovim_plugins() {
-
-    title_msg "Installing neovim plugins"
-    # Avoid tree sitter executable errors (only for latex)
-    sudo npm install -g tree-sitter-cli
-    nvim --headless +PlugInstall +qall 2> /dev/null
-    # Copy dotfiles for telescope that we removed earlier
-    execute cp -rf -r $DIR_DOTFILES/.vim /home/$USER
 }
 
 define_defaults(){
@@ -114,7 +122,7 @@ clean
 install_packages
 configure_packages
 copy_dotfiles
-install_neovim_plugins
+install_plugins
 configure_services
 define_defaults
 
